@@ -54,6 +54,9 @@
   .item .t b { font-variant-numeric:tabular-nums; color:var(--c); }
   .item .t h3 { margin:0; font-size:16px; font-weight:500; }
   .item .d { color:var(--muted); font-size:14px; margin:4px 0; }
+  .eat { list-style:none; margin:6px 0 0; padding:0; font-size:13px; color:var(--muted); }
+  .eat li { padding:1px 0; } .eat li::before { content:'🍽'; margin-right:6px; width:auto; height:auto; background:none; }
+  .eat b { font-weight:500; color:var(--ink); } .eat span { color:var(--us); font-variant-numeric:tabular-nums; margin:0 4px; }
   .item .tr { font-size:13px; display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin-top:6px; }
   .item .tr a { color:var(--me); text-decoration:none; }
   .tag { font-size:12px; padding:0 6px; border-radius:4px; border:1px solid currentColor; }
@@ -96,80 +99,80 @@ const HOTEL = [40.7166,-74.0330];
 const DAYS = [
  {d:'11/17 二', sub:'抵達', cost:'$100：機場後只有晚餐，Exchange Place 附近 $60 內', items:[
   {t:'15:37', w:'us', n:'DL429 落地 JFK', d:'過海關約 1 小時', img:'john-f-kennedy-international-airport', ll:[40.6413,-73.7781], tr:'Uber 到 Jersey City 約 1.5 小時、$90–110；或 AirTrain→Jamaica→LIRR→Penn→PATH 33 St 線'},
-  {t:'19:00', w:'us', n:'Check-in、Exchange Place 河邊夜景', d:'附近簡單吃，早睡調時差', img:'jersey-city', eat:['Chipotle（Newport）','Taqueria Downtown（Grove St）','Razza 披薩（Grove St）'], ll:HOTEL, tr:'飯店走路 2 分鐘'},
+  {t:'19:00', w:'us', n:'Check-in、Exchange Place 河邊夜景', d:'附近簡單吃，早睡調時差', img:'jersey-city', eat:[{n:'Chipotle（Newport）',d:'墨西哥捲餅，點 bowl 加 guac',p:'$14'},{n:'Taqueria Downtown（Grove St）',d:'Jersey City 最紅 taco，$3 一個，現金',p:'$15'},{n:'Razza 披薩（Grove St）',d:'NYT 評紐約區最好的披薩之一，要排',p:'$30'}], ll:HOTEL, tr:'飯店走路 2 分鐘'},
  ]},
  {d:'11/18 三', sub:'地鐵 3 趟', cost:'$100：午餐 Stone Street $20｜Dekalb Market 兩人 $50｜球場零食 $30', items:[
   {t:'09:30', w:'me', n:'911 紀念池 + 博物館', d:'紀念池免費；博物館學生 $27；順看 Oculus', tag:['stu'], img:'national-september-11-memorial-museum', ll:[40.7115,-74.0134], tr:'PATH Exchange Place → WTC，4 分鐘'},
-  {t:'12:30', w:'me', n:'華爾街、銅牛、Stone Street 午餐', img:'stone-street-manhattan', eat:['Chick-fil-A（144 Fulton St）','Stone Street Tavern','Luke\'s Lobster FiDi'], ll:[40.7043,-74.0105], tr:'走路 10 分鐘'},
+  {t:'12:30', w:'me', n:'華爾街、銅牛、Stone Street 午餐', img:'stone-street-manhattan', eat:[{n:'Chick-fil-A（144 Fulton St）',d:'雞肉三明治 + waffle fries，離 WTC 3 分鐘',p:'$12'},{n:'Stone Street Tavern',d:'鵝卵石老街上的酒吧，漢堡、炸魚薯條',p:'$25'},{n:'Luke\'s Lobster FiDi',d:'龍蝦堡，小而貴但值',p:'$28'}], ll:[40.7043,-74.0105], tr:'走路 10 分鐘'},
   {t:'13:30', w:'me', n:'國立美洲印第安人博物館 NMAI', d:'Bowling Green 海關大樓，每天免費，30 分鐘看建築就值', tag:['free'], img:'custom-house', ll:[40.7041,-74.0137], tr:'銅牛旁邊走路 1 分鐘'},
   {t:'14:15', w:'me', n:'Staten Island Ferry 來回', d:'免費，海上看自由女神，單程 25 分鐘', tag:['free'], img:'staten-island-ferry', ll:[40.7010,-74.0132], tr:'走路 5 分鐘到 Whitehall Terminal'},
   {t:'15:30', w:'me', n:'Koreatown 逛', img:'koreatown-manhattan', ll:[40.7478,-73.9868], tr:'🚇 1 線 South Ferry → 34 St-Penn（趟數 1）'},
-  {t:'18:15', w:'us', n:'Penn Station 會合 → Brooklyn', d:'Dekalb Market Hall 美食街快速晚餐（Barclays 走路 5 分鐘）', img:'penn-station', eat:['Dekalb Market Hall（Katz\'s、Pierogi）','Shake Shack（Barclays 對面）','Chipotle（Flatbush Ave）'], ll:[40.6905,-73.9825], tr:'她從 Hudson Yards 走 12 分鐘到 Penn；🚇 2/3 線 34 St → Atlantic Av-Barclays Ctr，20 分鐘（趟數 2）'},
+  {t:'18:15', w:'us', n:'Penn Station 會合 → Brooklyn', d:'Dekalb Market Hall 美食街快速晚餐（Barclays 走路 5 分鐘）', img:'penn-station', eat:[{n:'Dekalb Market Hall（Katz\'s、Pierogi）',d:'地下美食街 40 攤，Katz\'s 分店煙燻牛肉',p:'$20'},{n:'Shake Shack（Barclays 對面）',d:'紐約起家漢堡，ShackBurger + 奶昔',p:'$16'},{n:'Chipotle（Flatbush Ave）',d:'球場走 3 分鐘，快',p:'$14'}], ll:[40.6905,-73.9825], tr:'她從 Hudson Yards 走 12 分鐘到 Penn；🚇 2/3 線 34 St → Atlantic Av-Barclays Ctr，20 分鐘（趟數 2）'},
   {t:'19:30', w:'us', n:'Nets vs Bulls @ Barclays Center', d:'票比 Knicks 便宜很多，Ticketmaster 上層 $30–50', img:'barclays-center', ll:[40.6826,-73.9754], tr:'回程 🚇 2/3 Atlantic Av → Chambers 轉 PATH，約 35 分鐘（趟數 3）'},
  ]},
  {d:'11/19 四', sub:'百老匯｜地鐵 3 趟', cost:'$100：Met 午餐 $20｜看戲前 K-town 快速 $60（戲票不算餐費）', items:[
-  {t:'10:00', w:'me', n:'大都會博物館 Met', d:'學生 $22，任何學校學生證都收；待到 14:30', tag:['stu'], img:'metropolitan-museum-of-art', eat:['Met 地下 cafeteria','Chipotle（86 St & 3 Ave）','Pastrami Queen（Lex & 78 St）'], ll:[40.7794,-73.9632], tr:'PATH → WTC，🚇 4/5 線 Fulton St → 86 St（趟數 1）'},
+  {t:'10:00', w:'me', n:'大都會博物館 Met', d:'學生 $22，任何學校學生證都收；待到 14:30', tag:['stu'], img:'metropolitan-museum-of-art', eat:[{n:'Met 地下 cafeteria',d:'自助式，不用出館，普通但方便',p:'$20'},{n:'Chipotle（86 St & 3 Ave）',d:'Met 走 8 分鐘',p:'$14'},{n:'Pastrami Queen（Lex & 78 St）',d:'老派猶太熟食店，煙燻牛肉三明治超厚',p:'$25'}], ll:[40.7794,-73.9632], tr:'PATH → WTC，🚇 4/5 線 Fulton St → 86 St（趟數 1）'},
   {t:'14:30', w:'me', n:'Guggenheim 外觀 → 穿中央公園到 Columbus Circle', img:'solomon-r-guggenheim-museum', ll:[40.7830,-73.9590], tr:'走路，約 1 小時含公園'},
-  {t:'18:00', w:'us', n:'Times Square 快速晚餐', img:'times-square', eat:['Chick-fil-A（5 Ave & 37 St，走 10 分鐘）','Los Tacos No.1（43 St）','Joe\'s Pizza（Broadway & 40 St）'], ll:[40.7580,-73.9855], tr:'🚇 A/C/D 59 St → 42 St（趟數 2）'},
+  {t:'18:00', w:'us', n:'Times Square 快速晚餐', img:'times-square', eat:[{n:'Chick-fil-A（5 Ave & 37 St，走 10 分鐘）',d:'曼哈頓少數分店，看戲前快速解決',p:'$12'},{n:'Los Tacos No.1（43 St）',d:'紐約公認最好吃的 taco，站著吃，adobada 必點',p:'$15'},{n:'Joe\'s Pizza（Broadway & 40 St）',d:'經典紐約一片披薩，$4 一片',p:'$10'}], ll:[40.7580,-73.9855], tr:'🚇 A/C/D 59 St → 42 St（趟數 2）'},
   {t:'19:00', w:'us', n:'怪奇物語 The First Shadow @ Marquis Theatre', d:'約 2h45m；lottery 不限學生，兩人各用自己的帳號抽（每帳號 2 張）加倍機率，$30–50；沒中就等 Black Friday 特賣', tag:['deal'], img:'stranger-things-the-first-shadow', ll:[40.7585,-73.9862], tr:'回程 🚇 1/2/3 Times Sq → Chambers/WTC 轉 PATH（趟數 3）'},
  ]},
  {d:'11/20 五', sub:'免費日｜地鐵 3 趟，今天封頂', cost:'$100：午餐 $15｜Chelsea Market 晚餐兩人 $85', items:[
-  {t:'10:30', w:'me', n:'MoMA', d:'學生 $17', tag:['stu'], img:'museum-of-modern-art', eat:['Halal Guys 本店餐車（53 St & 6 Ave）','Chipotle（6 Ave & 52 St）','MoMA Café 2'], ll:[40.7614,-73.9776], tr:'PATH 33 St 線 → 33 St，🚇 B/D/F/M → 47-50 St（趟數 1）'},
+  {t:'10:30', w:'me', n:'MoMA', d:'學生 $17', tag:['stu'], img:'museum-of-modern-art', eat:[{n:'Halal Guys 本店餐車（53 St & 6 Ave）',d:'最有名的 halal 餐車本店，雞肉飯淋白醬',p:'$12'},{n:'Chipotle（6 Ave & 52 St）',d:'MoMA 走 3 分鐘',p:'$14'},{n:'MoMA Café 2',d:'館內二樓，義式輕食，安靜',p:'$25'}], ll:[40.7614,-73.9776], tr:'PATH 33 St 線 → 33 St，🚇 B/D/F/M → 47-50 St（趟數 1）'},
   {t:'13:30', w:'me', n:'第五大道、Rockefeller Center 溜冰場', d:'聖誕樹 12 月初才點燈，但已擺好', img:'rockefeller-center-christmas-tree', ll:[40.7587,-73.9787], tr:'走路'},
   {t:'17:00', w:'me', n:'Morgan Library', d:'週五 17–19 免費', tag:['free'], img:'morgan-library-museum', ll:[40.7492,-73.9815], tr:'走路 15 分鐘，或 🚇 6 線 51 St → 33 St（趟數 2）'},
   {t:'18:30', w:'us', n:'Vessel → High Line 走到 Whitney', d:'Vessel 在她公司旁免費看；Whitney 週五晚免費，預約 19:15 場', tag:['free'], img:'high-line', ll:[40.7396,-74.0089], tr:'她下班從 Hudson Yards 沿 High Line 走 25 分鐘'},
-  {t:'20:30', w:'us', n:'Chelsea Market 晚餐', img:'chelsea-market', eat:['Los Tacos No.1（市場內）','Lobster Place（市場內）','Chipotle（8 Ave & 15 St）'], ll:[40.7410,-74.0070], tr:'回程 🚇 A/C/E 14 St → WTC 轉 PATH（趟數 3，封頂）'},
+  {t:'20:30', w:'us', n:'Chelsea Market 晚餐', img:'chelsea-market', eat:[{n:'Los Tacos No.1（市場內）',d:'Chelsea Market 本店，排隊但快',p:'$15'},{n:'Lobster Place（市場內）',d:'海鮮市場現開生蠔、龍蝦，站著吃',p:'$30'},{n:'Chipotle（8 Ave & 15 St）',d:'市場走 3 分鐘',p:'$14'}], ll:[40.7410,-74.0070], tr:'回程 🚇 A/C/E 14 St → WTC 轉 PATH（趟數 3，封頂）'},
  ]},
  {d:'11/21 六', sub:'整天一起｜地鐵免費', cost:'$200：Sylvia\'s 午餐 $60｜上西區晚餐 $90', items:[
   {t:'09:30', w:'us', n:'The Cloisters 修道院博物館', d:'學生 $22；Fort Tryon 公園看哈德遜河', tag:['stu'], img:'the-cloisters', ll:[40.8649,-73.9317], tr:'PATH → WTC，🚇 A 線 Chambers → 190 St，約 40 分鐘'},
-  {t:'13:00', w:'us', n:"Harlem：Sylvia's 午餐、Studio Museum", d:'Studio Museum 免費；Apollo Theater 外觀', tag:['free'], img:'studio-museum-in-harlem', eat:['Sylvia\'s 靈魂料理','Red Rooster','Chipotle（125 St）'], ll:[40.8083,-73.9478], tr:'🚇 A 線 190 St → 125 St'},
+  {t:'13:00', w:'us', n:"Harlem：Sylvia's 午餐、Studio Museum", d:'Studio Museum 免費；Apollo Theater 外觀', tag:['free'], img:'studio-museum-in-harlem', eat:[{n:'Sylvia\'s 靈魂料理',d:'Harlem 1962 年老店，炸雞鬆餅、玉米麵包',p:'$30'},{n:'Red Rooster',d:'名廚 Marcus Samuelsson，比 Sylvia\'s 潮，週末 brunch 要訂',p:'$40'},{n:'Chipotle（125 St）',d:'Studio Museum 走 2 分鐘',p:'$14'}], ll:[40.8083,-73.9478], tr:'🚇 A 線 190 St → 125 St'},
   {t:'16:00', w:'us', n:'AMNH 自然史博物館', d:'學生 $22，開到 17:30；或改逛哥倫比亞大學', tag:['stu'], img:'american-museum-of-natural-history', ll:[40.7813,-73.9740], tr:'🚇 B/C 125 St → 81 St'},
-  {t:'18:30', w:'us', n:'上西區晚餐、Levain Bakery', img:'levain-bakery', eat:['Carmine\'s 義式大份量','Shake Shack（77 St）','Chipotle（Broadway & 79 St）'], ll:[40.7797,-73.9803], tr:'走路；回程 🚇 1/2/3 72 St → Chambers 轉 PATH'},
+  {t:'18:30', w:'us', n:'上西區晚餐、Levain Bakery', img:'levain-bakery', eat:[{n:'Carmine\'s 義式大份量',d:'家庭式義大利菜，一盤夠 3 人，兩人點一盤一沙拉',p:'$35'},{n:'Shake Shack（77 St）',d:'AMNH 對面',p:'$16'},{n:'Chipotle（Broadway & 79 St）',d:'上西區最方便',p:'$14'}], ll:[40.7797,-73.9803], tr:'走路；回程 🚇 1/2/3 72 St → Chambers 轉 PATH'},
  ]},
  {d:'11/22 日', sub:'NBA｜地鐵免費', cost:'$200：Brunch $60｜K-town 晚餐 $80｜球場零食 $40', items:[
-  {t:'11:00', w:'us', n:'SoHo / Nolita Brunch、逛街', img:'soho-manhattan', eat:['Jack\'s Wife Freda','Balthazar（要訂）','Chipotle（Broadway & Houston）— 週日 Chick-fil-A 不開'], ll:[40.7233,-74.0030], tr:'PATH → WTC，走路 12 分鐘或 🚇 R 線 Cortlandt → Prince St'},
+  {t:'11:00', w:'us', n:'SoHo / Nolita Brunch、逛街', img:'soho-manhattan', eat:[{n:'Jack\'s Wife Freda',d:'SoHo 網美 brunch，地中海風，綠色鬆餅',p:'$30'},{n:'Balthazar（要訂）',d:'百年法式 brasserie 氛圍，海鮮塔、法式吐司',p:'$50'},{n:'Chipotle（Broadway & Houston）— 週日 Chick-fil-A 不開',d:'SoHo 逛街中途；週日 Chick-fil-A 不開',p:'$14'}], ll:[40.7233,-74.0030], tr:'PATH → WTC，走路 12 分鐘或 🚇 R 線 Cortlandt → Prince St'},
   {t:'14:00', w:'us', n:'Roosevelt Island 纜車來回', d:'算地鐵票，封頂後免費', tag:['free'], img:'roosevelt-island-tramway', ll:[40.7614,-73.9642], tr:'🚇 N/R/W Prince St → Lexington/59 St，走 2 分鐘到纜車'},
-  {t:'18:00', w:'us', n:'K-town 晚餐', d:'MSG 走路 5 分鐘', img:'koreatown-manhattan', eat:['BCD Tofu House 豆腐鍋','Jongro BBQ 烤肉','Her Name is Han'], ll:[40.7478,-73.9868], tr:'🚇 F 線 Roosevelt Island → 34 St-Herald Sq'},
+  {t:'18:00', w:'us', n:'K-town 晚餐', d:'MSG 走路 5 分鐘', img:'koreatown-manhattan', eat:[{n:'BCD Tofu House 豆腐鍋',d:'24 小時，嫩豆腐鍋配石鍋飯，小菜多',p:'$25'},{n:'Jongro BBQ 烤肉',d:'K-town 最紅烤肉，服務生幫烤，要排',p:'$45'},{n:'Her Name is Han',d:'韓式家常改良，氣氛好，不用烤',p:'$35'}], ll:[40.7478,-73.9868], tr:'🚇 F 線 Roosevelt Island → 34 St-Herald Sq'},
   {t:'20:00', w:'us', n:'Knicks vs Pacers @ MSG', d:'票已買：Section 206、Row 3、Seat 10–11；19:15 前進場', img:'madison-square-garden', ll:[40.7505,-73.9934], tr:'走路；回程 PATH 33 St → Exchange Place（Journal Sq 線在 Grove St 轉）'},
  ]},
  {d:'11/23 一', sub:'第 2 週開始｜地鐵 4 趟', cost:'$100：午餐 $20｜市集晚餐 $70', items:[
-  {t:'10:00', w:'me', n:'Grand Central、紐約公共圖書館、Bryant Park', d:'全免費', tag:['free'], img:'grand-central-terminal', eat:['Chick-fil-A（5 Ave & 37 St）','Grand Central Market 地下美食街','Chipotle（42 St & Lex）'], ll:[40.7527,-73.9772], tr:'PATH 33 St 線 → 33 St，🚇 走路或 7 線 → Grand Central（趟數 1）'},
+  {t:'10:00', w:'me', n:'Grand Central、紐約公共圖書館、Bryant Park', d:'全免費', tag:['free'], img:'grand-central-terminal', eat:[{n:'Chick-fil-A（5 Ave & 37 St）',d:'Bryant Park 走 5 分鐘',p:'$12'},{n:'Grand Central Market 地下美食街',d:'Grand Central 地下，生蠔吧、三明治、拉麵都有',p:'$18'},{n:'Chipotle（42 St & Lex）',d:'Grand Central 旁',p:'$14'}], ll:[40.7527,-73.9772], tr:'PATH 33 St 線 → 33 St，🚇 走路或 7 線 → Grand Central（趟數 1）'},
   {t:'13:00', w:'me', n:'第五大道聖誕櫥窗 + St. Patrick 教堂', d:'Saks、Bergdorf、Tiffany 櫥窗感恩節前就上了，全免費', tag:['free'], img:'fifth-avenue', ll:[40.7585,-73.9760], tr:'走路；多搭幾趟地鐵湊趟數（趟數 2–3）'},
   {t:'16:00', w:'me', n:'Top of the Rock 日落', d:'唯一付錢的觀景台 $40，日落 16:35，要預約', img:'top-of-the-rock', ll:[40.7591,-73.9794], tr:'走路 3 分鐘'},
-  {t:'18:30', w:'us', n:'Bryant Park Winter Village 市集 + 溜冰', d:'市集內晚餐', tag:['free'], img:'bryant-park', eat:['Winter Village 攤位（可麗餅、拉麵）','Chick-fil-A（5 Ave & 37 St）','Ippudo（W 51 St）'], ll:[40.7536,-73.9832], tr:'走路；回程 PATH 33 St（趟數 4 給她從 Hudson Yards 搭 7 線過來）'},
+  {t:'18:30', w:'us', n:'Bryant Park Winter Village 市集 + 溜冰', d:'市集內晚餐', tag:['free'], img:'bryant-park', eat:[{n:'Winter Village 攤位（可麗餅、拉麵）',d:'市集 100 多攤，邊逛邊吃，熱紅酒 $12',p:'$25'},{n:'Chick-fil-A（5 Ave & 37 St）',d:'Bryant Park 走 5 分鐘',p:'$12'},{n:'Ippudo（W 51 St）',d:'一風堂紐約店，豚骨拉麵 + 刈包',p:'$30'}], ll:[40.7536,-73.9832], tr:'走路；回程 PATH 33 St（趟數 4 給她從 Hudson Yards 搭 7 線過來）'},
  ]},
  {d:'11/24 二', sub:'地鐵 4 趟', cost:'$100：Flushing 午餐 $15｜Village 晚餐 $60，爵士 cover charge 不算餐費', items:[
-  {t:'10:30', w:'me', n:'法拉盛 Flushing 吃麵、新世界美食廣場', img:'flushing-queens', eat:['南翔小籠包 Nan Xiang','白熊 White Bear 餛飩','新世界美食廣場'], ll:[40.7596,-73.8300], tr:'PATH 33 St → 🚇 7 線 Times Sq → Flushing-Main St 終點，約 45 分鐘（趟數 1）'},
+  {t:'10:30', w:'me', n:'法拉盛 Flushing 吃麵、新世界美食廣場', img:'flushing-queens', eat:[{n:'南翔小籠包 Nan Xiang',d:'法拉盛最有名小籠包，蟹粉必點',p:'$20'},{n:'白熊 White Bear 餛飩',d:'辣油餛飩 12 顆 $8，店很小只賣這個',p:'$10'},{n:'新世界美食廣場',d:'New World Mall 地下，30 攤中式各省菜',p:'$15'}], ll:[40.7596,-73.8300], tr:'PATH 33 St → 🚇 7 線 Times Sq → Flushing-Main St 終點，約 45 分鐘（趟數 1）'},
   {t:'14:00', w:'me', n:'Long Island City Gantry Plaza 看天際線', tag:['free'], img:'gantry-plaza-state-park', ll:[40.7466,-73.9580], tr:'🚇 7 線回程在 Vernon Blvd-Jackson Av 下（趟數 2）'},
   {t:'16:00', w:'me', n:'Greenwich Village、Washington Square', img:'washington-square-park', ll:[40.7308,-73.9973], tr:'🚇 7 線 → Times Sq 轉 1 線 → Christopher St（趟數 3–4）'},
-  {t:'19:00', w:'us', n:'Village 晚餐 → Blue Note 爵士', d:'或 Village Vanguard，先訂', img:'blue-note-jazz-club', eat:['Mamoun\'s Falafel','Joe\'s Pizza（Carmine St）','Chipotle（8 St & Broadway）'], ll:[40.7310,-74.0006], tr:'她 🚇 A/C/E Hudson Yards 附近 → W 4 St；回程 PATH Christopher St 站直接回 Exchange Place'},
+  {t:'19:00', w:'us', n:'Village 晚餐 → Blue Note 爵士', d:'或 Village Vanguard，先訂', img:'blue-note-jazz-club', eat:[{n:'Mamoun\'s Falafel',d:'Village 1971 年老攤，falafel 三明治 $5',p:'$10'},{n:'Joe\'s Pizza（Carmine St）',d:'本店，Spider-Man 電影場景',p:'$10'},{n:'Chipotle（8 St & Broadway）',d:'Washington Square 走 3 分鐘',p:'$14'}], ll:[40.7310,-74.0006], tr:'她 🚇 A/C/E Hudson Yards 附近 → W 4 St；回程 PATH Christopher St 站直接回 Exchange Place'},
  ]},
  {d:'11/25 三', sub:'感恩節前夕｜地鐵 4 趟，今天封頂', cost:'$100：動物園午餐 $15｜上西區晚餐 $75', items:[
-  {t:'10:00', w:'me', n:'Bronx Zoo', d:'週三 pay-what-you-wish，要先線上預約；待到 14:00', tag:['free'], img:'bronx-zoo', eat:['園內 Dancing Crane Café','Arthur Ave 義大利街 Full Moon Pizza（走 15 分鐘）','Zero Otto Nove（Arthur Ave）'], ll:[40.8506,-73.8769], tr:'PATH → WTC，🚇 2/5 線 Fulton → West Farms Sq，約 1 小時（趟數 1）'},
+  {t:'10:00', w:'me', n:'Bronx Zoo', d:'週三 pay-what-you-wish，要先線上預約；待到 14:00', tag:['free'], img:'bronx-zoo', eat:[{n:'園內 Dancing Crane Café',d:'動物園內唯一正餐，漢堡披薩，貴普通',p:'$18'},{n:'Arthur Ave 義大利街 Full Moon Pizza（走 15 分鐘）',d:'Bronx 小義大利，正宗義裔社區披薩',p:'$15'},{n:'Zero Otto Nove（Arthur Ave）',d:'拿坡里窯烤披薩，Arthur Ave 最好的坐下來吃',p:'$30'}], ll:[40.8506,-73.8769], tr:'PATH → WTC，🚇 2/5 線 Fulton → West Farms Sq，約 1 小時（趟數 1）'},
   {t:'15:00', w:'me', n:'回飯店洗衣、休息', img:'jersey-city', ll:HOTEL, tr:'🚇 2/5 → Fulton 轉 PATH（趟數 2）'},
   {t:'18:30', w:'us', n:"Macy's 遊行氣球充氣", d:'W 77–81 St，12:00–18:00 開放，排隊排到晚上', tag:['free'], img:'macy-s-thanksgiving-day-parade', ll:[40.7800,-73.9740], tr:'PATH → WTC，🚇 1 線 → 79 St（趟數 3）'},
-  {t:'20:00', w:'us', n:'上西區晚餐', img:'upper-west-side', eat:['Jacob\'s Pickles','Shake Shack（77 St）','Chipotle（Broadway & 79 St）'], ll:[40.7790,-73.9800], tr:'回程 🚇 1 線 79 St → Chambers 轉 PATH（趟數 4，封頂）'},
+  {t:'20:00', w:'us', n:'上西區晚餐', img:'upper-west-side', eat:[{n:'Jacob\'s Pickles',d:'上西區 comfort food，炸雞鬆餅、醃黃瓜，份量大',p:'$35'},{n:'Shake Shack（77 St）',d:'AMNH 對面',p:'$16'},{n:'Chipotle（Broadway & 79 St）',d:'上西區最方便',p:'$14'}], ll:[40.7790,-73.9800], tr:'回程 🚇 1 線 79 St → Chambers 轉 PATH（趟數 4，封頂）'},
  ]},
  {d:'11/26 四', sub:'感恩節，她應該放假｜地鐵免費', cost:'$200：飲茶 $50｜感恩節套餐兩人 $150', items:[
   {t:'07:30', w:'us', n:"Macy's 遊行", d:'08:30 開始，Central Park West 72 St 附近卡位', tag:['free'], img:'macy-s-thanksgiving-day-parade', ll:[40.7756,-73.9763], tr:'PATH → WTC，🚇 1/2/3 → 72 St；6:30 前出門'},
-  {t:'12:30', w:'us', n:'Chinatown 港式飲茶午餐', d:'感恩節大多數店關門，Chinatown 照常開：Golden Unicorn / Jing Fong', img:'chinatown-manhattan', eat:['Golden Unicorn','Jing Fong','Nom Wah Tea Parlor'], ll:[40.7146,-73.9985], tr:'🚇 B/D 72 St → Grand St，20 分鐘'},
+  {t:'12:30', w:'us', n:'Chinatown 港式飲茶午餐', d:'感恩節大多數店關門，Chinatown 照常開：Golden Unicorn / Jing Fong', img:'chinatown-manhattan', eat:[{n:'Golden Unicorn',d:'推車式港式飲茶，大廳熱鬧，感恩節照開',p:'$25'},{n:'Jing Fong',d:'Chinatown 最大飲茶廳，推車，便宜',p:'$22'},{n:'Nom Wah Tea Parlor',d:'1920 年紐約第一家點心店，復古，要排',p:'$28'}], ll:[40.7146,-73.9985], tr:'🚇 B/D 72 St → Grand St，20 分鐘'},
   {t:'14:30', w:'us', n:'中央公園散步', d:'Bethesda Terrace → Bow Bridge → The Mall，秋末落葉，全免費', tag:['free'], img:'bethesda-terrace', ll:[40.7740,-73.9710], tr:'🚇 N/R/W Canal → 5 Av-59 St'},
   {t:'16:00', w:'us', n:'第五大道櫥窗、Rockefeller 溜冰場', d:'Judy 還沒看過；溜冰 $40 起含租鞋，要預約，不溜就看人', img:'rockefeller-center-christmas-tree', ll:[40.7587,-73.9787], tr:'從公園南口走 5 分鐘'},
-  {t:'18:00', w:'us', n:'感恩節晚餐', d:'套餐 $75–95/人：The Smith（Midtown）、Bubby\'s（Tribeca）、Jacob\'s Pickles（上西區）；10 月中就要在 Resy / OpenTable 訂', img:'thanksgiving-dinner', eat:['The Smith（Midtown）','Bubby\'s（Tribeca）','Jacob\'s Pickles（上西區）'], ll:[40.7560,-73.9780], tr:'看餐廳位置'},
+  {t:'18:00', w:'us', n:'感恩節晚餐', d:'套餐 $75–95/人：The Smith（Midtown）、Bubby\'s（Tribeca）、Jacob\'s Pickles（上西區）；10 月中就要在 Resy / OpenTable 訂', img:'thanksgiving-dinner', eat:[{n:'The Smith（Midtown）',d:'美式 brasserie，感恩節套餐火雞 + 甜點',p:'$85'},{n:'Bubby\'s（Tribeca）',d:'美式家庭料理，感恩節火雞大餐、派很有名',p:'$95'},{n:'Jacob\'s Pickles（上西區）',d:'感恩節套餐，份量最大，CP 值高',p:'$75'}], ll:[40.7560,-73.9780], tr:'看餐廳位置'},
   {t:'20:00', w:'us', n:'Bryant Park Winter Village 夜市', d:'感恩節照開，熱紅酒、看溜冰', tag:['free'], img:'bryant-park', ll:[40.7536,-73.9832], tr:'走路；回程 PATH 33 St'},
  ]},
  {d:'11/27 五', sub:'Black Friday，她可能半天｜地鐵免費', cost:'$200（若她放假）：午餐 $50｜晚餐 $120', items:[
-  {t:'09:00', w:'me', n:'第五大道／SoHo Black Friday 採購', d:'Macy\'s Herald Sq 6:00 開門；SoHo 10:00', img:'fifth-avenue', eat:['Chick-fil-A（5 Ave & 37 St）','Chipotle（Broadway & Houston）','Urbanspace Vanderbilt 美食街'], ll:[40.7580,-73.9770], tr:'PATH 33 St → 走路'},
+  {t:'09:00', w:'me', n:'第五大道／SoHo Black Friday 採購', d:'Macy\'s Herald Sq 6:00 開門；SoHo 10:00', img:'fifth-avenue', eat:[{n:'Chick-fil-A（5 Ave & 37 St）',d:'Bryant Park 走 5 分鐘',p:'$12'},{n:'Chipotle（Broadway & Houston）',d:'SoHo 逛街中途',p:'$14'},{n:'Urbanspace Vanderbilt 美食街',d:'Grand Central 旁美食街，Roberta\'s 披薩分店',p:'$18'}], ll:[40.7580,-73.9770], tr:'PATH 33 St → 走路'},
   {t:'11:00', w:'me', n:'TKTS Times Square 當日半價票', d:'15:00 開賣晚場（週五），想再看一場百老匯就這天買；TodayTix app 的 Black Friday 特賣（最多 6 折）通常 11/20 左右開跑，兩人都適用', tag:['deal'], img:'times-square', ll:[40.7590,-73.9850], tr:'走路'},
   {t:'15:00', w:'us', n:'Coney Island、Nathan\'s 熱狗、Brighton Beach', d:'冬天的海邊，來回免費', tag:['free'], img:'coney-island', ll:[40.5755,-73.9707], tr:'🚇 Q 線 Canal/Union Sq → Coney Island-Stillwell Av 終點，約 50 分鐘'},
-  {t:'19:30', w:'us', n:'回曼哈頓晚餐、Times Square 夜拍', img:'times-square', eat:['Chick-fil-A（5 Ave & 37 St）','Los Tacos No.1（43 St）','Joe\'s Pizza（Broadway & 40 St）'], ll:[40.7580,-73.9855], tr:'🚇 Q 線 → Times Sq；回程 🚇 1/2/3 → Chambers 轉 PATH'},
+  {t:'19:30', w:'us', n:'回曼哈頓晚餐、Times Square 夜拍', img:'times-square', eat:[{n:'Chick-fil-A（5 Ave & 37 St）',d:'Bryant Park 走 5 分鐘',p:'$12'},{n:'Los Tacos No.1（43 St）',d:'紐約公認最好吃的 taco，站著吃，adobada 必點',p:'$15'},{n:'Joe\'s Pizza（Broadway & 40 St）',d:'經典紐約一片披薩，$4 一片',p:'$10'}], ll:[40.7580,-73.9855], tr:'🚇 Q 線 → Times Sq；回程 🚇 1/2/3 → Chambers 轉 PATH'},
  ]},
  {d:'11/28 六', sub:'布魯克林日｜地鐵免費', cost:"$200：Peter Luger 午餐；Hell's Kitchen 晚餐 $60", items:[
   {t:'10:30', w:'us', n:'Williamsburg Bedford Ave、Domino Park', img:'domino-park', ll:[40.7142,-73.9679], tr:'PATH → WTC，🚇 J/M Fulton → Marcy Av，約 20 分鐘'},
   {t:'12:15', w:'us', n:'Peter Luger Steak House', d:'178 Broadway, Brooklyn — 台灣時間 11/29 01:15 的訂位；只收現金 / Debit', img:'peter-luger-steak-house', ll:[40.7099,-73.9625], tr:'從 Marcy Av 走路 5 分鐘'},
   {t:'14:30', w:'us', n:'NYC Ferry → DUMBO', d:'$4.50，風景值得；省錢就 🚇 F 線 → York St', img:'dumbo-brooklyn', ll:[40.7033,-73.9894], tr:'North Williamsburg 碼頭（N 6 St）東河線 → DUMBO，15 分鐘'},
   {t:'16:00', w:'us', n:'走布魯克林大橋回曼哈頓', d:'日落 16:30 正好在橋上，約 30 分鐘', tag:['free'], img:'brooklyn-bridge', ll:[40.7061,-73.9969], tr:'橋尾 City Hall 走路 8 分鐘到 WTC 轉 PATH'},
-  {t:'18:00', w:'us', n:'Hell\'s Kitchen 晚餐、Judy 先回飯店打包', d:'Terminal 5 附近（W 56 St），吃完 Judy 搭 PATH 回去', img:'jersey-city', eat:['Totto Ramen（W 52 St）','5 Napkin Burger（9 Ave）','Chipotle（9 Ave & 54 St）'], ll:[40.7660,-73.9900], tr:'🚇 A/C City Hall → 59 St-Columbus Circle，走 10 分鐘'},
+  {t:'18:00', w:'us', n:'Hell\'s Kitchen 晚餐、Judy 先回飯店打包', d:'Terminal 5 附近（W 56 St），吃完 Judy 搭 PATH 回去', img:'jersey-city', eat:[{n:'Totto Ramen（W 52 St）',d:'雞白湯拉麵，Hell\'s Kitchen 排隊名店',p:'$22'},{n:'5 Napkin Burger（9 Ave）',d:'厚漢堡 + 松露薯條，看秀前經典',p:'$28'},{n:'Chipotle（9 Ave & 54 St）',d:'Terminal 5 走 5 分鐘',p:'$14'}], ll:[40.7660,-73.9900], tr:'🚇 A/C City Hall → 59 St-Columbus Circle，走 10 分鐘'},
   {t:'20:00', w:'me', n:'宋冬野 @ Terminal 5', d:'GA 站票，AXS app 手機票進場；約 22:30 結束', img:'terminal-5', ll:[40.7700,-73.9937], tr:'回程 🚇 1 線 59 St → Chambers 轉 PATH，約 23:30 到飯店；凌晨 4 點出發，睡 3 小時'},
  ]},
  {d:'11/29 日', sub:'回程', cost:'清晨出發，機場解決', items:[
@@ -246,7 +249,7 @@ function render() {
         ${it.img ? `<img src="img/${it.img}.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=ph>'+this.alt+'</div>'">` : `<div class="ph">${it.n}</div>`}
         <div class="b"><div class="t"><b>${it.t}</b><h3>${it.n}</h3>${(it.tag||[]).map(t=>`<span class="tag ${t}">${({free:'免費',stu:'學生價',deal:'優惠'})[t]}</span>`).join('')}<span class="who">${it.w==='me'?'Jerry':'一起'}</span></div>
         ${it.d ? `<div class="d">${it.d}</div>` : ''}
-        ${it.eat ? `<div class="d">🍽 ${it.eat.join(' · ')}</div>` : ''}
+        ${it.eat ? `<ul class="eat">${it.eat.map(e=>`<li><b>${e.n}</b> <span>${e.p}/人</span> ${e.d}</li>`).join('')}</ul>` : ''}
         <div class="tr">${it.tr ? `<span>🚇 ${it.tr.replace(/🚇 /g,'')}</span>` : ''}<a href="${gmaps(it)}" target="_blank">Google Maps 路線 ↗</a></div></div></div>`).join('') +
       `<p class="cost">💵 ${day.cost}</p>`;
   }).join('');
