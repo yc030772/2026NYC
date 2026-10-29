@@ -103,7 +103,7 @@ const DAYS = [
   {t:'19:00', w:'us', n:'Judy 下班會合，Exchange Place 河邊夜景、晚餐', d:'她 18:00 下班 PATH 回來約 18:40；附近簡單吃，早睡調時差', img:'jersey-city', eat:[{n:'Chipotle（Newport）',d:'墨西哥捲餅，點 bowl 加 guac',p:'$14'},{n:'Taqueria Downtown（Grove St）',d:'Jersey City 最紅 taco，$3 一個，現金',p:'$15'},{n:'Razza 披薩（Grove St）',d:'NYT 評紐約區最好的披薩之一，要排',p:'$30'}], ll:HOTEL, tr:'飯店走路 2 分鐘'},
  ]},
  {d:'11/18 三', sub:'地鐵 3 趟', cost:'$100：午餐 Stone Street $20｜Dekalb Market 兩人 $50｜球場零食 $30', items:[
-  {t:'09:30', w:'me', n:'911 紀念池 + 博物館', d:'紀念池免費；博物館學生 $27；順看 Oculus', tag:['stu'], img:'national-september-11-memorial-museum', ll:[40.7115,-74.0134], tr:'PATH Exchange Place → WTC，4 分鐘'},
+  {t:'09:30', w:'me', n:'911 紀念池、Oculus', d:'紀念池免費，兩個方形瀑布刻著罹難者名字；Oculus 白色車站免費進；博物館不進', tag:['free'], img:'national-september-11-memorial-museum', ll:[40.7115,-74.0134], tr:'PATH Exchange Place → WTC，4 分鐘'},
   {t:'12:30', w:'me', n:'華爾街、銅牛、Stone Street 午餐', img:'stone-street-manhattan', eat:[{n:'Chick-fil-A（144 Fulton St）',d:'雞肉三明治 + waffle fries，離 WTC 3 分鐘',p:'$12'},{n:'Stone Street Tavern',d:'鵝卵石老街上的酒吧，漢堡、炸魚薯條',p:'$25'},{n:'Mighty Quinn\'s BBQ（Brookfield Place）',d:'德州式美式烤肉，brisket 按重量賣，WTC 旁美食街',p:'$25'}], ll:[40.7043,-74.0105], tr:'走路 10 分鐘'},
   {t:'13:30', w:'me', n:'國立美洲印第安人博物館 NMAI', d:'Bowling Green 海關大樓，每天免費，30 分鐘看建築就值', tag:['free'], img:'custom-house', ll:[40.7041,-74.0137], tr:'銅牛旁邊走路 1 分鐘'},
   {t:'14:15', w:'me', n:'Staten Island Ferry 來回', d:'免費，海上看自由女神，單程 25 分鐘', tag:['free'], img:'staten-island-ferry', ll:[40.7010,-74.0132], tr:'走路 5 分鐘到 Whitehall Terminal'},
@@ -194,7 +194,6 @@ const INFO = {
   <tr><td>Met 大都會</td><td>$30</td><td class="stu">$22，任何學校學生證都收</td></tr>
   <tr><td>MoMA</td><td>$30</td><td class="stu">$17</td></tr>
   <tr><td>Whitney</td><td>$30</td><td class="free">週五 17:00–22:00 免費（要線上預約）</td></tr>
-  <tr><td>911 博物館</td><td>$33</td><td class="stu">$27；紀念池本身免費</td></tr>
   <tr><td>Guggenheim</td><td>$30</td><td class="stu">$19；另有 pay-what-you-wish 時段，官網確認</td></tr>
   <tr><td>AMNH 自然史</td><td>$28</td><td class="stu">$22</td></tr>
   <tr><td>Cloisters</td><td>$30</td><td class="stu">$22（Met 同系統）</td></tr>
@@ -284,7 +283,7 @@ document.getElementById('daypick').innerHTML = ['全部', ...DAYS.map(d => d.d)]
 document.querySelectorAll('.daypick button').forEach((b, i) => b.onclick = () => { dayIdx = i - 1; drawMap(); if (dayIdx >= 0) document.getElementById('day' + dayIdx).scrollIntoView({behavior:'smooth', block:'start'}); });
 document.querySelectorAll('.tabs button').forEach(b => b.onclick = () => { tab = b.dataset.tab; document.querySelectorAll('.tabs button').forEach(x => x.classList.toggle('on', x === b)); render(); });
 
-document.getElementById('foot').textContent = '門票大約：Met $22 + MoMA $17 + 911 $27 + Cloisters $22 + AMNH $22 + Top of the Rock $40 ≈ $150，其他全免費。11 月下旬日落約 16:30，白天行程要早出門。';
+document.getElementById('foot').textContent = '門票大約：Met $22 + MoMA $17 + Cloisters $22 + AMNH $22 + Top of the Rock $40 ≈ $125，其他全免費。11 月下旬日落約 16:30，白天行程要早出門。';
 render();
 </script>
 </body>
