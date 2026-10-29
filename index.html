@@ -59,6 +59,13 @@
   .tag { font-size:12px; padding:0 6px; border-radius:4px; border:1px solid currentColor; }
   .cost { color:var(--muted); font-size:14px; margin:4px 0 0 4px; }
   .who { font-size:12px; color:var(--muted); }
+  @media (min-width:1000px) {
+    main { max-width:1400px; display:grid; grid-template-columns:minmax(0,1fr) 44%; gap:28px; align-items:start; }
+    #side { position:sticky; top:64px; order:2; }
+    #map { height:calc(100vh - 150px); }
+    .tabs > div, .hero > div { max-width:1400px; }
+    .hero { height:38vh; }
+  }
   @media (max-width:520px) { .item { grid-template-columns:92px 1fr; } .item img, .item .ph { width:92px; } .hero h1 { font-size:34px; } }
 </style>
 </head>
@@ -71,11 +78,15 @@
 </div></nav>
 
 <main>
-  <div id="map"></div>
-  <div class="daypick" id="daypick"></div>
-  <div id="info"></div>
-  <div id="days"></div>
-  <p class="cost" id="foot"></p>
+  <aside id="side">
+    <div id="map"></div>
+    <div class="daypick" id="daypick"></div>
+  </aside>
+  <section id="content">
+    <div id="info"></div>
+    <div id="days"></div>
+    <p class="cost" id="foot"></p>
+  </section>
 </main>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
@@ -253,6 +264,7 @@ function drawMap() {
     });
     if (dayIdx === i) L.polyline([HOTEL, ...pts], {color:'#888', weight:2, dashArray:'4 6'}).addTo(layer);
   });
+  map.invalidateSize();
   if (pts.length) map.fitBounds(L.latLngBounds(pts.concat([HOTEL])), {padding:[30,30], maxZoom:14});
   document.querySelectorAll('.daypick button').forEach((b, i) => b.classList.toggle('on', i - 1 === dayIdx));
 }
