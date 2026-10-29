@@ -97,9 +97,10 @@
 // who: me = Jerry 白天自己；us = 一起。Judy tab 只顯示 us。
 const HOTEL = [40.7166,-74.0330];
 const DAYS = [
- {d:'11/17 二', sub:'抵達', cost:'$100：機場後只有晚餐，Exchange Place 附近 $60 內', items:[
-  {t:'15:37', w:'us', n:'DL429 落地 JFK', d:'過海關約 1 小時', img:'john-f-kennedy-international-airport', ll:[40.6413,-73.7781], tr:'Uber 到 Jersey City 約 1.5 小時、$90–110；或 AirTrain→Jamaica→LIRR→Penn→PATH 33 St 線'},
-  {t:'19:00', w:'us', n:'Check-in、Exchange Place 河邊夜景', d:'附近簡單吃，早睡調時差', img:'jersey-city', eat:[{n:'Chipotle（Newport）',d:'墨西哥捲餅，點 bowl 加 guac',p:'$14'},{n:'Taqueria Downtown（Grove St）',d:'Jersey City 最紅 taco，$3 一個，現金',p:'$15'},{n:'Razza 披薩（Grove St）',d:'NYT 評紐約區最好的披薩之一，要排',p:'$30'}], ll:HOTEL, tr:'飯店走路 2 分鐘'},
+ {d:'11/17 二', sub:'抵達', cost:'$100：只有晚餐，Exchange Place 附近 $60 內', items:[
+  {t:'15:37', w:'me', n:'DL429 落地 JFK', d:'Judy 上週四已到、今天上班；過海關約 1 小時，自己進城', img:'john-f-kennedy-international-airport', ll:[40.6413,-73.7781], tr:'一個人搭：AirTrain $8.50 → Jamaica → LIRR $7–10 → Penn → PATH 33 St 線 → Grove St / Exchange Place，約 1.5 小時、$20；拖行李不想轉車就 Uber $90–110'},
+  {t:'18:30', w:'me', n:'Check-in、放行李', d:'Judy 的房間已 check-in，到櫃台拿第二張房卡就好', ll:HOTEL, tr:'PATH Exchange Place 出站走 2 分鐘'},
+  {t:'19:00', w:'us', n:'Judy 下班會合，Exchange Place 河邊夜景、晚餐', d:'她 18:00 下班 PATH 回來約 18:40；附近簡單吃，早睡調時差', img:'jersey-city', eat:[{n:'Chipotle（Newport）',d:'墨西哥捲餅，點 bowl 加 guac',p:'$14'},{n:'Taqueria Downtown（Grove St）',d:'Jersey City 最紅 taco，$3 一個，現金',p:'$15'},{n:'Razza 披薩（Grove St）',d:'NYT 評紐約區最好的披薩之一，要排',p:'$30'}], ll:HOTEL, tr:'飯店走路 2 分鐘'},
  ]},
  {d:'11/18 三', sub:'地鐵 3 趟', cost:'$100：午餐 Stone Street $20｜Dekalb Market 兩人 $50｜球場零食 $30', items:[
   {t:'09:30', w:'me', n:'911 紀念池 + 博物館', d:'紀念池免費；博物館學生 $27；順看 Oculus', tag:['stu'], img:'national-september-11-memorial-museum', ll:[40.7115,-74.0134], tr:'PATH Exchange Place → WTC，4 分鐘'},
