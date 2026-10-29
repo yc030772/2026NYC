@@ -146,10 +146,10 @@ const DAYS = [
   {t:'16:00', w:'me', n:'Top of the Rock 日落', d:'唯一付錢的觀景台 $40，日落 16:35，要預約', img:'top-of-the-rock', ll:[40.7591,-73.9794], tr:'走路 3 分鐘'},
   {t:'18:30', w:'us', n:'Bryant Park Winter Village 市集 + 溜冰', d:'市集內晚餐', tag:['free'], img:'bryant-park', eat:[{n:'Winter Village 攤位（可麗餅、拉麵）',d:'市集 100 多攤，邊逛邊吃，熱紅酒 $12',p:'$25'},{n:'Chick-fil-A（5 Ave & 37 St）',d:'Bryant Park 走 5 分鐘',p:'$12'},{n:'Ippudo（W 51 St）',d:'一風堂紐約店，豚骨拉麵 + 刈包',p:'$30'}], ll:[40.7536,-73.9832], tr:'走路；回程 PATH 33 St（趟數 4 給她從 Hudson Yards 搭 7 線過來）'},
  ]},
- {d:'11/24 二', sub:'Outlet 日｜地鐵 1 趟，趟數週三補', cost:'$100：Outlet 午餐 $15｜Village 晚餐 $60 + Figo $16', items:[
-  {t:'10:00', w:'me', n:'Jersey Gardens Outlet（Nike Factory Store）', d:'紐澤西衣服鞋子免稅（NY 要 8.875%），Nike Factory 常態 3–5 折再打折；還有 Adidas、Levi\'s、Coach、Tommy。離 Jersey City 最近的 outlet，比 Woodbury 近又便宜', eat:[{n:'Chick-fil-A（outlet 美食街）',d:'Jersey Gardens 內有，週二正常開',p:'$12'},{n:'Chipotle（outlet 內）',d:'美食街旁',p:'$14'},{n:'Shake Shack（outlet 內）',d:'逛累了坐下來',p:'$16'}], ll:[40.6612,-74.1693], tr:'PATH Exchange Place → Newark Penn $3（25 分）→ 出站 NJ Transit 40 號公車到 Jersey Gardens $2（20 分），全程 1 小時；回程一樣'},
-  {t:'14:30', w:'me', n:'回 Jersey City 放戰利品', d:'東西多就先回飯店，再出門', ll:HOTEL, tr:'40 號公車 → Newark Penn → PATH Exchange Place'},
-  {t:'16:00', w:'me', n:'Greenwich Village、Washington Square', img:'washington-square-park', ll:[40.7308,-73.9973], tr:'PATH Grove St → Christopher St 直達，不用地鐵（想湊趟數就 PATH 到 WTC 再 🚇 1 線）'},
+ {d:'11/24 二', sub:'地鐵 4 趟', cost:'$100：Flushing 午餐 $15｜Village 晚餐 $60 + Figo $16', items:[
+  {t:'10:30', w:'me', n:'法拉盛 Flushing 吃麵、新世界美食廣場', img:'flushing-queens', eat:[{n:'南翔小籠包 Nan Xiang',d:'法拉盛最有名小籠包，蟹粉必點',p:'$20'},{n:'白熊 White Bear 餛飩',d:'辣油餛飩 12 顆 $8，店很小只賣這個',p:'$10'},{n:'新世界美食廣場',d:'New World Mall 地下，30 攤中式各省菜',p:'$15'}], ll:[40.7596,-73.8300], tr:'PATH 33 St → 🚇 7 線 Times Sq → Flushing-Main St 終點，約 45 分鐘（趟數 1）'},
+  {t:'14:00', w:'me', n:'Long Island City Gantry Plaza 看天際線', tag:['free'], img:'gantry-plaza-state-park', ll:[40.7466,-73.9580], tr:'🚇 7 線回程在 Vernon Blvd-Jackson Av 下（趟數 2）'},
+  {t:'16:00', w:'me', n:'Greenwich Village、Washington Square', img:'washington-square-park', ll:[40.7308,-73.9973], tr:'🚇 7 線 → Times Sq 轉 1 線 → Christopher St（趟數 3–4）'},
   {t:'19:00', w:'us', n:'Friends 公寓 → Village 晚餐 → Figo 冰淇淋 → Washington Square 夜景', d:'先到 90 Bedford St & Grove St 拍 Friends 公寓外景（免費，L\'industrie 走 2 分鐘）；飯後 Figo il Gelato（MacDougal St）$8，路過隔壁 1927 年的 Cafe Reggio，再走到 Washington Square 拱門', img:'washington-square-park', eat:[{n:'Mamoun\'s Falafel',d:'Village 1971 年老攤，falafel 三明治 $5',p:'$10'},{n:'L\'industrie Pizzeria（West Village，Christopher St）',d:'現在紐約最紅的一片披薩，burrata slice 必點，排 20 分',p:'$12'},{n:'Hill Country Barbecue（Flatiron，W 26 St）',d:'德州 Lockhart 風格，秤重買 brisket、ribs，到 Village 走 15 分鐘',p:'$40'}], ll:[40.7310,-74.0006], tr:'她 🚇 A/C/E Hudson Yards 附近 → W 4 St；回程 PATH Christopher St 站直接回 Exchange Place'},
  ]},
  {d:'11/25 三', sub:'感恩節前夕｜地鐵 4 趟，今天封頂', cost:'$100：動物園午餐 $15｜上西區晚餐 $75', items:[
@@ -206,7 +206,7 @@ const INFO = {
  <div class="info"><h2>地鐵搭到飽<small>OMNY 7 天封頂</small></h2><ul>
   <li>同一張信用卡／手機 tap 進站：<b>週一到週日</b>內付滿 12 趟（約 $36），之後整週免費，公車也算</li>
   <li>第 1 週 11/17–22：週三到週五每天 3 趟，週五封頂 → 週末兩人四處搭都免費（她用自己的卡，分開算）</li>
-  <li>第 2 週 11/23–29：週一、三搭滿 12 趟（週二 outlet 走 PATH 不算），週四以後免費；遠的（Bronx、Coney Island）排在後面</li>
+  <li>第 2 週 11/23–29：週一到週三搭滿 12 趟，週四以後免費；遠的（Bronx、Flushing、Coney Island）排在後面</li>
   <li><b>PATH 不算</b>在封頂裡：單趟 $3，站內機器買 10 趟票較便宜。Exchange Place→WTC 4 分鐘；Grove St→33 St 線到 Christopher / 9 St / 14 St / 23 St / 33 St</li>
   <li>Roosevelt Island 纜車算地鐵票，NYC Ferry 不算（$4.50）</li></ul></div>
  <div class="info"><h2>免費 / 省錢攻略<small>感恩節週特別版</small></h2><ul>
@@ -217,7 +217,7 @@ const INFO = {
   <li><b>限 NY 居民</b>（不適用）：Met 隨意付、MoMA 週五免費、Guggenheim 週一/六 16–17:30 隨意付。Judy 若有 NY/NJ 地址證明可以用</li>
   <li><b>2026 是 Macy's 遊行 100 週年</b>，人會比往年更多；11/25 晚上看氣球充氣要線上登記時段，遊行當天 6:30 前卡位</li>
   <li><b>學生 ID 另外有折扣</b>：Intrepid 航母、Museum of the City of NY、Brooklyn Museum、New Museum、Cooper Hewitt，不去也沒差</li>
-  <li><b>Nike 最便宜</b>：Jersey Gardens Outlet 的 Nike Factory Store（NJ 衣鞋免稅）＞ Empire Outlets（Staten Island Ferry 碼頭旁，免費船，店小）＞ Woodbury Common（最大但巴士來回 $45、單程 1.5 小時）＞ 曼哈頓 Nike 旗艦店（原價＋稅）</li>
+  <li><b>想買 Nike 再去</b>：Jersey Gardens Outlet（PATH 到 Newark Penn 轉 40 號公車，1 小時，NJ 衣鞋免稅）一雙省 $50–70；沒特別要買就不用排</li>
   <li><b>美式烤肉排名</b>：Hometown Bar-B-Que（Red Hook，最強但遠）＞ Hill Country（Flatiron）＞ Dinosaur（Harlem）＞ Mighty Quinn's（FiDi）</li>
   <li><b>不要買 CityPASS / Go City</b>：你去的都是學生價或免費，套票反而虧</li></ul></div>`,
  judy: `
