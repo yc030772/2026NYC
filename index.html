@@ -4,237 +4,248 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>紐約 2026.11.17–29</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
 <style>
-  :root { --bg:#f6f6f4; --card:#fff; --ink:#1d1d1f; --muted:#6e6e73; --line:#e3e3e0; --me:#1f6feb; --us:#c2410c; --her:#6b7280; --free:#15803d; }
-  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg:#121214; --card:#1c1c1f; --ink:#f2f2f2; --muted:#9a9aa0; --line:#2c2c30; --me:#60a5fa; --us:#fb923c; --her:#9ca3af; --free:#4ade80; } }
+  :root { --bg:#f4f3ef; --card:#fff; --ink:#1b1b1d; --muted:#6b6b70; --line:#e4e2dc; --me:#2563eb; --us:#ea580c; --free:#15803d; --hero:#0b1a2e; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg:#101113; --card:#1a1b1f; --ink:#f1f1f1; --muted:#9a9aa2; --line:#2a2b31; --me:#60a5fa; --us:#fb923c; --free:#4ade80; } }
+  :root[data-theme="dark"] { --bg:#101113; --card:#1a1b1f; --ink:#f1f1f1; --muted:#9a9aa2; --line:#2a2b31; --me:#60a5fa; --us:#fb923c; --free:#4ade80; }
   * { box-sizing:border-box; }
-  body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.55 -apple-system, "PingFang TC", "Noto Sans TC", sans-serif; }
-  main { max-width:760px; margin:0 auto; padding:24px 16px 64px; }
-  h1 { font-size:28px; margin:0 0 4px; }
-  .sub { color:var(--muted); margin:0 0 20px; }
-  .legend { display:flex; gap:14px; flex-wrap:wrap; font-size:14px; margin-bottom:20px; }
-  .legend span::before, li::before { content:""; display:inline-block; width:10px; height:10px; border-radius:50%; margin-right:8px; vertical-align:1px; }
-  .me::before { background:var(--me); } .us::before { background:var(--us); } .her::before { background:var(--her); }
-  .box { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:16px 18px; margin-bottom:14px; }
-  .box h2 { font-size:18px; margin:0 0 8px; display:flex; justify-content:space-between; align-items:baseline; }
-  .box h2 small { color:var(--muted); font-weight:normal; font-size:13px; }
-  ul { list-style:none; margin:0; padding:0; }
-  li { padding:4px 0; }
-  li b { font-variant-numeric:tabular-nums; margin-right:6px; }
-  .note { color:var(--muted); font-size:14px; }
-  .todo li::before { content:"☐"; width:auto; height:auto; background:none; border-radius:0; }
-  .wknd { border-color:var(--us); }
-  .cost { color:var(--muted); font-size:14px; margin-top:6px; padding-top:6px; border-top:1px dashed var(--line); }
-  .tag { font-size:12px; padding:1px 6px; border-radius:4px; border:1px solid currentColor; margin-left:4px; vertical-align:1px; }
-  .free { color:var(--free); } .stu { color:var(--me); } .ride { color:var(--muted); }
+  body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.6 "Noto Sans TC", -apple-system, sans-serif; }
+  a { color:inherit; }
+  /* hero */
+  .hero { position:relative; height:52vh; min-height:320px; background:var(--hero) center/cover no-repeat; color:#fff; display:flex; align-items:flex-end; }
+  .hero::after { content:""; position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,.75), rgba(0,0,0,.05) 70%); }
+  .hero > div { position:relative; z-index:1; max-width:860px; margin:0 auto; width:100%; padding:0 16px 28px; }
+  .hero h1 { font:700 44px/1.1 "Playfair Display", serif; margin:0 0 6px; }
+  .hero p { margin:0; opacity:.9; }
+  /* tabs */
+  .tabs { position:sticky; top:0; z-index:500; background:var(--bg); border-bottom:1px solid var(--line); }
+  .tabs > div { max-width:860px; margin:0 auto; display:flex; gap:4px; padding:8px 16px; }
+  .tabs button { flex:1; border:0; background:none; color:var(--muted); font:500 15px "Noto Sans TC"; padding:10px; border-radius:10px; cursor:pointer; }
+  .tabs button.on { background:var(--card); color:var(--ink); box-shadow:0 1px 3px rgba(0,0,0,.12); }
+  main { max-width:860px; margin:0 auto; padding:20px 16px 72px; }
+  /* map */
+  #map { height:360px; border-radius:14px; border:1px solid var(--line); margin-bottom:8px; z-index:1; }
+  .daypick { display:flex; gap:6px; overflow-x:auto; padding-bottom:12px; margin-bottom:12px; scrollbar-width:none; }
+  .daypick button { flex:0 0 auto; border:1px solid var(--line); background:var(--card); color:var(--ink); border-radius:999px; padding:5px 12px; font:13px "Noto Sans TC"; cursor:pointer; }
+  .daypick button.on { background:var(--ink); color:var(--bg); border-color:var(--ink); }
+  /* info */
+  .info { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:16px 18px; margin-bottom:14px; }
+  .info h2 { font-size:17px; margin:0 0 8px; }
+  .info h2 small { color:var(--muted); font-weight:normal; font-size:13px; margin-left:8px; }
+  .info ul { margin:0; padding-left:18px; }
+  .info li { padding:2px 0; }
   table { width:100%; border-collapse:collapse; font-size:14px; }
-  td, th { text-align:left; padding:4px 6px; border-bottom:1px solid var(--line); }
+  td, th { text-align:left; padding:5px 6px; border-bottom:1px solid var(--line); vertical-align:top; }
   th { color:var(--muted); font-weight:normal; }
+  .free { color:var(--free); } .stu { color:var(--me); }
+  /* day */
+  .day { margin:28px 0 10px; display:flex; align-items:baseline; gap:10px; }
+  .day h2 { font:700 26px "Playfair Display", serif; margin:0; }
+  .day span { color:var(--muted); font-size:14px; }
+  .item { display:grid; grid-template-columns:120px 1fr; gap:14px; background:var(--card); border:1px solid var(--line); border-radius:14px; overflow:hidden; margin-bottom:10px; border-left:4px solid var(--c); }
+  .item.me { --c:var(--me); } .item.us { --c:var(--us); }
+  .item img { width:120px; height:100%; min-height:110px; object-fit:cover; display:block; background:var(--line); }
+  .item .ph { width:120px; min-height:110px; background:var(--line); }
+  .item .b { padding:12px 14px 12px 0; min-width:0; }
+  .item .t { display:flex; gap:8px; align-items:baseline; flex-wrap:wrap; }
+  .item .t b { font-variant-numeric:tabular-nums; color:var(--c); }
+  .item .t h3 { margin:0; font-size:16px; font-weight:500; }
+  .item .d { color:var(--muted); font-size:14px; margin:4px 0; }
+  .item .tr { font-size:13px; display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin-top:6px; }
+  .item .tr a { color:var(--me); text-decoration:none; }
+  .tag { font-size:12px; padding:0 6px; border-radius:4px; border:1px solid currentColor; }
+  .cost { color:var(--muted); font-size:14px; margin:4px 0 0 4px; }
+  .who { font-size:12px; color:var(--muted); }
+  @media (max-width:520px) { .item { grid-template-columns:92px 1fr; } .item img, .item .ph { width:92px; } .hero h1 { font-size:34px; } }
 </style>
 </head>
 <body>
+<header class="hero" id="hero" style="background-image:url(img/manhattan.jpg)"><div><h1>New York<br>11.17 – 11.29</h1><p>Hyatt House Jersey City · Exchange Place</p></div></header>
+
+<nav class="tabs"><div>
+  <button class="on" data-tab="jerry">Jerry</button>
+  <button data-tab="judy">Judy</button>
+</div></nav>
+
 <main>
-<h1>紐約 11/17（二）– 11/29（日）</h1>
-<p class="sub">住 Hyatt House Jersey City（Exchange Place）｜她在 Hudson Yards 上班 9:00–18:00（平日）｜我早餐吃飯店</p>
-
-<div class="box">
-  <h2>學生身分怎麼用 <small>帶學生證（最好有英文）＋ 出發前辦 ISIC 國際學生證</small></h2>
-  <table>
-    <tr><th>地方</th><th>原價</th><th>學生 / 免費</th></tr>
-    <tr><td>Met 大都會</td><td>$30</td><td class="stu">$22，任何學校學生證都收</td></tr>
-    <tr><td>MoMA</td><td>$30</td><td class="stu">$17</td></tr>
-    <tr><td>Whitney</td><td>$30</td><td class="free">週五 17:00–22:00 免費（要線上預約）</td></tr>
-    <tr><td>911 博物館</td><td>$33</td><td class="stu">$27；紀念池本身免費</td></tr>
-    <tr><td>Guggenheim</td><td>$30</td><td class="stu">$19；另有 pay-what-you-wish 時段，官網確認</td></tr>
-    <tr><td>AMNH 自然史</td><td>$28</td><td class="stu">$22</td></tr>
-    <tr><td>Bronx Zoo</td><td>$40+</td><td class="free">週三 pay-what-you-wish，要先線上預約</td></tr>
-    <tr><td>Morgan Library</td><td>$25</td><td class="free">週五 17:00–19:00 免費</td></tr>
-    <tr><td>Studio Museum Harlem</td><td>—</td><td class="free">免費</td></tr>
-    <tr><td>Staten Island Ferry</td><td>—</td><td class="free">免費，經過自由女神</td></tr>
-    <tr><td>百老匯</td><td>$150+</td><td class="stu">TodayTix / 官方 app 每天抽 lottery $30–50；售票口問 student rush</td></tr>
-    <tr><td>Met Opera / NY Phil / Carnegie</td><td>$100+</td><td class="stu">student rush $35 左右，要註冊學生帳號</td></tr>
-    <tr><td>觀景台（Top of the Rock、Edge、Summit、帝國、One World）</td><td>$40–50</td><td>沒有學生價，挑一個就好</td></tr>
-  </table>
-</div>
-
-<div class="box">
-  <h2>地鐵搭到飽 <small>OMNY 7 天封頂</small></h2>
-  <ul>
-    <li class="ride">用同一張信用卡／手機 tap 進站：<b>週一到週日</b>內付滿 12 趟（約 $36），之後整週免費，公車也算</li>
-    <li class="ride">第 1 週 11/17–11/22：週三到週五每天至少 3 趟，週五封頂 → 週末兩人四處搭都免費（她也用自己的卡，分開算）</li>
-    <li class="ride">第 2 週 11/23–11/29：週一到週三搭滿 12 趟，週四以後免費。遠的地方（Bronx、Harlem、Cloisters）排週三之後</li>
-    <li class="ride"><b>PATH 不算</b>在封頂裡：Exchange Place→WTC 單趟 $3，站內機器買 10 趟票較便宜；WTC 就是 1/2/3/A/C/E/R 的大轉運站</li>
-    <li class="ride">Roosevelt Island 纜車算地鐵票（封頂後免費），NYC Ferry 不算（$4.50）</li>
-  </ul>
-</div>
-
-<div class="box">
-  <h2>餐費預算 <small>她公司報銷，兩人合計</small></h2>
-  <ul>
-    <li class="her">平日 $100／假日（六日、感恩節）$200</li>
-    <li class="me">我早餐吃飯店，午餐自己 $15–20 內（熟食店、Halal 餐車、Chinatown）</li>
-    <li class="us">平日晚餐兩人抓 $70–80，留餘裕付小費（紐約 18–20%）與稅 8.875%</li>
-    <li class="us">超出的只有 11/28 Peter Luger（兩人約 $250–300，現金）— 超過 $200 部分自付</li>
-  </ul>
-</div>
-
-<div class="box">
-  <h2>出發前先訂 <small>越早越好</small></h2>
-  <ul class="todo">
-    <li>辦 ISIC 國際學生證（康文文教基金會，約 NT$400）</li>
-    <li>怪奇物語《The First Shadow》Marquis Theatre — 先試 lottery，沒中再買 11/19（四）19:00 兩張</li>
-    <li>Knicks vs Pacers 11/22（日）MSG — 確認開球時間</li>
-    <li>感恩節晚餐 11/26 — 餐廳當天幾乎全滿，要先訂</li>
-    <li>Whitney 週五免費場 11/20、Bronx Zoo 週三免費 11/25、Top of the Rock 日落場 11/23 — 都要線上預約</li>
-    <li>Peter Luger 只收現金 / Debit 卡，<b>不收信用卡</b>；準備現金</li>
-  </ul>
-</div>
-
-<div class="legend"><span class="me">我自己（白天）</span><span class="us">一起</span><span class="her">她上班</span></div>
-
-<div class="box">
-  <h2>11/17 二 <small>抵達</small></h2>
-  <ul>
-    <li class="us"><b>15:37</b> DL429 落地 JFK，過海關約 1 小時</li>
-    <li class="us"><b>~17:00</b> Uber 到 Jersey City（約 1.5 小時、$90–110）；或 AirTrain→LIRR→Penn→PATH 33 St 線</li>
-    <li class="us"><b>19:00</b> Check-in、Exchange Place 河邊看曼哈頓夜景、附近簡單吃，早睡調時差</li>
-  </ul>
-  <p class="cost">💵 $100：機場後只有晚餐，Exchange Place 附近 $60 內</p>
-</div>
-
-<div class="box">
-  <h2>11/18 三 <small>地鐵 3 趟</small></h2>
-  <ul>
-    <li class="me"><b>09:30</b> PATH 到 WTC：911 紀念池<span class="tag free">免費</span>、博物館<span class="tag stu">學生 $27</span>、Oculus</li>
-    <li class="me"><b>12:30</b> 走到華爾街、銅牛，Stone Street 午餐</li>
-    <li class="me"><b>14:00</b> Staten Island Ferry 來回<span class="tag free">免費</span>，海上看自由女神</li>
-    <li class="me"><b>15:30</b> 地鐵 1 線 South Ferry → 34 St，Koreatown 亂逛（趟數 1）</li>
-    <li class="us"><b>18:30</b> 到她公司會合：Hudson Yards Vessel<span class="tag free">免費</span> → Chelsea Market 晚餐 → 地鐵回 WTC 轉 PATH（趟數 2–3）</li>
-  </ul>
-  <p class="cost">💵 $100：午餐 Stone Street $20｜Chelsea Market 兩人 $70</p>
-</div>
-
-<div class="box">
-  <h2>11/19 四 <small>百老匯｜地鐵 3 趟</small></h2>
-  <ul>
-    <li class="me"><b>10:00</b> 4/5/6 線到 86 St：大都會博物館 Met<span class="tag stu">學生 $22</span>，待到 14:30</li>
-    <li class="me"><b>14:30</b> 走 5 Ave 到 Guggenheim 看外觀，穿中央公園到 Columbus Circle，地鐵到 Times Sq</li>
-    <li class="us"><b>18:00</b> Times Square 附近快速晚餐（K-town 在 32 St 也近）</li>
-    <li class="us"><b>19:00</b> 怪奇物語 The First Shadow @ Marquis Theatre（約 2h45m）</li>
-  </ul>
-  <p class="cost">💵 $100：Met 午餐 $20｜看戲前 K-town 快速 $60（戲票不算餐費）</p>
-</div>
-
-<div class="box">
-  <h2>11/20 五 <small>免費日｜地鐵 3 趟，今天封頂</small></h2>
-  <ul>
-    <li class="me"><b>10:30</b> MoMA<span class="tag stu">學生 $17</span></li>
-    <li class="me"><b>13:30</b> 第五大道、Rockefeller Center 溜冰場（聖誕樹 12 月初才點燈，但已擺好）</li>
-    <li class="me"><b>17:00</b> Morgan Library<span class="tag free">週五 17–19 免費</span>（Madison Ave & 36 St）</li>
-    <li class="us"><b>18:30</b> 她下班走 High Line 到 Whitney<span class="tag free">週五晚免費</span>（預約 19:00 場）</li>
-    <li class="us"><b>20:30</b> Meatpacking / Chelsea Market 晚餐</li>
-  </ul>
-  <p class="cost">💵 $100：午餐 $15｜Meatpacking 晚餐兩人 $85</p>
-</div>
-
-<div class="box wknd">
-  <h2>11/21 六 <small>整天一起｜地鐵免費</small></h2>
-  <ul>
-    <li class="us"><b>09:30</b> A 線到 190 St：The Cloisters 修道院博物館<span class="tag stu">學生 $22</span>、Fort Tryon 公園看哈德遜河</li>
-    <li class="us"><b>13:00</b> 回 Harlem：Sylvia's 靈魂料理午餐、Studio Museum<span class="tag free">免費</span>、Apollo Theater 外觀</li>
-    <li class="us"><b>16:00</b> 上西區 AMNH 自然史博物館<span class="tag stu">學生 $22</span>（開到 17:30）或改逛哥倫比亞大學校園</li>
-    <li class="us"><b>18:30</b> 上西區晚餐、Levain Bakery 餅乾</li>
-  </ul>
-  <p class="cost">💵 $200：Sylvia's 午餐 $60｜上西區晚餐 $90</p>
-</div>
-
-<div class="box wknd">
-  <h2>11/22 日 <small>NBA｜地鐵免費</small></h2>
-  <ul>
-    <li class="us"><b>11:00</b> 晚起、SoHo / Nolita Brunch 逛街</li>
-    <li class="us"><b>14:00</b> Roosevelt Island 纜車<span class="tag free">封頂後免費</span>來回看東河，順便 F 線回 34 St</li>
-    <li class="us"><b>17:30</b> K-town 早晚餐（MSG 走路 5 分鐘）</li>
-    <li class="us"><b>晚上</b> Knicks vs Pacers @ Madison Square Garden</li>
-  </ul>
-  <p class="cost">💵 $200：Brunch $60｜K-town 晚餐 $80｜球場零食 $40</p>
-</div>
-
-<div class="box">
-  <h2>11/23 一 <small>第 2 週開始｜地鐵 4 趟</small></h2>
-  <ul>
-    <li class="me"><b>10:00</b> Grand Central、紐約公共圖書館<span class="tag free">免費</span>、Bryant Park</li>
-    <li class="me"><b>13:00</b> 搭 6 線到 86 St 再逛一次 5 Ave 博物館大道，Guggenheim 若當天有 pay-what-you-wish 時段就進去</li>
-    <li class="me"><b>16:00</b> Top of the Rock 看日落（約 16:35，唯一付錢的觀景台）</li>
-    <li class="us"><b>18:30</b> Bryant Park Winter Village 聖誕市集<span class="tag free">免費</span> + 溜冰，市集內晚餐</li>
-  </ul>
-  <p class="cost">💵 $100：午餐 $20｜市集晚餐 $70</p>
-</div>
-
-<div class="box">
-  <h2>11/24 二 <small>地鐵 4 趟</small></h2>
-  <ul>
-    <li class="me"><b>10:30</b> 7 線到 Flushing 法拉盛：吃一碗麵、新世界美食廣場（來回 2 趟）</li>
-    <li class="me"><b>14:00</b> 回程在 Long Island City 下車：Gantry Plaza 看曼哈頓天際線<span class="tag free">免費</span></li>
-    <li class="me"><b>16:00</b> Greenwich Village 亂走、Washington Square</li>
-    <li class="us"><b>19:00</b> Village 晚餐 → Blue Note 或 Village Vanguard 爵士（先訂）</li>
-  </ul>
-  <p class="cost">💵 $100：Flushing 午餐 $15｜Village 晚餐 $60，爵士 cover charge 不算餐費</p>
-</div>
-
-<div class="box">
-  <h2>11/25 三 <small>感恩節前夕｜地鐵 4 趟，今天封頂</small></h2>
-  <ul>
-    <li class="me"><b>10:00</b> 2/5 線到 West Farms Sq：Bronx Zoo<span class="tag free">週三免費，要預約</span>，待到 14:00</li>
-    <li class="me"><b>15:00</b> 回飯店洗衣、休息</li>
-    <li class="us"><b>18:30</b> 上西區 W 77–81 St 看 Macy's 遊行氣球充氣<span class="tag free">免費</span>（12:00–18:00 開放，排隊排到晚上）</li>
-    <li class="us"><b>20:00</b> 上西區晚餐</li>
-  </ul>
-  <p class="cost">💵 $100：動物園午餐 $15｜上西區晚餐 $75</p>
-</div>
-
-<div class="box wknd">
-  <h2>11/26 四 <small>感恩節，她應該放假｜地鐵免費</small></h2>
-  <ul>
-    <li class="us"><b>07:30</b> Macy's 遊行<span class="tag free">免費</span> 08:30 開始，Central Park West 72 St 附近卡位</li>
-    <li class="us"><b>12:30</b> 回飯店休息（店家幾乎全關）</li>
-    <li class="us"><b>18:00</b> 感恩節晚餐（出發前訂）</li>
-  </ul>
-  <p class="cost">💵 $200：感恩節套餐兩人多半 $150–200，剛好用完</p>
-</div>
-
-<div class="box wknd">
-  <h2>11/27 五 <small>Black Friday，她可能半天｜地鐵免費</small></h2>
-  <ul>
-    <li class="me"><b>09:00</b> 第五大道／SoHo Black Friday 採購</li>
-    <li class="us"><b>15:00</b> Q 線到 Coney Island：冬天的海邊、Nathan's 熱狗、Brighton Beach 俄國區（來回免費）</li>
-    <li class="us"><b>19:30</b> 回曼哈頓晚餐、Times Square 夜拍</li>
-  </ul>
-  <p class="cost">💵 $200（若她放假）：午餐 $50｜晚餐 $120</p>
-</div>
-
-<div class="box wknd">
-  <h2>11/28 六 <small>布魯克林日｜地鐵免費</small></h2>
-  <ul>
-    <li class="us"><b>10:30</b> J/M 線到 Marcy Ave：Williamsburg Bedford Ave 逛、Domino Park</li>
-    <li class="us"><b>12:15</b> Peter Luger Steak House（178 Broadway, Brooklyn）— 台灣時間 11/29 01:15 的訂位，現金</li>
-    <li class="us"><b>14:30</b> NYC Ferry 東河線 North Williamsburg → DUMBO（$4.50，風景值得；省錢就搭 F 線到 York St）</li>
-    <li class="us"><b>15:00</b> DUMBO Washington St 拍照、Brooklyn Bridge Park</li>
-    <li class="us"><b>16:00</b> 走布魯克林大橋回曼哈頓<span class="tag free">免費</span>，日落 16:30 正好在橋上</li>
-    <li class="us"><b>18:00</b> 回飯店打包，附近最後晚餐，早睡</li>
-  </ul>
-  <p class="cost">💵 $200：Peter Luger 兩人約 $250–300，超額自付；晚餐簡單 $40</p>
-</div>
-
-<div class="box">
-  <h2>11/29 日 <small>回程</small></h2>
-  <ul>
-    <li class="us"><b>04:00</b> Uber 出發到 JFK T4（凌晨路況 45 分鐘）</li>
-    <li class="us"><b>07:10</b> DL699 → Seattle → DL69 15:05 → 台北 11/30 20:30</li>
-  </ul>
-  <p class="cost">💵 清晨出發，機場解決</p>
-</div>
-
-<p class="note">門票大約：Met $22 + MoMA $17 + 911 $27 + Cloisters $22 + AMNH $22 + Top of the Rock $40 ≈ $150；其他全免費。11 月下旬日落約 16:30，白天行程要早出門。</p>
+  <div id="map"></div>
+  <div class="daypick" id="daypick"></div>
+  <div id="info"></div>
+  <div id="days"></div>
+  <p class="cost" id="foot"></p>
 </main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+// who: me = Jerry 白天自己；us = 一起。Judy tab 只顯示 us。
+const HOTEL = [40.7166,-74.0330];
+const DAYS = [
+ {d:'11/17 二', sub:'抵達', cost:'$100：機場後只有晚餐，Exchange Place 附近 $60 內', items:[
+  {t:'15:37', w:'us', n:'DL429 落地 JFK', d:'過海關約 1 小時', img:'john-f-kennedy-international-airport', ll:[40.6413,-73.7781], tr:'Uber 到 Jersey City 約 1.5 小時、$90–110；或 AirTrain→Jamaica→LIRR→Penn→PATH 33 St 線'},
+  {t:'19:00', w:'us', n:'Check-in、Exchange Place 河邊夜景', d:'附近簡單吃，早睡調時差', img:'jersey-city', ll:HOTEL, tr:'飯店走路 2 分鐘'},
+ ]},
+ {d:'11/18 三', sub:'地鐵 3 趟', cost:'$100：午餐 Stone Street $20｜Chelsea Market 兩人 $70', items:[
+  {t:'09:30', w:'me', n:'911 紀念池 + 博物館', d:'紀念池免費；博物館學生 $27；順看 Oculus', tag:['stu'], img:'national-september-11-memorial-museum', ll:[40.7115,-74.0134], tr:'PATH Exchange Place → WTC，4 分鐘'},
+  {t:'12:30', w:'me', n:'華爾街、銅牛、Stone Street 午餐', img:'stone-street-manhattan', ll:[40.7043,-74.0105], tr:'走路 10 分鐘'},
+  {t:'14:00', w:'me', n:'Staten Island Ferry 來回', d:'免費，海上看自由女神，單程 25 分鐘', tag:['free'], img:'staten-island-ferry', ll:[40.7010,-74.0132], tr:'走路 8 分鐘到 Whitehall Terminal'},
+  {t:'15:30', w:'me', n:'Koreatown 逛', img:'koreatown-manhattan', ll:[40.7478,-73.9868], tr:'🚇 1 線 South Ferry → 34 St-Penn（趟數 1）'},
+  {t:'18:30', w:'us', n:'Hudson Yards Vessel → Chelsea Market 晚餐', d:'到她公司會合，Vessel 免費', tag:['free'], img:'chelsea-market', ll:[40.7424,-74.0061], tr:'走路 15 分鐘到 Hudson Yards；回程 🚇 A/C/E 14 St → WTC 轉 PATH（趟數 2）'},
+ ]},
+ {d:'11/19 四', sub:'百老匯｜地鐵 3 趟', cost:'$100：Met 午餐 $20｜看戲前 K-town 快速 $60（戲票不算餐費）', items:[
+  {t:'10:00', w:'me', n:'大都會博物館 Met', d:'學生 $22，任何學校學生證都收；待到 14:30', tag:['stu'], img:'metropolitan-museum-of-art', ll:[40.7794,-73.9632], tr:'PATH → WTC，🚇 4/5 線 Fulton St → 86 St（趟數 1）'},
+  {t:'14:30', w:'me', n:'Guggenheim 外觀 → 穿中央公園到 Columbus Circle', img:'solomon-r-guggenheim-museum', ll:[40.7830,-73.9590], tr:'走路，約 1 小時含公園'},
+  {t:'18:00', w:'us', n:'Times Square 快速晚餐', img:'times-square', ll:[40.7580,-73.9855], tr:'🚇 A/C/D 59 St → 42 St（趟數 2）'},
+  {t:'19:00', w:'us', n:'怪奇物語 The First Shadow @ Marquis Theatre', d:'約 2h45m；先試 TodayTix lottery $30–50', tag:['stu'], img:'stranger-things-the-first-shadow', ll:[40.7585,-73.9862], tr:'回程 🚇 1/2/3 Times Sq → Chambers/WTC 轉 PATH（趟數 3）'},
+ ]},
+ {d:'11/20 五', sub:'免費日｜地鐵 3 趟，今天封頂', cost:'$100：午餐 $15｜Meatpacking 晚餐兩人 $85', items:[
+  {t:'10:30', w:'me', n:'MoMA', d:'學生 $17', tag:['stu'], img:'museum-of-modern-art', ll:[40.7614,-73.9776], tr:'PATH 33 St 線 → 33 St，🚇 B/D/F/M → 47-50 St（趟數 1）'},
+  {t:'13:30', w:'me', n:'第五大道、Rockefeller Center 溜冰場', d:'聖誕樹 12 月初才點燈，但已擺好', img:'rockefeller-center-christmas-tree', ll:[40.7587,-73.9787], tr:'走路'},
+  {t:'17:00', w:'me', n:'Morgan Library', d:'週五 17–19 免費', tag:['free'], img:'morgan-library-museum', ll:[40.7492,-73.9815], tr:'走路 15 分鐘，或 🚇 6 線 51 St → 33 St（趟數 2）'},
+  {t:'18:30', w:'us', n:'High Line 走到 Whitney', d:'週五晚免費，預約 19:00 場', tag:['free'], img:'high-line', ll:[40.7396,-74.0089], tr:'她下班從 Hudson Yards 沿 High Line 走 25 分鐘'},
+  {t:'20:30', w:'us', n:'Meatpacking 晚餐', img:'meatpacking-district-manhattan', ll:[40.7410,-74.0070], tr:'回程 🚇 A/C/E 14 St → WTC 轉 PATH（趟數 3，封頂）'},
+ ]},
+ {d:'11/21 六', sub:'整天一起｜地鐵免費', cost:'$200：Sylvia\'s 午餐 $60｜上西區晚餐 $90', items:[
+  {t:'09:30', w:'us', n:'The Cloisters 修道院博物館', d:'學生 $22；Fort Tryon 公園看哈德遜河', tag:['stu'], img:'the-cloisters', ll:[40.8649,-73.9317], tr:'PATH → WTC，🚇 A 線 Chambers → 190 St，約 40 分鐘'},
+  {t:'13:00', w:'us', n:"Harlem：Sylvia's 午餐、Studio Museum", d:'Studio Museum 免費；Apollo Theater 外觀', tag:['free'], img:'studio-museum-in-harlem', ll:[40.8083,-73.9478], tr:'🚇 A 線 190 St → 125 St'},
+  {t:'16:00', w:'us', n:'AMNH 自然史博物館', d:'學生 $22，開到 17:30；或改逛哥倫比亞大學', tag:['stu'], img:'american-museum-of-natural-history', ll:[40.7813,-73.9740], tr:'🚇 B/C 125 St → 81 St'},
+  {t:'18:30', w:'us', n:'上西區晚餐、Levain Bakery', img:'levain-bakery', ll:[40.7797,-73.9803], tr:'走路；回程 🚇 1/2/3 72 St → Chambers 轉 PATH'},
+ ]},
+ {d:'11/22 日', sub:'NBA｜地鐵免費', cost:'$200：Brunch $60｜K-town 晚餐 $80｜球場零食 $40', items:[
+  {t:'11:00', w:'us', n:'SoHo / Nolita Brunch、逛街', img:'soho-manhattan', ll:[40.7233,-74.0030], tr:'PATH → WTC，走路 12 分鐘或 🚇 R 線 Cortlandt → Prince St'},
+  {t:'14:00', w:'us', n:'Roosevelt Island 纜車來回', d:'算地鐵票，封頂後免費', tag:['free'], img:'roosevelt-island-tramway', ll:[40.7614,-73.9642], tr:'🚇 N/R/W Prince St → Lexington/59 St，走 2 分鐘到纜車'},
+  {t:'17:30', w:'us', n:'K-town 早晚餐', d:'MSG 走路 5 分鐘', img:'koreatown-manhattan', ll:[40.7478,-73.9868], tr:'🚇 F 線 Roosevelt Island → 34 St-Herald Sq'},
+  {t:'晚上', w:'us', n:'Knicks vs Pacers @ MSG', d:'確認開球時間', img:'madison-square-garden', ll:[40.7505,-73.9934], tr:'走路；回程 PATH 33 St → Exchange Place（Journal Sq 線在 Grove St 轉）'},
+ ]},
+ {d:'11/23 一', sub:'第 2 週開始｜地鐵 4 趟', cost:'$100：午餐 $20｜市集晚餐 $70', items:[
+  {t:'10:00', w:'me', n:'Grand Central、紐約公共圖書館、Bryant Park', d:'全免費', tag:['free'], img:'grand-central-terminal', ll:[40.7527,-73.9772], tr:'PATH 33 St 線 → 33 St，🚇 走路或 7 線 → Grand Central（趟數 1）'},
+  {t:'13:00', w:'me', n:'博物館大道、Guggenheim', d:'學生 $19；週一若有 pay-what-you-wish 時段就進去（官網確認）', tag:['stu'], img:'solomon-r-guggenheim-museum', ll:[40.7830,-73.9590], tr:'🚇 4/5/6 Grand Central → 86 St（趟數 2）'},
+  {t:'16:00', w:'me', n:'Top of the Rock 日落', d:'唯一付錢的觀景台 $40，日落 16:35，要預約', img:'top-of-the-rock', ll:[40.7591,-73.9794], tr:'🚇 6 線 86 St → 51 St（趟數 3）'},
+  {t:'18:30', w:'us', n:'Bryant Park Winter Village 市集 + 溜冰', d:'市集內晚餐', tag:['free'], img:'bryant-park', ll:[40.7536,-73.9832], tr:'走路；回程 PATH 33 St（趟數 4 給她從 Hudson Yards 搭 7 線過來）'},
+ ]},
+ {d:'11/24 二', sub:'地鐵 4 趟', cost:'$100：Flushing 午餐 $15｜Village 晚餐 $60，爵士 cover charge 不算餐費', items:[
+  {t:'10:30', w:'me', n:'法拉盛 Flushing 吃麵、新世界美食廣場', img:'flushing-queens', ll:[40.7596,-73.8300], tr:'PATH 33 St → 🚇 7 線 Times Sq → Flushing-Main St 終點，約 45 分鐘（趟數 1）'},
+  {t:'14:00', w:'me', n:'Long Island City Gantry Plaza 看天際線', tag:['free'], img:'gantry-plaza-state-park', ll:[40.7466,-73.9580], tr:'🚇 7 線回程在 Vernon Blvd-Jackson Av 下（趟數 2）'},
+  {t:'16:00', w:'me', n:'Greenwich Village、Washington Square', img:'washington-square-park', ll:[40.7308,-73.9973], tr:'🚇 7 線 → Times Sq 轉 1 線 → Christopher St（趟數 3–4）'},
+  {t:'19:00', w:'us', n:'Village 晚餐 → Blue Note 爵士', d:'或 Village Vanguard，先訂', img:'blue-note-jazz-club', ll:[40.7310,-74.0006], tr:'她 🚇 A/C/E Hudson Yards 附近 → W 4 St；回程 PATH Christopher St 站直接回 Exchange Place'},
+ ]},
+ {d:'11/25 三', sub:'感恩節前夕｜地鐵 4 趟，今天封頂', cost:'$100：動物園午餐 $15｜上西區晚餐 $75', items:[
+  {t:'10:00', w:'me', n:'Bronx Zoo', d:'週三 pay-what-you-wish，要先線上預約；待到 14:00', tag:['free'], img:'bronx-zoo', ll:[40.8506,-73.8769], tr:'PATH → WTC，🚇 2/5 線 Fulton → West Farms Sq，約 1 小時（趟數 1）'},
+  {t:'15:00', w:'me', n:'回飯店洗衣、休息', ll:HOTEL, tr:'🚇 2/5 → Fulton 轉 PATH（趟數 2）'},
+  {t:'18:30', w:'us', n:"Macy's 遊行氣球充氣", d:'W 77–81 St，12:00–18:00 開放，排隊排到晚上', tag:['free'], img:'macy-s-thanksgiving-day-parade', ll:[40.7800,-73.9740], tr:'PATH → WTC，🚇 1 線 → 79 St（趟數 3）'},
+  {t:'20:00', w:'us', n:'上西區晚餐', ll:[40.7790,-73.9800], tr:'回程 🚇 1 線 79 St → Chambers 轉 PATH（趟數 4，封頂）'},
+ ]},
+ {d:'11/26 四', sub:'感恩節，她應該放假｜地鐵免費', cost:'$200：感恩節套餐兩人多半 $150–200，剛好用完', items:[
+  {t:'07:30', w:'us', n:"Macy's 遊行", d:'08:30 開始，Central Park West 72 St 附近卡位', tag:['free'], img:'macy-s-thanksgiving-day-parade', ll:[40.7756,-73.9763], tr:'PATH → WTC，🚇 1/2/3 → 72 St；6:30 前出門'},
+  {t:'12:30', w:'us', n:'回飯店休息', d:'店家幾乎全關', ll:HOTEL, tr:'🚇 1/2/3 → Chambers 轉 PATH'},
+  {t:'18:00', w:'us', n:'感恩節晚餐', d:'出發前訂', ll:[40.7420,-74.0040], tr:'看餐廳位置'},
+ ]},
+ {d:'11/27 五', sub:'Black Friday，她可能半天｜地鐵免費', cost:'$200（若她放假）：午餐 $50｜晚餐 $120', items:[
+  {t:'09:00', w:'me', n:'第五大道／SoHo Black Friday 採購', img:'fifth-avenue', ll:[40.7580,-73.9770], tr:'PATH 33 St → 走路'},
+  {t:'15:00', w:'us', n:'Coney Island、Nathan\'s 熱狗、Brighton Beach', d:'冬天的海邊，來回免費', tag:['free'], img:'coney-island', ll:[40.5755,-73.9707], tr:'🚇 Q 線 Canal/Union Sq → Coney Island-Stillwell Av 終點，約 50 分鐘'},
+  {t:'19:30', w:'us', n:'回曼哈頓晚餐、Times Square 夜拍', img:'times-square', ll:[40.7580,-73.9855], tr:'🚇 Q 線 → Times Sq；回程 🚇 1/2/3 → Chambers 轉 PATH'},
+ ]},
+ {d:'11/28 六', sub:'布魯克林日｜地鐵免費', cost:'$200：Peter Luger 兩人約 $250–300，超額自付；晚餐簡單 $40', items:[
+  {t:'10:30', w:'us', n:'Williamsburg Bedford Ave、Domino Park', img:'domino-park', ll:[40.7142,-73.9679], tr:'PATH → WTC，🚇 J/M Fulton → Marcy Av，約 20 分鐘'},
+  {t:'12:15', w:'us', n:'Peter Luger Steak House', d:'178 Broadway, Brooklyn — 台灣時間 11/29 01:15 的訂位；只收現金 / Debit', img:'peter-luger-steak-house', ll:[40.7099,-73.9625], tr:'從 Marcy Av 走路 5 分鐘'},
+  {t:'14:30', w:'us', n:'NYC Ferry → DUMBO', d:'$4.50，風景值得；省錢就 🚇 F 線 → York St', img:'dumbo-brooklyn', ll:[40.7033,-73.9894], tr:'North Williamsburg 碼頭（N 6 St）東河線 → DUMBO，15 分鐘'},
+  {t:'16:00', w:'us', n:'走布魯克林大橋回曼哈頓', d:'日落 16:30 正好在橋上，約 30 分鐘', tag:['free'], img:'brooklyn-bridge', ll:[40.7061,-73.9969], tr:'橋尾 City Hall 走路 8 分鐘到 WTC 轉 PATH'},
+  {t:'18:00', w:'us', n:'回飯店打包、最後晚餐', ll:HOTEL, tr:'早睡，凌晨 4 點出發'},
+ ]},
+ {d:'11/29 日', sub:'回程', cost:'清晨出發，機場解決', items:[
+  {t:'04:00', w:'us', n:'Uber 到 JFK T4', d:'凌晨路況 45 分鐘', img:'john-f-kennedy-international-airport', ll:[40.6413,-73.7781], tr:'前一晚先約好 Uber'},
+  {t:'07:10', w:'us', n:'DL699 → Seattle → DL69 15:05 → 台北 11/30 20:30', ll:[40.6413,-73.7781]},
+ ]},
+];
+
+const INFO = {
+ jerry: `
+ <div class="info"><h2>學生身分怎麼用<small>帶學生證（最好有英文）＋ 出發前辦 ISIC 國際學生證</small></h2>
+  <table><tr><th>地方</th><th>原價</th><th>學生 / 免費</th></tr>
+  <tr><td>Met 大都會</td><td>$30</td><td class="stu">$22，任何學校學生證都收</td></tr>
+  <tr><td>MoMA</td><td>$30</td><td class="stu">$17</td></tr>
+  <tr><td>Whitney</td><td>$30</td><td class="free">週五 17:00–22:00 免費（要線上預約）</td></tr>
+  <tr><td>911 博物館</td><td>$33</td><td class="stu">$27；紀念池本身免費</td></tr>
+  <tr><td>Guggenheim</td><td>$30</td><td class="stu">$19；另有 pay-what-you-wish 時段，官網確認</td></tr>
+  <tr><td>AMNH 自然史</td><td>$28</td><td class="stu">$22</td></tr>
+  <tr><td>Cloisters</td><td>$30</td><td class="stu">$22（Met 同系統）</td></tr>
+  <tr><td>Bronx Zoo</td><td>$40+</td><td class="free">週三 pay-what-you-wish，要先線上預約</td></tr>
+  <tr><td>Morgan Library</td><td>$25</td><td class="free">週五 17:00–19:00 免費</td></tr>
+  <tr><td>百老匯</td><td>$150+</td><td class="stu">TodayTix / 官方 app 每天抽 lottery $30–50；售票口問 student rush</td></tr>
+  <tr><td>Met Opera / NY Phil / Carnegie</td><td>$100+</td><td class="stu">student rush 約 $35，要註冊學生帳號</td></tr>
+  <tr><td>觀景台（Top of the Rock、Edge、Summit、帝國、One World）</td><td>$40–50</td><td>沒有學生價，挑一個就好</td></tr></table></div>
+ <div class="info"><h2>地鐵搭到飽<small>OMNY 7 天封頂</small></h2><ul>
+  <li>同一張信用卡／手機 tap 進站：<b>週一到週日</b>內付滿 12 趟（約 $36），之後整週免費，公車也算</li>
+  <li>第 1 週 11/17–22：週三到週五每天 3 趟，週五封頂 → 週末兩人四處搭都免費（她用自己的卡，分開算）</li>
+  <li>第 2 週 11/23–29：週一到週三搭滿 12 趟，週四以後免費；遠的（Bronx、Flushing、Coney Island）排在後面</li>
+  <li><b>PATH 不算</b>在封頂裡：單趟 $3，站內機器買 10 趟票較便宜。Exchange Place→WTC 4 分鐘；Grove St→33 St 線到 Christopher / 9 St / 14 St / 23 St / 33 St</li>
+  <li>Roosevelt Island 纜車算地鐵票，NYC Ferry 不算（$4.50）</li></ul></div>`,
+ judy: `
+ <div class="info"><h2>Judy 的部分<small>平日 9:00–18:00 在 Hudson Yards 上班，下班後會合</small></h2><ul>
+  <li>平日晚上 18:30 左右在你公司附近或地鐵一站內會合，橘色的都是一起的行程</li>
+  <li>週末兩天 + 感恩節整天一起；11/27 Black Friday 若半天就一起去 Coney Island</li>
+  <li>你的 OMNY 卡自己 tap，週一到週日 12 趟後免費；上下班每天 2 趟，週六就封頂了</li></ul></div>`,
+ both: `
+ <div class="info"><h2>餐費預算<small>Judy 公司報銷，兩人合計</small></h2><ul>
+  <li>平日 $100／假日（六日、感恩節）$200；Jerry 早餐吃飯店</li>
+  <li>平日晚餐兩人抓 $70–80，留餘裕付小費（18–20%）與稅 8.875%</li>
+  <li>超出的只有 11/28 Peter Luger（兩人約 $250–300，現金）— 超過 $200 部分自付</li></ul></div>
+ <div class="info"><h2>出發前先訂<small>越早越好</small></h2><ul>
+  <li>☐ 辦 ISIC 國際學生證（康文文教基金會，約 NT$400）</li>
+  <li>☐ 怪奇物語 11/19 19:00 — 先試 lottery，沒中再買兩張</li>
+  <li>☐ Knicks vs Pacers 11/22 — 確認開球時間</li>
+  <li>☐ 感恩節晚餐 11/26 — 當天幾乎全滿</li>
+  <li>☐ 預約：Whitney 週五免費場 11/20、Bronx Zoo 11/25、Top of the Rock 11/23</li>
+  <li>☐ Peter Luger 現金</li></ul></div>`,
+};
+
+let tab = 'jerry', dayIdx = -1;
+const map = L.map('map', {scrollWheelZoom:false}).setView([40.745,-73.98], 12);
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {attribution:'© OpenStreetMap', maxZoom:19}).addTo(map);
+L.circleMarker(HOTEL, {radius:8, color:'#111', fillColor:'#fff', fillOpacity:1}).addTo(map).bindTooltip('Hyatt House', {permanent:true, direction:'left'});
+let layer = L.layerGroup().addTo(map);
+
+const gmaps = (p) => `https://www.google.com/maps/dir/?api=1&destination=${p.ll[0]},${p.ll[1]}&travelmode=transit`;
+const vis = (it) => tab === 'jerry' || it.w === 'us';
+
+function render() {
+  document.getElementById('info').innerHTML = INFO[tab] + INFO.both;
+  document.getElementById('days').innerHTML = DAYS.map((day, i) => {
+    const items = day.items.filter(vis);
+    return `<div class="day" id="day${i}"><h2>${day.d}</h2><span>${day.sub}</span></div>` +
+      items.map(it => `<div class="item ${it.w}">
+        ${it.img ? `<img src="img/${it.img}.jpg" alt="" loading="lazy">` : '<div class="ph"></div>'}
+        <div class="b"><div class="t"><b>${it.t}</b><h3>${it.n}</h3>${(it.tag||[]).map(t=>`<span class="tag ${t}">${t==='free'?'免費':'學生價'}</span>`).join('')}<span class="who">${it.w==='me'?'Jerry':'一起'}</span></div>
+        ${it.d ? `<div class="d">${it.d}</div>` : ''}
+        <div class="tr">${it.tr ? `<span>🚇 ${it.tr.replace(/🚇 /g,'')}</span>` : ''}<a href="${gmaps(it)}" target="_blank">Google Maps 路線 ↗</a></div></div></div>`).join('') +
+      `<p class="cost">💵 ${day.cost}</p>`;
+  }).join('');
+  drawMap();
+}
+
+function drawMap() {
+  layer.clearLayers();
+  const pts = [];
+  DAYS.forEach((day, i) => { if (dayIdx >= 0 && i !== dayIdx) return;
+    day.items.filter(vis).forEach(it => {
+      const c = it.w === 'me' ? '#2563eb' : '#ea580c';
+      L.circleMarker(it.ll, {radius:7, color:'#fff', weight:2, fillColor:c, fillOpacity:.95}).addTo(layer).bindPopup(`<b>${day.d} ${it.t}</b><br>${it.n}`);
+      pts.push(it.ll);
+    });
+    if (dayIdx === i) L.polyline([HOTEL, ...pts], {color:'#888', weight:2, dashArray:'4 6'}).addTo(layer);
+  });
+  if (pts.length) map.fitBounds(L.latLngBounds(pts.concat([HOTEL])), {padding:[30,30], maxZoom:14});
+  document.querySelectorAll('.daypick button').forEach((b, i) => b.classList.toggle('on', i - 1 === dayIdx));
+}
+
+document.getElementById('daypick').innerHTML = ['全部', ...DAYS.map(d => d.d)].map(d => `<button>${d}</button>`).join('');
+document.querySelectorAll('.daypick button').forEach((b, i) => b.onclick = () => { dayIdx = i - 1; drawMap(); if (dayIdx >= 0) document.getElementById('day' + dayIdx).scrollIntoView({behavior:'smooth', block:'start'}); });
+document.querySelectorAll('.tabs button').forEach(b => b.onclick = () => { tab = b.dataset.tab; document.querySelectorAll('.tabs button').forEach(x => x.classList.toggle('on', x === b)); render(); });
+
+document.getElementById('foot').textContent = '門票大約：Met $22 + MoMA $17 + 911 $27 + Cloisters $22 + AMNH $22 + Top of the Rock $40 ≈ $150，其他全免費。11 月下旬日落約 16:30，白天行程要早出門。';
+render();
+</script>
 </body>
 </html>
