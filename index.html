@@ -127,8 +127,7 @@ const DAYS = [
   {t:'20:30', w:'us', n:'Chelsea Market 晚餐', img:'chelsea-market', eat:[{n:'Los Tacos No.1（市場內）',d:'Chelsea Market 本店，排隊但快',p:'$15'},{n:'Lobster Place（市場內）',d:'海鮮市場現開生蠔、龍蝦，站著吃',p:'$30'},{n:'Chipotle（8 Ave & 15 St）',d:'市場走 3 分鐘',p:'$14'}], ll:[40.7410,-74.0070], tr:'回程 🚇 A/C/E 14 St → WTC 轉 PATH（趟數 3，封頂）'},
  ]},
  {d:'11/21 六', sub:'整天一起｜地鐵免費', cost:'$200：Sylvia\'s 午餐 $60｜上西區晚餐 $90', items:[
-  {t:'08:30', w:'us', n:'Broad Nosh Bagels 早餐（FiDi）', d:'跳過飯店早餐，PATH 到 WTC 走 5 分鐘，吃完直接 A 線上去', eat:[{n:'Broad Nosh Bagels（Broad St）',d:'FiDi 人氣 bagel，lox 或 egg bagel',p:'$12'}], ll:[40.7055,-74.0115], tr:'PATH Exchange Place → WTC'},
-  {t:'09:30', w:'us', n:'哥倫比亞大學校園、Morningside', d:'Low Library 階梯、Alma Mater 雕像，常春藤校園隨便走，免費；順便看 St. John the Divine 大教堂（世界最大哥德式教堂之一）', tag:['free'], img:'columbia-university', ll:[40.8075,-73.9626], tr:'🚇 1 線 Chambers → 116 St-Columbia，35 分鐘'},
+  {t:'09:30', w:'us', n:'哥倫比亞大學校園、Morningside', d:'Low Library 階梯、Alma Mater 雕像，常春藤校園隨便走，免費；順便看 St. John the Divine 大教堂（世界最大哥德式教堂之一）', tag:['free'], img:'columbia-university', ll:[40.8075,-73.9626], tr:'飯店早餐後 PATH → WTC，🚇 1 線 Chambers → 116 St-Columbia，35 分鐘'},
   {t:'13:00', w:'us', n:"Harlem：Sylvia's 午餐、Studio Museum", d:'Studio Museum 免費；Apollo Theater 外觀', tag:['free'], img:'studio-museum-in-harlem', eat:[{n:'Sylvia\'s 靈魂料理',d:'Harlem 1962 年老店，炸雞鬆餅、玉米麵包',p:'$30'},{n:'Red Rooster',d:'名廚 Marcus Samuelsson，比 Sylvia\'s 潮，週末 brunch 要訂',p:'$40'},{n:'Dinosaur Bar-B-Que（Harlem，125 St 河邊）',d:'紐約最有名的美式烤肉之一，ribs + brisket 拼盤，走 15 分鐘或公車',p:'$30'}], ll:[40.8083,-73.9478], tr:'🚇 A 線 190 St → 125 St'},
   {t:'16:00', w:'us', n:'AMNH 自然史博物館', d:'學生 $22，開到 17:30；或改逛哥倫比亞大學', tag:['stu'], img:'american-museum-of-natural-history', ll:[40.7813,-73.9740], tr:'🚇 B/C 125 St → 81 St'},
   {t:'18:30', w:'us', n:'上西區晚餐、Levain Bakery', img:'levain-bakery', eat:[{n:'Carmine\'s 義式大份量',d:'家庭式義大利菜，一盤夠 3 人，兩人點一盤一沙拉',p:'$35'},{n:'Shake Shack（77 St）',d:'AMNH 對面',p:'$16'},{n:'Chipotle（Broadway & 79 St）',d:'上西區最方便',p:'$14'}], ll:[40.7797,-73.9803], tr:'走路；回程 🚇 1/2/3 72 St → Chambers 轉 PATH'},
@@ -176,7 +175,8 @@ const DAYS = [
   {t:'19:30', w:'us', n:'回曼哈頓晚餐、Times Square 夜拍', img:'times-square', eat:[{n:'Chick-fil-A（5 Ave & 37 St）',d:'Bryant Park 走 5 分鐘',p:'$12'},{n:'Los Tacos No.1（43 St）',d:'紐約公認最好吃的 taco，站著吃，adobada 必點',p:'$15'},{n:'Joe\'s Pizza（Broadway & 40 St）',d:'經典紐約一片披薩，$4 一片',p:'$10'}], ll:[40.7580,-73.9855], tr:'🚇 Q 線 → Times Sq；回程 🚇 1/2/3 → Chambers 轉 PATH'},
  ]},
  {d:'11/28 六', sub:'布魯克林日｜地鐵免費', cost:"$200：Peter Luger 午餐；Hell's Kitchen 晚餐 $60", items:[
-  {t:'10:30', w:'us', n:'Williamsburg Bedford Ave、Domino Park', d:'先到 Devoción（Grand St）喝咖啡，哥倫比亞直送豆，玻璃屋店面 $7', img:'domino-park', ll:[40.7142,-73.9679], tr:'PATH → WTC，🚇 J/M Fulton → Marcy Av，約 20 分鐘'},
+  {t:'09:30', w:'us', n:'Broad Nosh Bagels 早餐（FiDi）', d:'跳過飯店早餐；PATH 到 WTC 走 5 分鐘，吃完 Fulton St 搭 J/M 去 Williamsburg 很順', eat:[{n:'Broad Nosh Bagels（Broad St）',d:'FiDi 人氣 bagel，lox 或 egg bagel',p:'$12'}], ll:[40.7055,-74.0115], tr:'PATH Exchange Place → WTC'},
+  {t:'10:30', w:'us', n:'Williamsburg Bedford Ave、Domino Park', d:'先到 Devoción（Grand St）喝咖啡，哥倫比亞直送豆，玻璃屋店面 $7', img:'domino-park', ll:[40.7142,-73.9679], tr:'走 5 分鐘到 Fulton St，🚇 J/M → Marcy Av，約 20 分鐘'},
   {t:'12:15', w:'us', n:'Peter Luger Steak House', d:'178 Broadway, Brooklyn — 台灣時間 11/29 01:15 的訂位；只收現金 / Debit', img:'peter-luger-steak-house', ll:[40.7099,-73.9625], tr:'從 Marcy Av 走路 5 分鐘'},
   {t:'14:30', w:'us', n:'NYC Ferry → DUMBO', d:'$4.50，風景值得；省錢就 🚇 F 線 → York St', img:'dumbo-brooklyn', ll:[40.7033,-73.9894], tr:'North Williamsburg 碼頭（N 6 St）東河線 → DUMBO，15 分鐘'},
   {t:'16:00', w:'us', n:'走布魯克林大橋回曼哈頓', d:'日落 16:30 正好在橋上，約 30 分鐘', tag:['free'], img:'brooklyn-bridge', ll:[40.7061,-73.9969], tr:'橋尾 City Hall 走路 8 分鐘到 WTC 轉 PATH'},
