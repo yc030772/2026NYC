@@ -40,7 +40,7 @@
   table { width:100%; border-collapse:collapse; font-size:14px; }
   td, th { text-align:left; padding:5px 6px; border-bottom:1px solid var(--line); vertical-align:top; }
   th { color:var(--muted); font-weight:normal; }
-  .free { color:var(--free); } .stu { color:var(--me); }
+  .free { color:var(--free); } .stu { color:var(--me); } .deal { color:var(--us); }
   /* day */
   .day { margin:28px 0 10px; display:flex; align-items:baseline; gap:10px; }
   .day h2 { font:700 26px "Playfair Display", serif; margin:0; }
@@ -100,7 +100,7 @@ const DAYS = [
   {t:'10:00', w:'me', n:'大都會博物館 Met', d:'學生 $22，任何學校學生證都收；待到 14:30', tag:['stu'], img:'metropolitan-museum-of-art', ll:[40.7794,-73.9632], tr:'PATH → WTC，🚇 4/5 線 Fulton St → 86 St（趟數 1）'},
   {t:'14:30', w:'me', n:'Guggenheim 外觀 → 穿中央公園到 Columbus Circle', img:'solomon-r-guggenheim-museum', ll:[40.7830,-73.9590], tr:'走路，約 1 小時含公園'},
   {t:'18:00', w:'us', n:'Times Square 快速晚餐', img:'times-square', ll:[40.7580,-73.9855], tr:'🚇 A/C/D 59 St → 42 St（趟數 2）'},
-  {t:'19:00', w:'us', n:'怪奇物語 The First Shadow @ Marquis Theatre', d:'約 2h45m；先試 TodayTix lottery $30–50', tag:['stu'], img:'stranger-things-the-first-shadow', ll:[40.7585,-73.9862], tr:'回程 🚇 1/2/3 Times Sq → Chambers/WTC 轉 PATH（趟數 3）'},
+  {t:'19:00', w:'us', n:'怪奇物語 The First Shadow @ Marquis Theatre', d:'約 2h45m；lottery 不限學生，兩人各用自己的帳號抽（每帳號 2 張）加倍機率，$30–50；沒中就等 Black Friday 特賣', tag:['deal'], img:'stranger-things-the-first-shadow', ll:[40.7585,-73.9862], tr:'回程 🚇 1/2/3 Times Sq → Chambers/WTC 轉 PATH（趟數 3）'},
  ]},
  {d:'11/20 五', sub:'免費日｜地鐵 3 趟，今天封頂', cost:'$100：午餐 $15｜Chelsea Market 晚餐兩人 $85', items:[
   {t:'10:30', w:'me', n:'MoMA', d:'學生 $17', tag:['stu'], img:'museum-of-modern-art', ll:[40.7614,-73.9776], tr:'PATH 33 St 線 → 33 St，🚇 B/D/F/M → 47-50 St（趟數 1）'},
@@ -149,7 +149,7 @@ const DAYS = [
  ]},
  {d:'11/27 五', sub:'Black Friday，她可能半天｜地鐵免費', cost:'$200（若她放假）：午餐 $50｜晚餐 $120', items:[
   {t:'09:00', w:'me', n:'第五大道／SoHo Black Friday 採購', d:'Macy\'s Herald Sq 6:00 開門；SoHo 10:00', img:'fifth-avenue', ll:[40.7580,-73.9770], tr:'PATH 33 St → 走路'},
-  {t:'11:00', w:'me', n:'TKTS Times Square 當日半價票', d:'15:00 開賣晚場（週五），想再看一場百老匯就這天買；TodayTix app 的 Black Friday 特賣（最多 6 折）通常 11/20 左右開跑', tag:['stu'], img:'times-square', ll:[40.7590,-73.9850], tr:'走路'},
+  {t:'11:00', w:'me', n:'TKTS Times Square 當日半價票', d:'15:00 開賣晚場（週五），想再看一場百老匯就這天買；TodayTix app 的 Black Friday 特賣（最多 6 折）通常 11/20 左右開跑，兩人都適用', tag:['deal'], img:'times-square', ll:[40.7590,-73.9850], tr:'走路'},
   {t:'15:00', w:'us', n:'Coney Island、Nathan\'s 熱狗、Brighton Beach', d:'冬天的海邊，來回免費', tag:['free'], img:'coney-island', ll:[40.5755,-73.9707], tr:'🚇 Q 線 Canal/Union Sq → Coney Island-Stillwell Av 終點，約 50 分鐘'},
   {t:'19:30', w:'us', n:'回曼哈頓晚餐、Times Square 夜拍', img:'times-square', ll:[40.7580,-73.9855], tr:'🚇 Q 線 → Times Sq；回程 🚇 1/2/3 → Chambers 轉 PATH'},
  ]},
@@ -233,7 +233,7 @@ function render() {
     return `<div class="day" id="day${i}"><h2>${day.d}</h2><span>${day.sub}</span></div>` +
       items.map(it => `<div class="item ${it.w}">
         ${it.img ? `<img src="img/${it.img}.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=ph>'+this.alt+'</div>'">` : `<div class="ph">${it.n}</div>`}
-        <div class="b"><div class="t"><b>${it.t}</b><h3>${it.n}</h3>${(it.tag||[]).map(t=>`<span class="tag ${t}">${t==='free'?'免費':'學生價'}</span>`).join('')}<span class="who">${it.w==='me'?'Jerry':'一起'}</span></div>
+        <div class="b"><div class="t"><b>${it.t}</b><h3>${it.n}</h3>${(it.tag||[]).map(t=>`<span class="tag ${t}">${({free:'免費',stu:'學生價',deal:'優惠'})[t]}</span>`).join('')}<span class="who">${it.w==='me'?'Jerry':'一起'}</span></div>
         ${it.d ? `<div class="d">${it.d}</div>` : ''}
         <div class="tr">${it.tr ? `<span>🚇 ${it.tr.replace(/🚇 /g,'')}</span>` : ''}<a href="${gmaps(it)}" target="_blank">Google Maps 路線 ↗</a></div></div></div>`).join('') +
       `<p class="cost">💵 ${day.cost}</p>`;
