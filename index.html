@@ -90,7 +90,8 @@ const DAYS = [
  {d:'11/18 三', sub:'地鐵 3 趟', cost:'$100：午餐 Stone Street $20｜Dekalb Market 兩人 $50｜球場零食 $30', items:[
   {t:'09:30', w:'me', n:'911 紀念池 + 博物館', d:'紀念池免費；博物館學生 $27；順看 Oculus', tag:['stu'], img:'national-september-11-memorial-museum', ll:[40.7115,-74.0134], tr:'PATH Exchange Place → WTC，4 分鐘'},
   {t:'12:30', w:'me', n:'華爾街、銅牛、Stone Street 午餐', img:'stone-street-manhattan', ll:[40.7043,-74.0105], tr:'走路 10 分鐘'},
-  {t:'14:00', w:'me', n:'Staten Island Ferry 來回', d:'免費，海上看自由女神，單程 25 分鐘', tag:['free'], img:'staten-island-ferry', ll:[40.7010,-74.0132], tr:'走路 8 分鐘到 Whitehall Terminal'},
+  {t:'13:30', w:'me', n:'國立美洲印第安人博物館 NMAI', d:'Bowling Green 海關大樓，每天免費，30 分鐘看建築就值', tag:['free'], ll:[40.7041,-74.0137], tr:'銅牛旁邊走路 1 分鐘'},
+  {t:'14:15', w:'me', n:'Staten Island Ferry 來回', d:'免費，海上看自由女神，單程 25 分鐘', tag:['free'], img:'staten-island-ferry', ll:[40.7010,-74.0132], tr:'走路 5 分鐘到 Whitehall Terminal'},
   {t:'15:30', w:'me', n:'Koreatown 逛', img:'koreatown-manhattan', ll:[40.7478,-73.9868], tr:'🚇 1 線 South Ferry → 34 St-Penn（趟數 1）'},
   {t:'18:15', w:'us', n:'Penn Station 會合 → Brooklyn', d:'Dekalb Market Hall 美食街快速晚餐（Barclays 走路 5 分鐘）', ll:[40.6905,-73.9825], tr:'她從 Hudson Yards 走 12 分鐘到 Penn；🚇 2/3 線 34 St → Atlantic Av-Barclays Ctr，20 分鐘（趟數 2）'},
   {t:'19:30', w:'us', n:'Nets vs Bulls @ Barclays Center', d:'票比 Knicks 便宜很多，Ticketmaster 上層 $30–50', img:'barclays-center', ll:[40.6826,-73.9754], tr:'回程 🚇 2/3 Atlantic Av → Chambers 轉 PATH，約 35 分鐘（趟數 3）'},
@@ -122,8 +123,8 @@ const DAYS = [
  ]},
  {d:'11/23 一', sub:'第 2 週開始｜地鐵 4 趟', cost:'$100：午餐 $20｜市集晚餐 $70', items:[
   {t:'10:00', w:'me', n:'Grand Central、紐約公共圖書館、Bryant Park', d:'全免費', tag:['free'], img:'grand-central-terminal', ll:[40.7527,-73.9772], tr:'PATH 33 St 線 → 33 St，🚇 走路或 7 線 → Grand Central（趟數 1）'},
-  {t:'13:00', w:'me', n:'博物館大道、Guggenheim', d:'學生 $19；週一若有 pay-what-you-wish 時段就進去（官網確認）', tag:['stu'], img:'solomon-r-guggenheim-museum', ll:[40.7830,-73.9590], tr:'🚇 4/5/6 Grand Central → 86 St（趟數 2）'},
-  {t:'16:00', w:'me', n:'Top of the Rock 日落', d:'唯一付錢的觀景台 $40，日落 16:35，要預約', img:'top-of-the-rock', ll:[40.7591,-73.9794], tr:'🚇 6 線 86 St → 51 St（趟數 3）'},
+  {t:'13:00', w:'me', n:'第五大道聖誕櫥窗 + St. Patrick 教堂', d:'Saks、Bergdorf、Tiffany 櫥窗感恩節前就上了，全免費', tag:['free'], img:'fifth-avenue', ll:[40.7585,-73.9760], tr:'走路；多搭幾趟地鐵湊趟數（趟數 2–3）'},
+  {t:'16:00', w:'me', n:'Top of the Rock 日落', d:'唯一付錢的觀景台 $40，日落 16:35，要預約', img:'top-of-the-rock', ll:[40.7591,-73.9794], tr:'走路 3 分鐘'},
   {t:'18:30', w:'us', n:'Bryant Park Winter Village 市集 + 溜冰', d:'市集內晚餐', tag:['free'], img:'bryant-park', ll:[40.7536,-73.9832], tr:'走路；回程 PATH 33 St（趟數 4 給她從 Hudson Yards 搭 7 線過來）'},
  ]},
  {d:'11/24 二', sub:'地鐵 4 趟', cost:'$100：Flushing 午餐 $15｜Village 晚餐 $60，爵士 cover charge 不算餐費', items:[
@@ -144,7 +145,8 @@ const DAYS = [
   {t:'18:00', w:'us', n:'感恩節晚餐', d:'出發前訂', ll:[40.7420,-74.0040], tr:'看餐廳位置'},
  ]},
  {d:'11/27 五', sub:'Black Friday，她可能半天｜地鐵免費', cost:'$200（若她放假）：午餐 $50｜晚餐 $120', items:[
-  {t:'09:00', w:'me', n:'第五大道／SoHo Black Friday 採購', img:'fifth-avenue', ll:[40.7580,-73.9770], tr:'PATH 33 St → 走路'},
+  {t:'09:00', w:'me', n:'第五大道／SoHo Black Friday 採購', d:'Macy\'s Herald Sq 6:00 開門；SoHo 10:00', img:'fifth-avenue', ll:[40.7580,-73.9770], tr:'PATH 33 St → 走路'},
+  {t:'11:00', w:'me', n:'TKTS Times Square 當日半價票', d:'15:00 開賣晚場（週五），想再看一場百老匯就這天買；TodayTix app 的 Black Friday 特賣（最多 6 折）通常 11/20 左右開跑', tag:['stu'], img:'times-square', ll:[40.7590,-73.9850], tr:'走路'},
   {t:'15:00', w:'us', n:'Coney Island、Nathan\'s 熱狗、Brighton Beach', d:'冬天的海邊，來回免費', tag:['free'], img:'coney-island', ll:[40.5755,-73.9707], tr:'🚇 Q 線 Canal/Union Sq → Coney Island-Stillwell Av 終點，約 50 分鐘'},
   {t:'19:30', w:'us', n:'回曼哈頓晚餐、Times Square 夜拍', img:'times-square', ll:[40.7580,-73.9855], tr:'🚇 Q 線 → Times Sq；回程 🚇 1/2/3 → Chambers 轉 PATH'},
  ]},
@@ -184,7 +186,16 @@ const INFO = {
   <li>第 1 週 11/17–22：週三到週五每天 3 趟，週五封頂 → 週末兩人四處搭都免費（她用自己的卡，分開算）</li>
   <li>第 2 週 11/23–29：週一到週三搭滿 12 趟，週四以後免費；遠的（Bronx、Flushing、Coney Island）排在後面</li>
   <li><b>PATH 不算</b>在封頂裡：單趟 $3，站內機器買 10 趟票較便宜。Exchange Place→WTC 4 分鐘；Grove St→33 St 線到 Christopher / 9 St / 14 St / 23 St / 33 St</li>
-  <li>Roosevelt Island 纜車算地鐵票，NYC Ferry 不算（$4.50）</li></ul></div>`,
+  <li>Roosevelt Island 纜車算地鐵票，NYC Ferry 不算（$4.50）</li></ul></div>
+ <div class="info"><h2>免費 / 省錢攻略<small>感恩節週特別版</small></h2><ul>
+  <li><b>百老匯 Black Friday 特賣</b>：TodayTix、New York Theatre Guide 每年約 11/20–21 開跑到 12 月初，最多 6 折、$50–60 起。怪奇物語沒中 lottery 就等這波</li>
+  <li><b>TKTS</b>（Times Square 紅階梯下）當日票 5–5 折；週五 15:00 開賣晚場。11/27 想加看一場就這天</li>
+  <li><b>每天免費</b>：National Museum of the American Indian（Bowling Green）、Bronx Museum、Queens Museum（週日）、所有公園、High Line、Brooklyn Bridge、Staten Island Ferry、Bryant Park 溜冰（租鞋另計）</li>
+  <li><b>固定免費時段</b>：Whitney 週五 17–22、Morgan 週五 17–19、Museum of Arts and Design 週四 18–21（Columbus Circle）、Museum of the Moving Image 週四 14–18（Astoria）、Frick 週三 13:30–17:30 pay-what-you-wish</li>
+  <li><b>限 NY 居民</b>（不適用）：Met 隨意付、MoMA 週五免費、Guggenheim 週一/六 16–17:30 隨意付。Judy 若有 NY/NJ 地址證明可以用</li>
+  <li><b>2026 是 Macy's 遊行 100 週年</b>，人會比往年更多；11/25 晚上看氣球充氣要線上登記時段，遊行當天 6:30 前卡位</li>
+  <li><b>學生 ID 另外有折扣</b>：Intrepid 航母、Museum of the City of NY、Brooklyn Museum、New Museum、Cooper Hewitt，不去也沒差</li>
+  <li><b>不要買 CityPASS / Go City</b>：你去的都是學生價或免費，套票反而虧</li></ul></div>`,
  judy: `
  <div class="info"><h2>Judy 的部分<small>平日 9:00–18:00 在 Hudson Yards 上班，下班後會合</small></h2><ul>
   <li>平日晚上 18:30 左右在你公司附近或地鐵一站內會合，橘色的都是一起的行程</li>
