@@ -128,7 +128,7 @@ const DAYS = [
  ]},
  {d:'11/21 六', sub:'整天一起｜地鐵免費', cost:'$200：Sylvia\'s 午餐 $60｜上西區晚餐 $90', items:[
   {t:'08:30', w:'us', n:'Broad Nosh Bagels 早餐（FiDi）', d:'跳過飯店早餐，PATH 到 WTC 走 5 分鐘，吃完直接 A 線上去', eat:[{n:'Broad Nosh Bagels（Broad St）',d:'FiDi 人氣 bagel，lox 或 egg bagel',p:'$12'}], ll:[40.7055,-74.0115], tr:'PATH Exchange Place → WTC'},
-  {t:'09:30', w:'us', n:'The Cloisters 修道院博物館', d:'學生 $22；Fort Tryon 公園看哈德遜河', tag:['stu'], img:'the-cloisters', ll:[40.8649,-73.9317], tr:'PATH → WTC，🚇 A 線 Chambers → 190 St，約 40 分鐘'},
+  {t:'09:30', w:'us', n:'哥倫比亞大學校園、Morningside', d:'Low Library 階梯、Alma Mater 雕像，常春藤校園隨便走，免費；順便看 St. John the Divine 大教堂（世界最大哥德式教堂之一）', tag:['free'], img:'columbia-university', ll:[40.8075,-73.9626], tr:'🚇 1 線 Chambers → 116 St-Columbia，35 分鐘'},
   {t:'13:00', w:'us', n:"Harlem：Sylvia's 午餐、Studio Museum", d:'Studio Museum 免費；Apollo Theater 外觀', tag:['free'], img:'studio-museum-in-harlem', eat:[{n:'Sylvia\'s 靈魂料理',d:'Harlem 1962 年老店，炸雞鬆餅、玉米麵包',p:'$30'},{n:'Red Rooster',d:'名廚 Marcus Samuelsson，比 Sylvia\'s 潮，週末 brunch 要訂',p:'$40'},{n:'Dinosaur Bar-B-Que（Harlem，125 St 河邊）',d:'紐約最有名的美式烤肉之一，ribs + brisket 拼盤，走 15 分鐘或公車',p:'$30'}], ll:[40.8083,-73.9478], tr:'🚇 A 線 190 St → 125 St'},
   {t:'16:00', w:'us', n:'AMNH 自然史博物館', d:'學生 $22，開到 17:30；或改逛哥倫比亞大學', tag:['stu'], img:'american-museum-of-natural-history', ll:[40.7813,-73.9740], tr:'🚇 B/C 125 St → 81 St'},
   {t:'18:30', w:'us', n:'上西區晚餐、Levain Bakery', img:'levain-bakery', eat:[{n:'Carmine\'s 義式大份量',d:'家庭式義大利菜，一盤夠 3 人，兩人點一盤一沙拉',p:'$35'},{n:'Shake Shack（77 St）',d:'AMNH 對面',p:'$16'},{n:'Chipotle（Broadway & 79 St）',d:'上西區最方便',p:'$14'}], ll:[40.7797,-73.9803], tr:'走路；回程 🚇 1/2/3 72 St → Chambers 轉 PATH'},
@@ -152,9 +152,10 @@ const DAYS = [
   {t:'16:00', w:'me', n:'Greenwich Village、Washington Square', img:'washington-square-park', ll:[40.7308,-73.9973], tr:'🚇 7 線 → Times Sq 轉 1 線 → Christopher St（趟數 3–4）'},
   {t:'19:00', w:'us', n:'Friends 公寓 → Village 晚餐 → Figo 冰淇淋 → Washington Square 夜景', d:'先到 90 Bedford St & Grove St 拍 Friends 公寓外景（免費，L\'industrie 走 2 分鐘）；飯後 Figo il Gelato（MacDougal St）$8，路過隔壁 1927 年的 Cafe Reggio，再走到 Washington Square 拱門', img:'washington-square-park', eat:[{n:'Mamoun\'s Falafel',d:'Village 1971 年老攤，falafel 三明治 $5',p:'$10'},{n:'L\'industrie Pizzeria（West Village，Christopher St）',d:'現在紐約最紅的一片披薩，burrata slice 必點，排 20 分',p:'$12'},{n:'Hill Country Barbecue（Flatiron，W 26 St）',d:'德州 Lockhart 風格，秤重買 brisket、ribs，到 Village 走 15 分鐘',p:'$40'}], ll:[40.7310,-74.0006], tr:'她 🚇 A/C/E Hudson Yards 附近 → W 4 St；回程 PATH Christopher St 站直接回 Exchange Place'},
  ]},
- {d:'11/25 三', sub:'感恩節前夕｜地鐵 4 趟，今天封頂', cost:'$100：動物園午餐 $15｜上西區晚餐 $75', items:[
-  {t:'10:00', w:'me', n:'Bronx Zoo', d:'週三 pay-what-you-wish，要先線上預約；待到 14:00', tag:['free'], img:'bronx-zoo', eat:[{n:'園內 Dancing Crane Café',d:'動物園內唯一正餐，漢堡披薩，貴普通',p:'$18'},{n:'Arthur Ave 義大利街 Full Moon Pizza（走 15 分鐘）',d:'Bronx 小義大利，正宗義裔社區披薩',p:'$15'},{n:'Zero Otto Nove（Arthur Ave）',d:'拿坡里窯烤披薩，Arthur Ave 最好的坐下來吃',p:'$30'}], ll:[40.8506,-73.8769], tr:'PATH → WTC，🚇 2/5 線 Fulton → West Farms Sq，約 1 小時（趟數 1）'},
-  {t:'15:00', w:'me', n:'回飯店洗衣、休息', img:'jersey-city', ll:HOTEL, tr:'🚇 2/5 → Fulton 轉 PATH（趟數 2）'},
+ {d:'11/25 三', sub:'感恩節前夕｜免費日｜地鐵 4 趟，今天封頂', cost:'$100：Chelsea 午餐 $15｜上西區晚餐 $75', items:[
+  {t:'10:30', w:'me', n:'Chelsea 畫廊區', d:'W 20–26 St 之間 200 多間畫廊全部免費進，Gagosian、David Zwirner、Pace 看當期展，1.5 小時', tag:['free'], eat:[{n:'Los Tacos No.1（Chelsea Market）',d:'再吃一次也不膩',p:'$15'},{n:'Chipotle（8 Ave & 23 St）',d:'畫廊區走 5 分鐘',p:'$14'},{n:'Billy\'s Bakery（9 Ave & 21 St）',d:'老派 cupcake、香蕉布丁，當午餐甜點',p:'$8'}], ll:[40.7480,-74.0050], tr:'PATH → WTC，🚇 C/E → 23 St（趟數 1）'},
+  {t:'13:30', w:'me', n:'Frick Collection', d:'週三 13:30–17:30 pay-what-you-wish（平常 $30），2025 年整修完的第五大道豪宅美術館，維梅爾、林布蘭', tag:['free'], img:'frick-collection', ll:[40.7712,-73.9673], tr:'🚇 C/E 23 St → 6 線 68 St（趟數 2）'},
+  {t:'15:30', w:'me', n:'回飯店洗衣、休息', img:'jersey-city', ll:HOTEL, tr:'🚇 6 線 68 St → Brooklyn Bridge-City Hall 走到 WTC 轉 PATH（趟數 3）'},
   {t:'18:30', w:'us', n:"Macy's 遊行氣球充氣", d:'W 77–81 St，12:00–18:00 開放，排隊排到晚上', tag:['free'], img:'macy-s-thanksgiving-day-parade', ll:[40.7800,-73.9740], tr:'PATH → WTC，🚇 1 線 → 79 St（趟數 3）'},
   {t:'20:00', w:'us', n:'上西區晚餐', img:'upper-west-side', eat:[{n:'Jacob\'s Pickles',d:'上西區 comfort food，炸雞鬆餅、醃黃瓜，份量大',p:'$35'},{n:'Shake Shack（77 St）',d:'AMNH 對面',p:'$16'},{n:'Chipotle（Broadway & 79 St）',d:'上西區最方便',p:'$14'}], ll:[40.7790,-73.9800], tr:'回程 🚇 1 線 79 St → Chambers 轉 PATH（趟數 4，封頂）'},
  ]},
@@ -196,8 +197,7 @@ const INFO = {
   <tr><td>Whitney</td><td>$30</td><td class="free">週五 17:00–22:00 免費（要線上預約）</td></tr>
   <tr><td>Guggenheim</td><td>$30</td><td class="stu">$19；另有 pay-what-you-wish 時段，官網確認</td></tr>
   <tr><td>AMNH 自然史</td><td>$28</td><td class="stu">$22</td></tr>
-  <tr><td>Cloisters</td><td>$30</td><td class="stu">$22（Met 同系統）</td></tr>
-  <tr><td>Bronx Zoo</td><td>$40+</td><td class="free">週三 pay-what-you-wish，要先線上預約</td></tr>
+  <tr><td>Frick Collection</td><td>$30</td><td class="free">週三 13:30–17:30 pay-what-you-wish</td></tr>
   <tr><td>Morgan Library</td><td>$25</td><td class="free">週五 17:00–19:00 免費</td></tr>
   <tr><td>百老匯</td><td>$150+</td><td class="stu">TodayTix / 官方 app 每天抽 lottery $30–50；售票口問 student rush</td></tr>
   <tr><td>Met Opera / NY Phil / Carnegie</td><td>$100+</td><td class="stu">student rush 約 $35，要註冊學生帳號</td></tr>
@@ -206,7 +206,7 @@ const INFO = {
  <div class="info"><h2>地鐵搭到飽<small>OMNY 7 天封頂</small></h2><ul>
   <li>同一張信用卡／手機 tap 進站：<b>週一到週日</b>內付滿 12 趟（約 $36），之後整週免費，公車也算</li>
   <li>第 1 週 11/17–22：週三到週五每天 3 趟，週五封頂 → 週末兩人四處搭都免費（她用自己的卡，分開算）</li>
-  <li>第 2 週 11/23–29：週一到週三搭滿 12 趟，週四以後免費；遠的（Bronx、Flushing、Coney Island）排在後面</li>
+  <li>第 2 週 11/23–29：週一到週三搭滿 12 趟，週四以後免費；遠的（Flushing、Coney Island）排在後面</li>
   <li><b>PATH 不算</b>在封頂裡：單趟 $3，站內機器買 10 趟票較便宜。Exchange Place→WTC 4 分鐘；Grove St→33 St 線到 Christopher / 9 St / 14 St / 23 St / 33 St</li>
   <li>Roosevelt Island 纜車算地鐵票，NYC Ferry 不算（$4.50）</li></ul></div>
  <div class="info"><h2>免費 / 省錢攻略<small>感恩節週特別版</small></h2><ul>
@@ -234,7 +234,7 @@ const INFO = {
   <li>☐ 怪奇物語 11/19 19:00 — 先試 lottery，沒中再買兩張</li>
   <li>☐ Nets vs Bulls 11/18 19:30 Barclays Center — Ticketmaster 買兩張</li>
   <li>☐ 感恩節晚餐 11/26 — 當天幾乎全滿</li>
-  <li>☐ 預約：Whitney 週五免費場 11/20、Bronx Zoo 11/25、Top of the Rock 11/23</li>
+  <li>☐ 預約：Whitney 週五免費場 11/20、Top of the Rock 11/23</li>
   <li>☐ Peter Luger 現金</li></ul></div>`,
 };
 
@@ -283,7 +283,7 @@ document.getElementById('daypick').innerHTML = ['全部', ...DAYS.map(d => d.d)]
 document.querySelectorAll('.daypick button').forEach((b, i) => b.onclick = () => { dayIdx = i - 1; drawMap(); if (dayIdx >= 0) document.getElementById('day' + dayIdx).scrollIntoView({behavior:'smooth', block:'start'}); });
 document.querySelectorAll('.tabs button').forEach(b => b.onclick = () => { tab = b.dataset.tab; document.querySelectorAll('.tabs button').forEach(x => x.classList.toggle('on', x === b)); render(); });
 
-document.getElementById('foot').textContent = '門票大約：Met $22 + MoMA $17 + Cloisters $22 + AMNH $22 + Top of the Rock $40 ≈ $125，其他全免費。11 月下旬日落約 16:30，白天行程要早出門。';
+document.getElementById('foot').textContent = '門票大約：Met $22 + MoMA $17 + AMNH $22 + Top of the Rock $40 ≈ $100，其他全免費。11 月下旬日落約 16:30，白天行程要早出門。';
 render();
 </script>
 </body>
