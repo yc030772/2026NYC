@@ -47,6 +47,13 @@
   .day { margin:28px 0 10px; display:flex; align-items:baseline; gap:10px; }
   .day h2 { font:700 26px "Playfair Display", serif; margin:0; }
   .day span { color:var(--muted); font-size:14px; }
+  .read { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:4px 18px; margin-bottom:12px; font-size:15px; line-height:1.8; }
+  .read summary { cursor:pointer; font-weight:700; padding:10px 0; list-style:none; display:flex; align-items:baseline; gap:8px; }
+  .read summary::-webkit-details-marker { display:none; }
+  .read summary small { color:var(--muted); font-weight:400; font-size:13px; }
+  .read summary::after { content:'收合'; margin-left:auto; color:var(--muted); font-weight:400; font-size:13px; }
+  .read:not([open]) summary::after { content:'展開'; }
+  .read p { margin:0 0 12px; }
   .item { display:grid; grid-template-columns:120px 1fr; gap:14px; background:var(--card); border:1px solid var(--line); border-radius:14px; overflow:hidden; margin-bottom:10px; border-left:4px solid var(--c); }
   .item.me { --c:var(--me); } .item.us { --c:var(--us); }
   .item img { width:120px; height:100%; min-height:110px; object-fit:cover; display:block; background:var(--line); }
@@ -204,6 +211,75 @@ const DAYS = [
  ]},
 ];
 
+const READ = {
+'11/17': `<p>第一天只有一件事：平安從 JFK 走到 Jersey City 的飯店。DL429 15:37 落地，國際線入關加等行李抓一小時，真正走出航廈大約 16:40。Judy 上週四就到了，今天照常上班，所以這段路是一個人走，但不難。</p>
+<p>最推薦的走法是 AirTrain。跟著「AirTrain」指標上月台，往 Jamaica 方向坐到底（約 15 分鐘），出閘門時刷 $8.50（OMNY 直接刷信用卡或手機就行）。Jamaica 站下樓就是地鐵 E 線，E 線的終點是 World Trade Center，所以上車就可以放心睡，不用數站，大約 50 分鐘。WTC 出站跟著 PATH 指標走，PATH 往 Newark 或 Journal Square 方向，一站就是 Exchange Place，$3。全程 1.5 小時、$14.50，而且 E 線這趟就算進這週 OMNY 封頂的第一趟了。Uber 這時段是尖峰，$90 起跳還會塞在 Van Wyck 上，不划算。</p>
+<p>Exchange Place 出站走 2 分鐘就是 Hyatt House。房間 Judy 已經 check-in，到櫃台報房號拿第二張房卡就好，不用重新辦。放完行李可以先在河邊走走：這裡正對曼哈頓下城，WTC 一號大樓就在對岸，是整趟旅程最方便的夜景點。</p>
+<p>Judy 18:00 下班，從 Hudson Yards 搭 7 線到 33 St 轉 PATH，大約 18:40 到。晚餐就近解決：Newport 的 Chipotle 最快，Grove St 的 Taqueria Downtown 是本地人愛的墨西哥小店（只收現金），想吃好一點就去 Razza，被《紐約時報》評為紐約最好的披薩之一。今天的重點是早點睡，台灣時間已經是隔天早上，撐到 22:00 睡，時差會調得比較順。</p>`,
+'11/18': `<p>第一個完整的白天給下城，因為它離飯店最近：PATH 一站就到 WTC，4 分鐘。今天的所有景點都在走路範圍內，而且除了午餐，全部免費。</p>
+<p>09:30 從 Oculus 開始。這座白色的車站大廳是 Calatrava 設計的，像一隻展翅的鳥，裡面就是一個購物中心，免費進，拍幾張就好。出來走 3 分鐘到 911 紀念池：兩個巨大的方形瀑布，就落在雙塔原本的地基上，四周刻著近三千個罹難者的名字。這裡免費，安靜站一下就夠了；博物館票 $33，之前決定不進去，紀念池本身已經很有份量。</p>
+<p>接著沿 Broadway 往南走 10 分鐘就是華爾街。Trinity 教堂先到，免費進，Hamilton 的墓就在墓園裡；再走 2 分鐘到 Wall St 路口，紐約證交所、Fearless Girl、Federal Hall 三個在同一個路口。繼續往南到 Bowling Green 看銅牛（平日中午排隊 10 分鐘），銅牛旁邊的海關大樓就是國立美洲印第安人博物館 NMAI，每天免費，光是看 Beaux-Arts 的大廳和圓頂就值 30 分鐘。午餐在 Stone Street，一條鋪鵝卵石的小巷，兩旁都是酒館，坐室外吃漢堡很有紐約下城的感覺；想便宜就去 Fulton St 的 Chick-fil-A。</p>
+<p>14:15 走到 Whitehall Terminal 搭 Staten Island Ferry。它是通勤渡輪，所以完全免費，24 小時都有，單程 25 分鐘。去程站右側甲板，會從自由女神旁邊經過，比付費的觀光船還近。到對岸不用出站，直接走回候船室搭下一班回來。回程換左側，看曼哈頓天際線慢慢放大，這是今天最漂亮的 25 分鐘。</p>
+<p>15:30 回到曼哈頓，從 South Ferry 搭 1 線到 34 St-Penn Station，這是今天第一趟計入封頂的地鐵（渡輪和 PATH 都不算）。Koreatown 就在 32 St，逛一逛、喝杯咖啡等 Judy 下班。18:15 在 Penn Station 會合，Judy 從 Hudson Yards 走 12 分鐘過來。兩人一起搭 2/3 線到 Atlantic Av-Barclays Ctr，20 分鐘，Dekalb Market Hall 就在球場走路 5 分鐘的地方，裡面有 Katz's 分店和幾十個攤位，快速吃完 19:30 進場看 Nets 對 Bulls。Nets 的票比 Knicks 便宜很多，上層 $30–50 就有。散場後 2/3 線坐到 Chambers St 轉 PATH 回飯店，大約 35 分鐘，今天剛好三趟地鐵。</p>`,
+'11/19': `<p>今天是博物館加百老匯的一天，也是學生證第一次派上用場。10:00 開館就進大都會博物館 Met：帶著台灣學生證到櫃台說 student，門票從 $30 變 $22，任何學校都收。Met 太大，不要想看完。建議路線：埃及館的 Dendur 神殿（整座從埃及搬來的神殿，落地窗外就是中央公園）、歐洲繪畫區的維梅爾和林布蘭、美國館的中庭、二樓的亞洲館。兩小時到 12:00 就出來，門票當天可以再進，下午如果想回來看也可以。</p>
+<p>12:30 午餐是今天的重頭戲：Keens Steakhouse。1885 年開到現在，天花板掛滿會員的陶土煙斗，是紐約最有味道的老牌牛排館。午餐菜單比晚餐便宜將近一半，招牌 Mutton Chop 羊排午餐版 $40，一份兩個人分正好。從 Met 搭 6 線 86 St 到 33 St 走 5 分鐘；Judy 從 Hudson Yards 走 15 分鐘，或 7 線一站到 Times Sq 再走過來。記得先在 Resy 訂 12:30。</p>
+<p>下午慢慢走：Keens 往北 5 分鐘就是 Bryant Park 和紐約公共圖書館，圖書館的 Rose 閱覽室免費進，有名的石獅子就在 5 Ave 門口。再沿 5 Ave 或 6 Ave 一路往北走到中央公園南口，進公園沿南段走到西南角的 Columbus Circle，整段含公園大約 1.5 小時，不趕，想坐就坐。</p>
+<p>18:00 在 Times Square 快速吃晚餐，因為 19:00 開演不能遲到。W 46 St 的 Emporium Brasil 是巴西烤肉自助秤重，Los Tacos No.1 是紐約公認最好的 taco，Joe's Pizza 一片 $4 站著吃。今天的晚餐算自付，因為 Keens 已經把 $100 用完了，但 Chick-fil-A 兩人 $25 就解決。</p>
+<p>19:00 怪奇物語舞台劇 The First Shadow 在 Marquis Theatre，約 2 小時 45 分含中場。票先抽 lottery：不限學生，兩人各用自己的帳號抽，每個帳號可以要 2 張，中獎機率加倍，中了 $30–50。沒中就等 Black Friday 的 TodayTix 特賣。21:45 散場，走出劇院就是時代廣場，這時候螢幕最亮、人也最多，是整趟旅程拍時代廣場最好的時機，拍完搭 1/2/3 線到 Chambers 轉 PATH 回去。</p>`,
+'11/20': `<p>今天幾乎什麼都不用花錢，是整趟最會省的一天。早上 PATH 搭 33 St 線到 33 St，轉 B/D/F/M 一站到 47-50 St，10:30 開館進 MoMA。學生票 $17（原價 $30）。MoMA 五樓是精華：梵谷的星夜、莫內的睡蓮、達利的記憶的堅持、畢卡索的亞維儂少女都在五樓，先上五樓再往下看，兩小時夠。</p>
+<p>12:30 午餐 Margon，MoMA 走 8 分鐘到 W 46 St。這是一家古巴小吃店，中午排隊的都是附近上班族，Cubano 三明治和烤雞飯配黑豆飯 $15 以內，只收現金，只開到 17:00。Judy 從 Hudson Yards 搭 7 線一站到 Times Sq 走 5 分鐘。如果 Margon 隊太長，隔壁的 Emporium Brasil 或 53 St 的 Halal Guys 本店餐車都是好選擇。</p>
+<p>下午沿第五大道慢慢往北逛，Saks、Tiffany 的櫥窗感恩節前就上了，Rockefeller Center 的聖誕樹已經豎好但要到 12 月初才點燈，溜冰場可以看人溜。17:00 走 15 分鐘到 Morgan Library：J.P. Morgan 的私人圖書館，三層樓的書牆和古騰堡聖經，週五 17:00–19:00 免費，平常 $25。</p>
+<p>18:30 跟 Judy 在 Hudson Yards 會合，Vessel 那座蜂巢形的銅色階梯就在 Judy 公司旁，外面看免費。然後從 Hudson Yards 上 High Line，這條由廢棄高架鐵路改成的空中公園一路往南走 25 分鐘，終點就是 Whitney 美術館。Whitney 週五 17:00 到 22:00 全部人免費，不只學生，但要先線上預約時段，建議 19:15。Whitney 的強項是美國現代藝術和頂樓露台看哈德遜河夜景。</p>
+<p>20:00 走 5 分鐘到 Little Island，這座立在哈德遜河上的人造島公園像一堆鬱金香花盆，上去走一圈看夜景免費（冬季開放時間先確認）。20:45 回到 Chelsea Market 吃晚餐，裡面的 Los Tacos No.1 是本店，Lobster Place 可以站著吃現開生蠔。回程 A/C/E 從 14 St 到 WTC 轉 PATH，這是這週第 12 趟付費地鐵，從明天起整週免費。</p>`,
+'11/21': `<p>第一個週六，整天一起，而且地鐵已經封頂全部免費，所以今天故意把路線拉長，從下城一路到上城。飯店吃完早餐，09:00 PATH 到 WTC 走 8 分鐘到 Bowling Green。週六早上是整週觀光客最少的時候，銅牛前面幾乎不用排，Fearless Girl、紐約證交所、Trinity 教堂都在 5 分鐘內走完。</p>
+<p>10:15 從 Rector St 搭 1 線往北坐 40 分鐘到 116 St-Columbia University。哥倫比亞大學的校園可以隨便進，Low Library 前面那排階梯和 Alma Mater 雕像是最經典的畫面。校園往東走 10 分鐘是 St. John the Divine，世界最大的哥德式教堂之一，到現在還沒蓋完，進去免費（捐獻隨意）。</p>
+<p>13:30 午餐在 Harlem 的 Sylvia's，1962 年開到現在的靈魂料理老店，炸雞、玉米麵包、燉羊角豆，週六中午人多但翻桌快。隔壁街的 Red Rooster 是名廚 Marcus Samuelsson 開的，比較時髦；125 St 河邊的 Dinosaur Bar-B-Que 則是想吃美式烤肉的選擇。吃完走到 125 St 看 Apollo Theater 的招牌，Studio Museum 就在旁邊，免費。</p>
+<p>16:00 搭 B/C 線從 125 St 到 81 St，出站就是自然史博物館 AMNH。學生票 $22（原價 $30），開到 17:30，一個半小時看恐龍廳和藍鯨就夠。如果覺得太趕，這段可以換成多留在哥倫比亞或 Harlem。</p>
+<p>18:30 晚餐留在上西區。Carmine's 是家庭式義大利菜，大盤分食，份量是一般餐廳的兩倍，兩個人點一盤義大利麵加一份主菜就飽。Shake Shack 77 St 店是紐約第一代的分店之一，Chipotle 在 Broadway 79 St。飯後走到 74 St 的 Levain Bakery，一顆 170 公克的巧克力核桃餅乾 $5，是紐約最有名的餅乾，外酥內軟像沒烤熟一樣。回程 1/2/3 線從 72 St 到 Chambers 轉 PATH。</p>`,
+'11/22': `<p>今天是吃的一天加上 NBA。10:00 從 Lower East Side 開始，這一帶是紐約猶太移民的老區，貝果、燻鮭魚、Pastrami 都源自這裡。三家都點一份兩人分，才吃得完。第一站 Apollo Bagels，E 10 St，現在紐約排隊最長的貝果店，去得越晚隊越長，所以 10:00 就要到。第二站走 15 分鐘到 Houston St 的 Russ & Daughters 本店，1914 年開的燻魚店，外帶一份 lox bagel（燻鮭魚加奶油乳酪）。第三站隔兩個門口就是 Katz's，1888 年的熟食店，《當哈利遇上莎莉》的那張桌子還在，一份 Pastrami 三明治 $28，肉厚到一個人吃不完，兩人分正好。進門會拿到一張票，點餐切肉的師傅會給一小片試吃，出門時憑票付錢，票別弄丟。</p>
+<p>吃完走 10 分鐘到 SoHo，鑄鐵建築和鵝卵石街，Broadway 上是大品牌，往西邊的 Greene St、Mercer St 才是精品店。14:00 搭 N/R/W 從 Prince St 往北，在 49 St 先下車走到 5 Ave & 45 St 的 NBA Store 逛，然後繼續搭到 Lexington Av/59 St，走 2 分鐘到 Roosevelt Island 纜車。這條纜車跟地鐵同一個票價系統，封頂後免費，4 分鐘跨過東河，在 Queensboro Bridge 旁邊飛，《蜘蛛人》第一集的場景。到島上走到 Four Freedoms Park 看曼哈頓，再搭回來，或是直接從島上搭 F 線。</p>
+<p>18:00 K-town 晚餐，在 32 St，MSG 走路 5 分鐘。BCD Tofu House 的豆腐鍋 $25 快又暖，Jongro BBQ 是烤肉，Keens 就在隔壁街（如果 11/19 沒去成）。</p>
+<p>20:00 Knicks 對 Pacers，票已經買好：Section 206、Row 3、Seat 10 和 11，在 Ticketmaster app 裡。MSG 進場安檢排隊會花 20 分鐘，19:15 前到門口。206 區是上層第一排視野很好的位置。散場後 PATH 33 St 站就在 MSG 地下，Journal Square 線在 Grove St 轉一站到 Exchange Place，或直接走到 Hoboken 線都行。</p>`,
+'11/23': `<p>第二週開始，OMNY 重新計算，今天會搭 4 趟。10:00 PATH 33 St 線到 33 St，走 10 分鐘或 7 線一站到 Grand Central。中央車站主廳的天花板畫著整片星座（而且方向是反的，傳說是從上帝的角度看），四面鐘下是最經典的拍照位置，地下還有一個耳語廊，站在對角線的兩個角落小聲講話對方聽得到。往西走 7 分鐘是紐約公共圖書館和 Bryant Park，Winter Village 的市集白天也開，三個點全部免費。</p>
+<p>12:30 午餐 Ci Siamo，在 Manhattan West，Judy 公司走 8 分鐘。這是 Union Square Hospitality 旗下的義大利餐廳，用柴火烤爐，午餐菜單比晚餐便宜很多，手工義大利麵 $30 左右，要在 Resy 訂位。從 Grand Central 搭 7 線到終點 34 St-Hudson Yards 就到。</p>
+<p>13:00 搭 7 線回 Times Sq 走 10 分鐘到第五大道。Saks 的聖誕櫥窗和燈光秀、Bergdorf Goodman 的櫥窗感恩節前就上了，St. Patrick 大教堂免費進，對面就是 Rockefeller Center。這裡不上 Top of the Rock，因為今天晚上要跟 Judy 去 Edge，兩個觀景台選一個就好。</p>
+<p>18:15 回到 Hudson Yards，Edge 就在 Judy 公司樓下，下班走 2 分鐘。100 樓的戶外懸空觀景台，往外突出 24 公尺，有一塊玻璃地板可以站上去往下看，是西半球最高的戶外觀景台。夜景場 $44 起，沒有學生價，要先線上買 18:30 的時段，這是整趟旅程唯一付費的觀景台。這個時間天剛黑、帝國大廈剛亮燈，是最好的時段。</p>
+<p>19:45 搭 7 線一站到 5 Av，Bryant Park Winter Village 晚上最熱鬧，一百多個小木屋攤位賣聖誕飾品和吃的，晚餐就在市集裡解決：可麗餅、拉麵、熱紅酒。溜冰場免費進場，租鞋 $20 起。回程 PATH 33 St 就在旁邊。</p>`,
+'11/24': `<p>今天往東邊走，去 Queens。10:30 PATH 33 St 線到 33 St，走到 Times Sq 搭 7 線坐到終點 Flushing-Main St，約 45 分鐘。7 線出了曼哈頓就是高架，沿路可以看到 Long Island City 的高樓和後面的曼哈頓天際線。法拉盛是紐約最大的華人區，比 Chinatown 更像現在的中國和台灣。午餐三個選擇：南翔小籠包（Prince St）是上海菜，白熊 White Bear 的紅油抄手 $8 一碗，新世界美食廣場在地下室，幾十攤什麼都有。$15 以內可以吃很飽。</p>
+<p>14:00 搭 7 線回程，在 Vernon Blvd-Jackson Av 下車，走 5 分鐘到 Long Island City 的 Gantry Plaza State Park。這裡是看曼哈頓中城天際線最好的角度之一，聯合國大樓、帝國大廈、克萊斯勒大廈一字排開，老舊的 Pepsi-Cola 紅色霓虹招牌就在河邊，免費。下午光線從西邊打過來，拍照剛好。</p>
+<p>16:00 搭 7 線回 Times Sq 轉 1 線到 Christopher St，或先在 Union Square 下車。Union Square 的聖誕市集比 Bryant Park 小，但人少好逛，11 月中就開了。從 Union Square 走 10 分鐘到 Washington Square，這一帶是 Greenwich Village，NYU 的校園就散在周圍。</p>
+<p>19:00 Judy 下班搭 A/C/E 到 W 4 St 會合。先走到 Bedford St 和 Grove St 路口，90 Bedford St 就是《六人行》片頭那棟公寓的外景，免費，拍一張就好。L'industrie 披薩就在走 2 分鐘的地方，是現在紐約排名最高的披薩店之一，一片 $5–7，Burrata 口味最有名；想坐下來吃，Mamoun's 是 1971 年開的 falafel 老店，Hill Country 則是德州風格的烤肉。飯後走到 MacDougal St 的 Figo il Gelato 吃一杯 $8 的義式冰淇淋，隔壁就是 1927 年開的 Cafe Reggio，紐約第一台 espresso 機就在這裡，路過看一眼。最後走到 Washington Square 的拱門看夜景。回程 PATH Christopher St 站就在旁邊，直接回 Exchange Place。</p>`,
+'11/25': `<p>感恩節前夕，紐約已經開始放假的氣氛。今天是免費日，也是這週地鐵封頂的一天。10:30 PATH 到 WTC 轉 C/E 到 23 St，走進 Chelsea 畫廊區。W 20 St 到 W 26 St 之間、10 Ave 和 11 Ave 之間，有兩百多間藝廊，Gagosian、David Zwirner、Pace、Hauser & Wirth 這些全世界最大的畫廊都在這裡，全部免費進，當期展覽的水準常常比美術館還高，而且幾乎沒有人。隨便走 1.5 小時，看到有興趣的就推門進去。午餐 Chelsea Market 的 Los Tacos No.1 或 Chipotle，或 Billy's Bakery 的杯子蛋糕。</p>
+<p>13:30 搭 C/E 從 23 St 到 6 線 68 St，走到第五大道的 Frick Collection。這是鋼鐵大亨 Henry Clay Frick 的豪宅，2025 年整修五年後重新開幕，維梅爾的《軍官與微笑的女孩》、林布蘭的自畫像就掛在客廳。週三 13:30 到 17:30 是 pay-what-you-wish，平常 $30，給 $5 也可以進。一個小時到一個半小時剛好。</p>
+<p>15:30 回飯店洗衣服、休息，因為接下來幾天都是整天在外面。6 線從 68 St 坐到 Brooklyn Bridge-City Hall 走到 WTC 轉 PATH。Hyatt House 有自助洗衣。</p>
+<p>18:30 跟 Judy 一起去上西區看 Macy's 遊行的氣球充氣。每年感恩節前一晚，隔天要飛的那些巨型氣球就在自然史博物館旁邊的 W 77 St 到 W 81 St 充氣，12:00 到 18:00 開放，免費，但是排隊會排到晚上，今年是遊行一百週年，人會更多。排隊的路上就能看到氣球慢慢站起來。</p>
+<p>20:00 上西區晚餐，Carmine's、Shake Shack 或 Jacob's Pickles 都在走路範圍。回程 1 線從 79 St 到 Chambers 轉 PATH，這是這週第 12 趟，明後天整個週末免費。今晚早點睡，明天 6:30 要出門。</p>`,
+'11/26': `<p>感恩節。Judy 應該放假，整天一起。今年是 Macy's 感恩節遊行的一百週年，所以 6:30 就要出門。PATH 到 WTC 轉 1/2/3 到 72 St，走到 Central Park West 找位置。遊行 08:30 從 77 St 出發沿 Central Park West 往南走，72 St 附近是看氣球最好的路段之一，07:30 到的話還站得到第二排。穿暖一點，站在原地兩個小時會很冷，帶熱飲。氣球、花車、百老匯演員、最後聖誕老人出來就結束，大約 11:00。</p>
+<p>12:30 感恩節這天紐約大部分的餐廳都關門，但 Chinatown 照常開，而且很多紐約人就是這天去飲茶。搭 B/D 從 72 St 到 Grand St，20 分鐘。Golden Unicorn、Jing Fong 都是推車式的大型飲茶餐廳，兩人 $50 吃很飽。</p>
+<p>14:30 搭 N/R/W 從 Canal St 到 5 Av-59 St，從南口進中央公園。走 The Mall 那條榆樹大道到 Bethesda Terrace 的噴泉和拱廊，再走到 Bow Bridge，這座鑄鐵橋是中央公園最常被拍的地方。11 月底葉子快落完了，但午後的光線很漂亮，全部免費。</p>
+<p>16:00 從公園南口走 5 分鐘回到第五大道，Judy 還沒看過聖誕櫥窗，Saks 的燈光秀天黑後每隔幾分鐘一次，Rockefeller 的溜冰場感恩節照開，$40 起含租鞋，要預約，不溜就在上面看人。</p>
+<p>18:00 感恩節晚餐。套餐 $75–95 一個人，火雞、填料、蔓越莓醬、南瓜派一次到位：The Smith 在 Midtown 幾間分店，Bubby's 在 Tribeca 走美式家常路線，Jacob's Pickles 在上西區。這些 10 月中就要在 Resy 或 OpenTable 訂位，感恩節當天沒訂到的就只剩 Chinatown。今天是假日，兩人餐費預算 $200。</p>
+<p>20:00 走到 Bryant Park Winter Village，感恩節晚上照常開，喝杯熱紅酒看溜冰結束這一天。回程 PATH 33 St。</p>`,
+'11/27': `<p>今天是為長輩安排的中城經典路線：11:00 才出發，所有景點都在中城走路範圍內，點和點之間 3 到 12 分鐘，走累了隨時可以叫計程車 $10。Black Friday 這天人多，但這些地標本來就是人多的地方，差別不大。Judy 的公司如果 Black Friday 放假就整天一起，不然 18:15 晚餐會合。</p>
+<p>11:00 從飯店旁的 Exchange Place 搭 PATH 33 St 線，直達不用轉車，大約 20 分鐘，站內有電梯。11:25 出站就是帝國大廈。外觀拍照免費，想上 86 樓觀景台 $44，Black Friday 會排隊，要上去的話前一天先線上買票選時段。</p>
+<p>12:15 午餐可有可無。韓國城 32 St 就在帝國大廈旁邊，BCD Tofu House 的豆腐鍋熱湯配小菜 $25，座位寬，適合長輩；想吃正式一點就訂 Keens 的午餐，1885 年的老牛排館，羊排 $60；只是想快速解決就 6 Ave 的 Chick-fil-A。</p>
+<p>13:30 往北走 8 分鐘（或搭 B/D/F/M 一站）到 Bryant Park。冬季市集的小木屋、溜冰場可以坐著看人，旁邊的紐約公共圖書館免費進，有電梯、乾淨的廁所、可以坐的 Rose 閱覽室，是中城最好的休息點。14:30 沿 42 St 往東走 7 分鐘到中央車站，看星座天花板和四面鐘，地下美食街有座位可以喝杯咖啡。</p>
+<p>15:15 走 10 分鐘（或計程車）到第五大道的聖派翠克大教堂，紐約最大的天主教堂，免費進。對面就是 Rockefeller Center，聖誕樹已經豎好（12 月初才點燈），溜冰場在下面。Top of the Rock 觀景台 $40 可以選擇上去，看帝國大廈和中央公園的角度是三個觀景台裡最好的，16:30 日落前上去最漂亮。</p>
+<p>16:30 沿第五大道往北走 12 分鐘，Saks 櫥窗、Tiffany 本店、Apple 的玻璃方塊、Plaza 飯店，走到中央公園南口，公園入口有長椅可以坐一下看馬車。17:15 天黑了，搭 N/R/W 一站（或計程車 $12）到時代廣場，這時候螢幕最亮，紅階梯可以坐著看。人多，包包顧好。</p>
+<p>18:15 晚餐在 Times Sq 一帶。W 44 St 的 Carmine's 是家庭式義大利菜，大盤分食，最適合長輩一起吃，要訂位；Junior's 是起司蛋糕名店，正餐是美式家常，座位大；想快就 Chipotle。Judy 下班搭 7 線一站就到。回程 A/C/E 從 42 St 到 WTC 轉 PATH。</p>`,
+'11/28': `<p>最後一個完整的日子，重點是 Peter Luger 和 Brooklyn。訂位是 12:15（台灣時間 11/29 凌晨 01:15 訂的那一筆），只收現金或 Debit 卡，前一天先領好 $300。</p>
+<p>08:45 飯店早餐吃完就出發。PATH 一站到 WTC，穿過 Oculus 拍一張，沿 Broadway 往南走。09:35 Trinity 教堂，Hamilton 的墓在墓園裡；09:50 Wall St 路口，紐約證交所、Fearless Girl、Federal Hall（華盛頓宣誓就職的地方）三個在同一個路口，20 分鐘拍完；10:15 銅牛，週六早上排 5 分鐘就拍到，旁邊的美洲印第安人博物館免費可以晃一下。這段是 Judy 想補的華爾街，整段走路不到一公里。</p>
+<p>10:45 從 Bowling Green 搭 4/5 線兩站到 Fulton St，站內轉 J 線往 Jamaica Center 方向，坐到 Marcy Av。J 線會從威廉斯堡大橋上過東河，坐右側可以看整個曼哈頓下城，約 30 分鐘。</p>
+<p>11:20 出站走 8 分鐘到 Grand St 的 Devoción，哥倫比亞直送咖啡豆、玻璃屋頂灑進來的光，是 Williamsburg 最漂亮的咖啡店，一杯 $7。再走 8 分鐘到 Domino Park，舊糖廠改成的河濱公園，正對曼哈頓，走一圈正好消化到午餐。12:10 走 10 分鐘到 Peter Luger 報到。1887 年開的牛排館，點 Steak for Two（Porterhouse）、厚切培根、奶油菠菜，牛排用奶油煎到外焦內嫩，醬是他們自己的 Peter Luger sauce。兩個人 $200 到 $250。</p>
+<p>13:45 吃完沿 Bedford Ave 往北走，這是 Williamsburg 的主街，古著店、唱片行、獨立書店，走 20 分鐘到 N 6 St 的碼頭。14:30 搭 NYC Ferry 東河線到 DUMBO，$4.50，15 分鐘，從水上看曼哈頓和兩座橋，很值得；省錢也可以搭 F 線到 York St。</p>
+<p>15:00 DUMBO 的 Washington St 是曼哈頓大橋框住帝國大廈的那張經典照片，拍完走 15 分鐘到 Brooklyn Heights Promenade，這條步道看曼哈頓天際線的角度比橋上還好。16:00 走上布魯克林大橋回曼哈頓，約 30 分鐘，日落 16:30 剛好走在橋上，往西看夕陽落在自由女神後面。橋尾 City Hall 走 8 分鐘到 WTC。</p>
+<p>18:00 搭 A/C 到 59 St-Columbus Circle，走到 Hell's Kitchen 吃晚餐，這裡離 Terminal 5 很近。吃完 Judy 先搭 PATH 回飯店幫忙打包，20:00 Jerry 進 Terminal 5 看宋冬野，GA 站票，AXS app 手機票進場，約 22:30 結束。回程 1 線從 59 St 到 Chambers 轉 PATH，23:30 到飯店。凌晨 3 點就要起床，今晚只能睡三個小時，行李在出門前就要打包好。</p>`,
+'11/29': `<p>回程日，只有 Jerry 一個人走，Judy 留在紐約。DL699 07:10 從 JFK T4 起飛到 Seattle，再轉 DL69 15:05 回台北，11/30 20:30 落地。國內線轉國際線，但第一段是國內線，所以 05:10 前到機場就夠，不用像國際線那樣提早三小時。</p>
+<p>兩個方案。A 方案是 Uber：前一晚先在 app 預約 04:00 出發，凌晨沒有車流，45 分鐘到 T4，$90 到 $110。B 方案是大眾運輸，全部 24 小時有車：02:45 出門，PATH Exchange Place 到 WTC（凌晨每 35 分鐘一班，先查好時間），轉 A 線往 Far Rockaway 方向坐到 Howard Beach，凌晨慢車大約 65 分鐘，出站搭 AirTrain 到 T4，$8.50。全程約 2 小時、$12 左右。這週的 OMNY 是新的一週，所以 A 線這趟要付 $3。</p>
+<p>B 方案省將近 $100，但凌晨兩點半拖行李走路、等 35 分鐘一班的 PATH、A 線凌晨會停站比較久，而且前一晚演唱會 23:30 才到飯店，只睡三個小時。如果身體狀況允許就搭大眾運輸，不然多睡一小時搭 Uber 也合理，兩個方案的差別就是 $100 和一小時睡眠。</p>
+<p>到 T4 後 Delta 的自助報到機掃護照、掛行李，國內線安檢 TSA 凌晨 5 點人不多。Seattle 轉機時間足夠，行李直掛台北。飛機上早餐自己解決，T4 的 Shake Shack 五點就開。</p>`,
+};
+
 const INFO = {
  jerry: `
  <div class="info"><h2>學生身分怎麼用<small>帶學生證，最好有英文</small></h2>
@@ -267,6 +343,7 @@ function render() {
   document.getElementById('days').innerHTML = DAYS.map((day, i) => {
     const items = day.items.filter(vis);
     return `<div class="day" id="day${i}"><h2>${day.d}</h2><span>${day.sub}</span></div>` +
+      (READ[day.d.slice(0,5)] ? `<details class="read" open><summary>📖 今天怎麼走<small>5 分鐘讀完</small></summary>${READ[day.d.slice(0,5)]}</details>` : '') +
       items.map(it => `<div class="item ${it.w}">
         ${it.img ? `<img src="img/${it.img}.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=ph>'+this.alt+'</div>'">` : `<div class="ph">${it.n}</div>`}
         <div class="b"><div class="t"><b>${it.t}</b><h3>${it.n}</h3>${(it.tag||[]).map(t=>`<span class="tag ${t}">${({free:'免費',stu:'學生價',deal:'優惠'})[t]}</span>`).join('')}<span class="who">${it.w==='me'?'Jerry':'一起'}</span></div>
