@@ -126,7 +126,7 @@ const DAYS = [
   {t:'12:30', w:'us', n:'午餐 Keens Steakhouse', d:'Judy 從 Hudson Yards 走 15 分鐘；午餐菜單比晚餐便宜一半，mutton chop 午餐版 $40；要訂 12:30', eat:[{n:'Keens Steakhouse（W 36 St）',d:'1885 年老牌牛排館，天花板掛 9 萬支菸斗，午餐 prix fixe',p:'$50'},{n:'Chick-fil-A（5 Ave & 37 St）',d:'Keens 對面街口，Judy 趕時間的備案',p:'$12'},{n:'Chipotle（6 Ave & 34 St）',d:'Herald Sq 旁',p:'$14'}], ll:[40.7506,-73.9866], tr:'🚇 6 線 86 St → 33 St（趟數 2）；Judy 走路或 7 線 1 站到 Times Sq'},
   {t:'14:00', w:'me', n:'Bryant Park、NYPL 圖書館 → 中央公園南段到 Columbus Circle', img:'solomon-r-guggenheim-museum', ll:[40.7830,-73.9590], tr:'走路，約 1.5 小時含公園'},
   {t:'18:00', w:'us', n:'Times Square 快速晚餐', img:'times-square', eat:[{n:'Emporium Brasil（W 46 St 小巴西街）',d:'巴西烤肉、feijoada，Marquis 走 3 分鐘',p:'$30'},{n:'Los Tacos No.1（43 St）',d:'紐約公認最好吃的 taco，站著吃，adobada 必點',p:'$15'},{n:'Joe\'s Pizza（Broadway & 40 St）',d:'經典紐約一片披薩，$4 一片',p:'$10'}], ll:[40.7580,-73.9855], tr:'🚇 A/C/D 59 St → 42 St（趟數 2）'},
-  {t:'19:00', w:'us', n:'怪奇物語 The First Shadow @ Marquis Theatre', d:'約 2h45m；lottery 不限學生，兩人各用自己的帳號抽（每帳號 2 張）加倍機率，$30–50；沒中就等 Black Friday 特賣。21:45 散場出來就是時代廣場，螢幕最亮的時候，拍照就這時', tag:['deal'], img:'stranger-things-the-first-shadow', ll:[40.7585,-73.9862], tr:'回程 🚇 1/2/3 Times Sq → Chambers/WTC 轉 PATH（趟數 3）'},
+  {t:'19:00', w:'us', n:'怪奇物語 The First Shadow @ Marquis Theatre', d:'約 2h45m；lottery 已中籤，兩張手機票，18:30 前到門口取票 / 掃碼進場。21:45 散場出來就是時代廣場，螢幕最亮的時候，拍照就這時', tag:['deal'], img:'stranger-things-the-first-shadow', ll:[40.7585,-73.9862], tr:'回程 🚇 1/2/3 Times Sq → Chambers/WTC 轉 PATH（趟數 3）'},
  ]},
  {d:'11/20 五', sub:'免費日｜地鐵 3 趟，今天封頂', cost:'$100：Margon 午餐兩人 $30｜Chelsea Market 晚餐兩人 $70', items:[
   {t:'10:30', w:'me', n:'MoMA', d:'學生 $17', tag:['stu'], img:'museum-of-modern-art', eat:[{n:'Halal Guys 本店餐車（53 St & 6 Ave）',d:'最有名的 halal 餐車本店，雞肉飯淋白醬',p:'$12'},{n:'Chipotle（6 Ave & 52 St）',d:'MoMA 走 3 分鐘',p:'$14'},{n:'MoMA Café 2',d:'館內二樓，義式輕食，安靜',p:'$25'}], ll:[40.7614,-73.9776], tr:'PATH 33 St 線 → 33 St，🚇 B/D/F/M → 47-50 St（趟數 1）'},
@@ -158,10 +158,11 @@ const DAYS = [
   {t:'18:15', w:'us', n:'Edge 觀景台（Judy 公司樓下）', d:'100 樓戶外懸空觀景台，玻璃地板，西半球最高；夜景場 $44 起，線上先買 18:30 時段，沒學生價；整趟唯一付費觀景台', img:'edge-hudson-yards', ll:[40.7541,-74.0010], tr:'Judy 下班走 2 分鐘；Jerry 🚇 7 線 → 34 St-Hudson Yards（趟數 4）'},
   {t:'19:45', w:'us', n:'Bryant Park Winter Village 市集 + 溜冰', d:'市集內晚餐', tag:['free'], img:'bryant-park', eat:[{n:'Winter Village 攤位（可麗餅、拉麵）',d:'市集 100 多攤，邊逛邊吃，熱紅酒 $12',p:'$25'},{n:'Chick-fil-A（5 Ave & 37 St）',d:'Bryant Park 走 5 分鐘',p:'$12'},{n:'Ippudo（W 51 St）',d:'一風堂紐約店，豚骨拉麵 + 刈包',p:'$30'}], ll:[40.7536,-73.9832], tr:'🚇 7 線 Hudson Yards → 5 Av 1 站；回程 PATH 33 St'},
  ]},
- {d:'11/24 二', sub:'地鐵 4 趟', cost:'$100：Flushing 午餐 $15｜Village 晚餐 $60 + Figo $16', items:[
+ {d:'11/24 二', sub:'Queens → 古根漢 PWYW → Village｜地鐵 4 趟', cost:'$100：Flushing 午餐 $15｜Village 晚餐 $60 + Figo $16', items:[
   {t:'10:30', w:'me', n:'法拉盛 Flushing 吃麵、新世界美食廣場', img:'flushing-queens', eat:[{n:'南翔小籠包 Nan Xiang',d:'法拉盛最有名小籠包，蟹粉必點',p:'$20'},{n:'白熊 White Bear 餛飩',d:'辣油餛飩 12 顆 $8，店很小只賣這個',p:'$10'},{n:'新世界美食廣場',d:'New World Mall 地下，30 攤中式各省菜',p:'$15'}], ll:[40.7596,-73.8300], tr:'PATH 33 St → 🚇 7 線 Times Sq → Flushing-Main St 終點，約 45 分鐘（趟數 1）'},
   {t:'14:00', w:'me', n:'Long Island City Gantry Plaza 看天際線', tag:['free'], img:'gantry-plaza-state-park', ll:[40.7466,-73.9580], tr:'🚇 7 線回程在 Vernon Blvd-Jackson Av 下（趟數 2）'},
-  {t:'16:00', w:'me', n:'Union Square 聖誕市集 → Greenwich Village、Washington Square', d:'Union Square 市集比 Bryant Park 小但人少，11 月中開；走 10 分鐘到 Washington Square', img:'washington-square-park', ll:[40.7308,-73.9973], tr:'🚇 7 線 → Times Sq 轉 1 線 → Christopher St（趟數 3–4）'},
+  {t:'15:45', w:'me', n:'Guggenheim 古根漢美術館', d:'週二 16:00–17:30 pay-what-you-wish（平常 $30、學生 $19），15:45 到門口排，給 $5 就進；萊特設計的螺旋坡道，從頂樓一路走下來看，一小時剛好', tag:['deal'], img:'solomon-r-guggenheim-museum', ll:[40.7830,-73.9590], tr:'🚇 7 線 Vernon Blvd → Grand Central 轉 4/5/6 → 86 St，走 10 分鐘（趟數 2–3）'},
+  {t:'17:30', w:'me', n:'Union Square 聖誕市集 → Washington Square', d:'Union Square 市集比 Bryant Park 小但人少，快逛 30 分鐘；走 10 分鐘到 Washington Square', img:'washington-square-park', ll:[40.7308,-73.9973], tr:'🚇 6 線 86 St → 14 St-Union Sq，25 分鐘（趟數 4）'},
   {t:'19:00', w:'us', n:'Friends 公寓 → Village 晚餐 → Figo 冰淇淋 → Washington Square 夜景', d:'先到 90 Bedford St & Grove St 拍 Friends 公寓外景（免費，L\'industrie 走 2 分鐘）；飯後 Figo il Gelato（MacDougal St）$8，路過隔壁 1927 年的 Cafe Reggio，再走到 Washington Square 拱門', img:'washington-square-park', eat:[{n:'Mamoun\'s Falafel',d:'Village 1971 年老攤，falafel 三明治 $5',p:'$10'},{n:'L\'industrie Pizzeria（West Village，Christopher St）',d:'現在紐約最紅的一片披薩，burrata slice 必點，排 20 分',p:'$12'},{n:'Hill Country Barbecue（Flatiron，W 26 St）',d:'德州 Lockhart 風格，秤重買 brisket、ribs，到 Village 走 15 分鐘',p:'$40'}], ll:[40.7310,-74.0006], tr:'Judy 🚇 A/C/E Hudson Yards 附近 → W 4 St；回程 PATH Christopher St 站直接回 Exchange Place'},
  ]},
  {d:'11/25 三', sub:'感恩節前夕｜免費日｜地鐵 4 趟，今天封頂', cost:'$100：Chelsea 午餐 $15｜上西區晚餐 $75', items:[
@@ -226,7 +227,7 @@ const READ = {
 <p>12:30 午餐是今天的重頭戲：Keens Steakhouse。1885 年開到現在，天花板掛滿會員的陶土煙斗，是紐約最有味道的老牌牛排館。午餐菜單比晚餐便宜將近一半，招牌 Mutton Chop 羊排午餐版 $40，一份兩個人分正好。從 Met 搭 6 線 86 St 到 33 St 走 5 分鐘；Judy 從 Hudson Yards 走 15 分鐘，或 7 線一站到 Times Sq 再走過來。記得先在 Resy 訂 12:30。</p>
 <p>下午慢慢走：Keens 往北 5 分鐘就是 Bryant Park 和紐約公共圖書館，圖書館的 Rose 閱覽室免費進，有名的石獅子就在 5 Ave 門口。再沿 5 Ave 或 6 Ave 一路往北走到中央公園南口，進公園沿南段走到西南角的 Columbus Circle，整段含公園大約 1.5 小時，不趕，想坐就坐。</p>
 <p>18:00 在 Times Square 快速吃晚餐，因為 19:00 開演不能遲到。W 46 St 的 Emporium Brasil 是巴西烤肉自助秤重，Los Tacos No.1 是紐約公認最好的 taco，Joe's Pizza 一片 $4 站著吃。今天的晚餐算自付，因為 Keens 已經把 $100 用完了，但 Chick-fil-A 兩人 $25 就解決。</p>
-<p>19:00 怪奇物語舞台劇 The First Shadow 在 Marquis Theatre，約 2 小時 45 分含中場。票先抽 lottery：不限學生，兩人各用自己的帳號抽，每個帳號可以要 2 張，中獎機率加倍，中了 $30–50。沒中就等 Black Friday 的 TodayTix 特賣。21:45 散場，走出劇院就是時代廣場，這時候螢幕最亮、人也最多，是整趟旅程拍時代廣場最好的時機，拍完搭 1/2/3 線到 Chambers 轉 PATH 回去。</p>`,
+<p>19:00 怪奇物語舞台劇 The First Shadow 在 Marquis Theatre，約 2 小時 45 分含中場。lottery 已經中了，兩張票在手機裡，18:30 前到 Marquis Theatre 門口（Marriott Marquis 三樓）掃碼進場。21:45 散場，走出劇院就是時代廣場，這時候螢幕最亮、人也最多，是整趟旅程拍時代廣場最好的時機，拍完搭 1/2/3 線到 Chambers 轉 PATH 回去。</p>`,
 '11/20': `<p>今天幾乎什麼都不用花錢，是整趟最會省的一天。早上 PATH 搭 33 St 線到 33 St，轉 B/D/F/M 一站到 47-50 St，10:30 開館進 MoMA。學生票 $17（原價 $30）。MoMA 五樓是精華：梵谷的星夜、莫內的睡蓮、達利的記憶的堅持、畢卡索的亞維儂少女都在五樓，先上五樓再往下看，兩小時夠。</p>
 <p>12:30 午餐 Margon，MoMA 走 8 分鐘到 W 46 St。這是一家古巴小吃店，中午排隊的都是附近上班族，Cubano 三明治和烤雞飯配黑豆飯 $15 以內，只收現金，只開到 17:00。Judy 從 Hudson Yards 搭 7 線一站到 Times Sq 走 5 分鐘。如果 Margon 隊太長，隔壁的 Emporium Brasil 或 53 St 的 Halal Guys 本店餐車都是好選擇。</p>
 <p>下午沿第五大道慢慢往北逛，Saks、Tiffany 的櫥窗感恩節前就上了，Rockefeller Center 的聖誕樹已經豎好但要到 12 月初才點燈，溜冰場可以看人溜。17:00 走 15 分鐘到 Morgan Library：J.P. Morgan 的私人圖書館，三層樓的書牆和古騰堡聖經，週五 17:00–19:00 免費，平常 $25。</p>
@@ -248,7 +249,7 @@ const READ = {
 <p>19:45 搭 7 線一站到 5 Av，Bryant Park Winter Village 晚上最熱鬧，一百多個小木屋攤位賣聖誕飾品和吃的，晚餐就在市集裡解決：可麗餅、拉麵、熱紅酒。溜冰場免費進場，租鞋 $20 起。回程 PATH 33 St 就在旁邊。</p>`,
 '11/24': `<p>今天往東邊走，去 Queens。10:30 PATH 33 St 線到 33 St，走到 Times Sq 搭 7 線坐到終點 Flushing-Main St，約 45 分鐘。7 線出了曼哈頓就是高架，沿路可以看到 Long Island City 的高樓和後面的曼哈頓天際線。法拉盛是紐約最大的華人區，比 Chinatown 更像現在的中國和台灣。午餐三個選擇：南翔小籠包（Prince St）是上海菜，白熊 White Bear 的紅油抄手 $8 一碗，新世界美食廣場在地下室，幾十攤什麼都有。$15 以內可以吃很飽。</p>
 <p>14:00 搭 7 線回程，在 Vernon Blvd-Jackson Av 下車，走 5 分鐘到 Long Island City 的 Gantry Plaza State Park。這裡是看曼哈頓中城天際線最好的角度之一，聯合國大樓、帝國大廈、克萊斯勒大廈一字排開，老舊的 Pepsi-Cola 紅色霓虹招牌就在河邊，免費。下午光線從西邊打過來，拍照剛好。</p>
-<p>16:00 搭 7 線回 Times Sq 轉 1 線到 Christopher St，或先在 Union Square 下車。Union Square 的聖誕市集比 Bryant Park 小，但人少好逛，11 月中就開了。從 Union Square 走 10 分鐘到 Washington Square，這一帶是 Greenwich Village，NYU 的校園就散在周圍。</p>
+<p>15:45 從 Vernon Blvd 搭 7 線到 Grand Central 轉 4/5/6 到 86 St，走到第五大道的 Guggenheim。週二 16:00 到 17:30 是 pay-what-you-wish，平常 $30，給 $5 就能進，15:45 到門口排一下。萊特設計的白色螺旋建築本身就是展品，搭電梯到頂樓沿著坡道一路走下來，一個小時剛好。17:30 搭 6 線到 14 St-Union Sq，聖誕市集比 Bryant Park 小但人少，快逛 30 分鐘，再走 10 分鐘到 Washington Square，這一帶是 Greenwich Village，NYU 的校園就散在周圍。</p>
 <p>19:00 Judy 下班搭 A/C/E 到 W 4 St 會合。先走到 Bedford St 和 Grove St 路口，90 Bedford St 就是《六人行》片頭那棟公寓的外景，免費，拍一張就好。L'industrie 披薩就在走 2 分鐘的地方，是現在紐約排名最高的披薩店之一，一片 $5–7，Burrata 口味最有名；想坐下來吃，Mamoun's 是 1971 年開的 falafel 老店，Hill Country 則是德州風格的烤肉。飯後走到 MacDougal St 的 Figo il Gelato 吃一杯 $8 的義式冰淇淋，隔壁就是 1927 年開的 Cafe Reggio，紐約第一台 espresso 機就在這裡，路過看一眼。最後走到 Washington Square 的拱門看夜景。回程 PATH Christopher St 站就在旁邊，直接回 Exchange Place。</p>`,
 '11/25': `<p>感恩節前夕，紐約已經開始放假的氣氛。今天是免費日，也是這週地鐵封頂的一天。10:30 PATH 到 WTC 轉 C/E 到 23 St，走進 Chelsea 畫廊區。W 20 St 到 W 26 St 之間、10 Ave 和 11 Ave 之間，有兩百多間藝廊，Gagosian、David Zwirner、Pace、Hauser & Wirth 這些全世界最大的畫廊都在這裡，全部免費進，當期展覽的水準常常比美術館還高，而且幾乎沒有人。隨便走 1.5 小時，看到有興趣的就推門進去。午餐 Chelsea Market 的 Los Tacos No.1 或 Chipotle，或 Billy's Bakery 的杯子蛋糕。</p>
 <p>13:30 搭 C/E 從 23 St 到 6 線 68 St，走到第五大道的 Frick Collection。這是鋼鐵大亨 Henry Clay Frick 的豪宅，2025 年整修五年後重新開幕，維梅爾的《軍官與微笑的女孩》、林布蘭的自畫像就掛在客廳。週三 13:30 到 17:30 是 pay-what-you-wish，平常 $30，給 $5 也可以進。一個小時到一個半小時剛好。</p>
@@ -288,7 +289,7 @@ const INFO = {
   <tr><td>Met 大都會</td><td>$30</td><td class="stu">$22，任何學校學生證都收</td></tr>
   <tr><td>MoMA</td><td>$30</td><td class="stu">$17</td></tr>
   <tr><td>Whitney</td><td>$30</td><td class="free">週五 17:00–22:00 免費（要線上預約）</td></tr>
-  <tr><td>Guggenheim</td><td>$30</td><td class="stu">$19；另有 pay-what-you-wish 時段，官網確認</td></tr>
+  <tr><td>Guggenheim</td><td>$30</td><td class="stu">$19；週日、週二 16:00–17:30 pay-what-you-wish，兩人都適用（排 11/24 二）</td></tr>
   <tr><td>AMNH 自然史</td><td>$28</td><td class="stu">$22</td></tr>
   <tr><td>Frick Collection</td><td>$30</td><td class="free">週三 13:30–17:30 pay-what-you-wish</td></tr>
   <tr><td>Morgan Library</td><td>$25</td><td class="free">週五 17:00–19:00 免費</td></tr>
@@ -303,10 +304,10 @@ const INFO = {
   <li><b>PATH 不算</b>在封頂裡：單趟 $3，站內機器買 10 趟票較便宜。Exchange Place→WTC 4 分鐘；Grove St→33 St 線到 Christopher / 9 St / 14 St / 23 St / 33 St</li>
   <li>Roosevelt Island 纜車算地鐵票，NYC Ferry 不算（$4.50）</li></ul></div>
  <div class="info"><h2>免費 / 省錢攻略<small>感恩節週特別版</small></h2><ul>
-  <li><b>百老匯 Black Friday 特賣</b>：TodayTix、New York Theatre Guide 每年約 11/20–21 開跑到 12 月初，最多 6 折、$50–60 起。怪奇物語沒中 lottery 就等這波</li>
+  <li><b>百老匯 Black Friday 特賣</b>：TodayTix、New York Theatre Guide 每年約 11/20–21 開跑到 12 月初，最多 6 折、$50–60 起。想加看第二齣就等這波</li>
   <li><b>TKTS</b>（Times Square 紅階梯下）當日票 5–5 折；週五 15:00 開賣晚場，想加看一場就當天去買</li>
   <li><b>每天免費</b>：National Museum of the American Indian（Bowling Green）、Bronx Museum、Queens Museum（週日）、所有公園、High Line、Brooklyn Bridge、Staten Island Ferry、Bryant Park 溜冰（租鞋另計）</li>
-  <li><b>固定免費時段</b>：Whitney 週五 17–22、Morgan 週五 17–19、Museum of Arts and Design 週四 18–21（Columbus Circle）、Museum of the Moving Image 週四 14–18（Astoria）、Frick 週三 13:30–17:30 pay-what-you-wish</li>
+  <li><b>固定免費時段</b>：Whitney 週五 17–22、Morgan 週五 17–19、Museum of Arts and Design 週四 18–21（Columbus Circle）、Museum of the Moving Image 週四 14–18（Astoria）、Frick 週三 13:30–17:30 pay-what-you-wish、Guggenheim 週日 & 週二 16:00–17:30 pay-what-you-wish</li>
   <li><b>2026 是 Macy's 遊行 100 週年</b>，人會比往年更多；11/25 晚上看氣球充氣要線上登記時段，遊行當天 6:30 前卡位</li>
   <li><b>學生 ID 另外有折扣</b>：Intrepid 航母、Museum of the City of NY、Brooklyn Museum、New Museum、Cooper Hewitt，不去也沒差</li>
   <li><b>想買 Nike 再去</b>：Jersey Gardens Outlet（PATH 到 Newark Penn 轉 40 號公車，1 小時，NJ 衣鞋免稅）一雙省 $50–70；沒特別要買就不用排</li>
@@ -323,7 +324,7 @@ const INFO = {
   <li>平日晚餐兩人抓 $70–80，留餘裕付小費（18–20%）與稅 8.875%</li>
   </ul></div>
  <div class="info"><h2>出發前先訂<small>越早越好</small></h2><ul>
-  <li>☐ 怪奇物語 11/19 19:00 — 先試 lottery，沒中再買兩張</li>
+  <li>☑ 怪奇物語 11/19 19:00 — lottery 已中，兩張手機票</li>
   <li>☐ Nets vs Bulls 11/18 19:30 Barclays Center — Ticketmaster 買兩張</li>
   <li>☐ 感恩節晚餐 11/26 — 當天幾乎全滿</li>
   <li>☐ 預約：Whitney 週五免費場 11/20、Edge 夜景場 11/23 18:30 兩張；11/27 長輩若要上帝國大廈 / Top of the Rock 先線上買票</li>
