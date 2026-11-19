@@ -47,6 +47,7 @@
   .day { margin:28px 0 10px; display:flex; align-items:baseline; gap:10px; }
   .day h2 { font:700 26px "Playfair Display", serif; margin:0; }
   .day span { color:var(--muted); font-size:14px; }
+  .day.today h2::after { content:'今天'; font:700 12px 'Noto Sans TC', sans-serif; background:var(--us); color:#fff; border-radius:999px; padding:3px 9px; margin-left:10px; vertical-align:middle; }
   .read { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:4px 18px; margin-bottom:12px; font-size:15px; line-height:1.8; }
   .read summary { cursor:pointer; font-weight:700; padding:10px 0; list-style:none; display:flex; align-items:baseline; gap:8px; }
   .read summary::-webkit-details-marker { display:none; }
@@ -342,7 +343,7 @@ function render() {
   document.getElementById('info').innerHTML = INFO[tab] + INFO.both;
   document.getElementById('days').innerHTML = DAYS.map((day, i) => {
     const items = day.items.filter(vis);
-    return `<div class="day" id="day${i}"><h2>${day.d}</h2><span>${day.sub}</span></div>` +
+    return `<div class="day${i === todayIdx ? ' today' : ''}" id="day${i}"><h2>${day.d}</h2><span>${day.sub}</span></div>` +
       (READ[day.d.slice(0,5)] ? `<details class="read" open><summary>📖 今天怎麼走<small>5 分鐘讀完</small></summary>${READ[day.d.slice(0,5)]}</details>` : '') +
       items.map(it => `<div class="item ${it.w}">
         ${it.img ? `<img src="img/${it.img}.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=ph>'+this.alt+'</div>'">` : `<div class="ph">${it.n}</div>`}
@@ -376,7 +377,12 @@ document.querySelectorAll('.daypick button').forEach((b, i) => b.onclick = () =>
 document.querySelectorAll('.tabs button').forEach(b => b.onclick = () => { tab = b.dataset.tab; document.querySelectorAll('.tabs button').forEach(x => x.classList.toggle('on', x === b)); render(); });
 
 document.getElementById('foot').textContent = '門票大約：Met $22 + MoMA $17 + AMNH $22 + Edge $44 ≈ $105，其他全免費。11 月下旬日落約 16:30，白天行程要早出門。';
+// 在紐約的日子：自動跳到今天
+const todayNY = new Date().toLocaleDateString('en-US', {timeZone:'America/New_York', month:'numeric', day:'numeric'});
+const todayIdx = DAYS.findIndex(d => d.d.startsWith(todayNY + ' '));
+if (todayIdx >= 0) dayIdx = todayIdx;
 render();
+if (todayIdx >= 0) setTimeout(() => document.getElementById('day' + todayIdx).scrollIntoView({behavior:'smooth', block:'start'}), 300);
 </script>
 </body>
 </html>
