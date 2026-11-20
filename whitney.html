@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0b1a2e">
+<title>Whitney 30 分鐘語音導覽</title>
+<link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<style>
+  :root { --bg:#f6f4ef; --card:#fff; --ink:#1a1a1a; --muted:#6b6b6b; --line:#e4e0d8; --acc:#ea580c; --acc2:#2563eb; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg:#0b1a2e; --card:#13243b; --ink:#f1f1f1; --muted:#9fb0c7; --line:#24364f; } }
+  :root[data-theme="dark"] { --bg:#0b1a2e; --card:#13243b; --ink:#f1f1f1; --muted:#9fb0c7; --line:#24364f; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.7 "Noto Sans TC", system-ui, sans-serif; }
+  .wrap { max-width:720px; margin:0 auto; padding:16px 16px 80px; }
+  h1 { font:700 30px "Playfair Display", serif; margin:8px 0 2px; }
+  .sub { color:var(--muted); font-size:14px; margin-bottom:14px; }
+  .route { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:12px 16px; margin-bottom:18px; font-size:15px; }
+  .route b { color:var(--acc); }
+  .route ol { margin:6px 0 0; padding-left:20px; }
+  h2 { font:700 20px "Noto Sans TC", sans-serif; margin:26px 0 4px; display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; }
+  h2 small { color:var(--muted); font-weight:400; font-size:13px; }
+  .fl { display:inline-block; background:var(--acc2); color:#fff; border-radius:999px; padding:1px 10px; font-size:13px; }
+  .lead { color:var(--muted); font-size:14px; margin:0 0 10px; }
+  .work { background:var(--card); border:1px solid var(--line); border-left:4px solid var(--acc); border-radius:14px; padding:12px 14px; margin-bottom:10px; }
+  .work h3 { margin:0; font-size:17px; }
+  .work .meta { color:var(--muted); font-size:13px; margin:2px 0 8px; }
+  .work p { margin:0; font-size:15px; }
+  .btn { display:inline-flex; align-items:center; gap:6px; border:1px solid var(--line); background:var(--bg); color:var(--ink); border-radius:999px; padding:6px 14px; font:700 14px "Noto Sans TC", sans-serif; cursor:pointer; margin:8px 8px 0 0; }
+  .btn.on { background:var(--acc); color:#fff; border-color:var(--acc); }
+  .bar { position:fixed; left:0; right:0; bottom:0; background:var(--card); border-top:1px solid var(--line); padding:10px 16px; display:flex; gap:8px; align-items:center; justify-content:center; font-size:14px; }
+  .bar .btn { margin:0; }
+  .note { font-size:13px; color:var(--muted); margin-top:20px; }
+  a { color:var(--acc2); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a href="index.html" style="font-size:14px">← 回行程</a>
+  <h1>Whitney 30 分鐘</h1>
+  <div class="sub">11/20 五 17:00 預約｜週五 17:00 後免費｜開到 22:00｜每件作品按 ▶ 聽中文介紹</div>
+
+  <div class="route">
+    <b>路線（30 分鐘）</b>：進門先搭電梯直上 <b>8 樓</b>，從上往下走樓梯。
+    <ol>
+      <li>8 樓 Minnie Evans + 露台看哈德遜河（5 分鐘）</li>
+      <li>7 樓「Untitled」(America) 館藏：Hopper、Johns、Basquiat、Warhol（10 分鐘）</li>
+      <li>5 樓 Lichtenstein 回顧展，今天的主菜（15 分鐘）</li>
+    </ol>
+    1 樓大廳和門口的戶外作品順路看，不用算時間。6 樓網路藝術展明天才對外開放，今天只開給會員。
+  </div>
+
+  <h2><span class="fl">8 樓</span> The Lost World：Minnie Evans <small>到 2027/1/10</small></h2>
+  <p class="lead">一位沒受過訓練的黑人女性藝術家，從 43 歲才開始畫，畫到 95 歲。</p>
+
+  <div class="work" data-say="Minnie Evans，1892 年生於北卡羅來納州，一輩子在 Wilmington 一座私人花園當守門員。她 43 歲那年，說是在夢裡被告知「畫，不然就死」，從此每天畫。她的畫中間幾乎都有一張臉，周圍對稱長出花、翅膀、眼睛和天使，像曼陀羅，也像教堂的彩繪玻璃。她說這些畫面不是她想出來的，是上帝給她看的。這是她在紐約第一次大型回顧展。">
+    <h3>先看整體：對稱、一張臉、長出花</h3>
+    <div class="meta">Minnie Evans（1892–1987）</div>
+    <p>她的畫幾乎都有一個共同結構：正中間一張臉，往兩邊對稱長出植物、翅膀、眼睛。她說畫面是夢裡看到的，不是自己想的。</p>
+    <button class="btn">▶ 聽介紹</button>
+  </div>
+  <div class="work" data-say="找一張叫 Temple by the Sea，海邊的神殿，1955 年。畫面裡藍色的海和一座像教堂又像花的建築，用蠟筆和油彩層層疊上去。Minnie Evans 用的材料很便宜，蠟筆、鉛筆、油彩畫在紙板、甚至畫在舊信封和披薩盒上。她畫畫的地點是花園的售票亭，一邊賣票一邊畫，畫完就掛在亭子旁邊賣給遊客，一張一兩塊美金。">
+    <h3>Temple by the Sea（海邊的神殿）</h3>
+    <div class="meta">1955｜蠟筆、油彩</div>
+    <p>材料很便宜：蠟筆、鉛筆、油彩，畫在紙板、信封、披薩盒上。畫完掛在花園售票亭旁邊賣，一張一兩塊。</p>
+    <button class="btn">▶ 聽介紹</button>
+  </div>
+  <div class="work" data-say="Voice of the Third Angel，第三位天使的聲音，1963 年。標題來自聖經啟示錄，第三位天使吹號角的那一段。Minnie Evans 的畫很多都跟啟示錄有關，但她不畫末日的恐怖，而是畫一種很安靜、很飽滿的花園。看完這一區，走到露台，哈德遜河就在眼前，17:00 這個時間天剛黑，對岸的 Jersey City 就是飯店那一帶。">
+    <h3>Voice of the Third Angel（第三位天使的聲音）</h3>
+    <div class="meta">1963</div>
+    <p>標題來自啟示錄，但她畫的不是末日，是安靜飽滿的花園。看完走到露台，對岸就是飯店那邊的 Jersey City。</p>
+    <button class="btn">▶ 聽介紹</button>
+  </div>
+  <div class="work" data-say="8 樓的 Studio Bar 裡有一件新作品，Dyani White Hawk 的 Nourish，滋養。整面牆是幾千片手工陶瓷馬賽克，顏色來自 Lakota 原住民的珠繡和豪豬刺繡。她把原住民的幾何圖案和美國抽象表現主義放在一起對話，意思是，抽象不是西方發明的。不用進去喝東西，門口看一眼就好。">
+    <h3>順便看：Studio Bar 的陶瓷牆</h3>
+    <div class="meta">Dyani White Hawk，Nourish</div>
+    <p>幾千片手工陶瓷馬賽克，顏色來自 Lakota 原住民的珠繡。門口看一眼就好。</p>
+    <button class="btn">▶ 聽介紹</button>
+  </div>
+
+  <h2><span class="fl">7 樓</span> 「Untitled」(America) 館藏展 <small>常設</small></h2>
+  <p class="lead">Whitney 的鎮館之寶都在這層：1900 到 1980 年代的美國藝術。走樓梯下來。</p>
+
+  <div class="work" data-say="進 7 樓先找窗邊那一串燈泡。這是 Felix Gonzalez-Torres 1994 年的作品，標題就是「Untitled」，括號 America，整層展覽用它命名。他是古巴裔美國藝術家，1996 年死於愛滋，作品常常是很簡單的材料：一串燈泡、一堆糖果、兩個時鐘。這串燈泡每次展出都可以用不同的方式掛，由美術館決定，他說作品的形狀不重要，重要的是它一直亮著。窗外就是哈德遜河。">
+    <h3>窗邊那串燈泡</h3>
+    <div class="meta">Felix Gonzalez-Torres，"Untitled" (America)，1994</div>
+    <p>整層展覽用它命名。簡單的一串燈泡，每次展出可以掛成不同形狀，重點是它一直亮著。</p>
+    <button class="btn">▶ 聽介紹</button>
+  </div>
+  <div class="work" data-say="Edward Hopper，Early Sunday Morning，星期天的清晨，1930 年。一排紅磚店面，一根理髮店的旋轉柱，一個消防栓，沒有半個人。這是第七大道上真實存在的一排房子。Hopper 是 Whitney 收藏最多的藝術家，他太太過世後把三千多件作品全部捐給這裡。他畫的是紐約最安靜的那一面：早上的光斜斜打在牆上，店還沒開。你今天早上在 Village 走的那些街，就是他畫的世界。">
+    <h3>Early Sunday Morning（星期天的清晨）</h3>
+    <div class="meta">Edward Hopper，1930</div>
+    <p>第七大道上真實的一排店面，沒有人。Hopper 太太把三千多件作品全捐給 Whitney，這裡是他的家。</p>
+    <button class="btn">▶ 聽介紹</button>
+  </div>
+  <div class="work" data-say="Jasper Johns，Three Flags，三面旗，1958 年。三面美國國旗一面比一面小，往你的方向疊出來，像階梯。他用的是 encaustic，熱蠟混顏料，所以表面有厚度，筆觸凝固在裡面。Johns 的問題是，這到底是一面旗子，還是一幅畫旗子的畫？1980 年 Whitney 花一百萬美金買下它，是當時在世藝術家作品的最高價。">
+    <h3>Three Flags（三面旗）</h3>
+    <div class="meta">Jasper Johns，1958｜熱蠟</div>
+    <p>三面旗往你疊出來。1980 年 Whitney 花一百萬買的，當時在世藝術家的最高價。</p>
+    <button class="btn">▶ 聽介紹</button>
+  </div>
+  <div class="work" data-say="Jean-Michel Basquiat，Hollywood Africans，好萊塢非洲人，1983 年。畫裡三個人是他自己、饒舌歌手 Rammellzee 和畫家 Toxic，三個黑人藝術家到洛杉磯的那一趟。畫面上寫滿字，很多字被他自己劃掉，他說劃掉的字你反而會更想看。字寫的是好萊塢給黑人的角色：黑幫、僕人，還有 Sugar Cane，甘蔗，Tobacco，菸草，指的是奴隸種的作物。那年他 22 歲，五年後過世。">
+    <h3>Hollywood Africans（好萊塢非洲人）</h3>
+    <div class="meta">Jean-Michel Basquiat，1983</div>
+    <p>他和兩個朋友去洛杉磯那一趟。畫上寫滿字又劃掉，他說劃掉的你反而更想看。那年他 22 歲。</p>
+    <button class="btn">▶ 聽介紹</button>
+  </div>
+  <div class="work" data-say="Andy Warhol，Ethel Scull 36 Times，1963 年。這是 Warhol 第一件受委託的肖像。委託人是收藏家 Ethel Scull，她以為會去攝影棚拍正式照片，結果 Warhol 帶她去時代廣場的大頭貼機器，投了一百多個 25 分硬幣，讓她在裡面做表情，再挑 36 張印成絹印。她笑、她皺眉、她戴墨鏡，每格顏色都不一樣。Warhol 的想法是，名人就是被複製的影像，複製越多次越真。">
+    <h3>Ethel Scull 36 Times（Ethel Scull 36 次）</h3>
+    <div class="meta">Andy Warhol，1963｜絹印</div>
+    <p>Warhol 第一件委託肖像。不去攝影棚，帶她去時代廣場的大頭貼機拍，挑 36 張。</p>
+    <button class="btn">▶ 聽介紹</button>
+  </div>
+  <div class="work" data-say="Mark Rothko，Four Darks in Red，紅底上的四個暗色，1958 年。四個橫向的色塊，深紅、黑、褐，邊緣是模糊的。Rothko 要你站近一點看，他說觀看距離 45 公分最好，讓顏色把你包起來。他不喜歡別人說他是色彩畫家，他說他畫的是悲劇、狂喜、毀滅，這些基本的人類情緒。看這張不要分析，站著讓眼睛適應暗色，大概 30 秒，顏色會開始動。">
+    <h3>Four Darks in Red（紅底上的四個暗色）</h3>
+    <div class="meta">Mark Rothko，1958</div>
+    <p>站近 45 公分，等 30 秒讓眼睛適應，顏色會開始動。他說他畫的是情緒，不是顏色。</p>
+    <button class="btn">▶ 聽介紹</button>
+  </div>
+  <div class="work" data-say="Georgia O'Keeffe，The White Calico Flower，白色印花布的花，1931 年。一朵放很大的白花，佔滿整個畫面。O'Keeffe 說，大家都忙，沒人會停下來看一朵花，所以她把花畫得很大，大到你不得不看。這朵花其實是布做的假花，她在新墨西哥的墓園看到的，所以標題叫 calico，印花布。">
+    <h3>The White Calico Flower（白色印花布的花）</h3>
+    <div class="meta">Georgia O'Keeffe，1931</div>
+    <p>她說沒人會停下來看一朵花，所以畫很大。這朵其實是布做的假花，墓園看到的。</p>
+    <button class="btn">▶ 聽介紹</button>
+  </div>
+
+  <h2><span class="fl">5 樓</span> Roy Lichtenstein: Like New <small>到 2027/5/10</small></h2>
+  <p class="lead">今天的主菜。Lichtenstein 三十年來第一次在紐約的大回顧展，六十年的作品，130 件。</p>
+
+  <div class="work" data-say="Roy Lichtenstein，1923 年生在紐約，1997 年過世。他是普普藝術的代表，跟 Warhol 同一個時代。他的招牌是把漫畫的一格放大成油畫，而且連漫畫印刷的那些小圓點，叫 Ben-Day dots，都一顆一顆手工畫出來。1960 年代的評論罵他是抄襲，Life 雜誌下標題問：他是全美國最爛的藝術家嗎？這個展覽的名字 Like New，像新的一樣，來自他 1962 年的一件作品，整個展覽在講一件事：複製、修改、再複製，到底算不算創作。策展人之一是藝術家 Alex Da Corte，門口那塊熱狗看板就是他做的。">
+    <h3>先聽：他在做什麼</h3>
+    <div class="meta">Roy Lichtenstein（1923–1997）</div>
+    <p>把漫畫的一格放大成油畫，連印刷的小圓點都手工畫。Life 雜誌曾問：他是全美國最爛的藝術家嗎？</p>
+    <button class="btn">▶ 聽介紹</button>
+  </div>
+  <div class="work" data-say="找 1961 年的 Look Mickey，看，米奇。這是他第一張普普畫。傳說是他兒子拿著漫畫書跟他說，爸爸你一定畫不出這麼好的畫，他就畫了。唐老鴨釣魚，釣到自己的衣服，米奇在旁邊笑。從這張開始，他找到了自己的路：不再畫抽象表現主義那種筆觸，改用漫畫的線條、平塗的顏色、對話框。這張畫是美國國家美術館的收藏，如果有借來就在展覽的最前面。">
+    <h3>Look Mickey（看，米奇）</h3>
+    <div class="meta">1961｜第一張普普畫</div>
+    <p>兒子說你畫不出漫畫書這麼好的畫，他就畫了。唐老鴨釣到自己的衣服。展覽起點。</p>
+    <button class="btn">▶ 聽介紹</button>
+  </div>
+  <div class="work" data-say="Drowning Girl，溺水的女孩，1963 年，展覽圖錄的封面。一個女孩在海浪裡，對話框寫著：我不在乎，我寧願沉下去，也不要打電話給 Brad 求救。原圖是 DC 漫畫一格，原本的畫面還有 Brad 的船，他把船裁掉，只留下女孩和浪，浪的形狀是從葛飾北齋的神奈川沖浪裏借來的。他說，漫畫是激情的，但他的畫是冷的，他故意把情緒畫得像印刷品。">
+    <h3>Drowning Girl（溺水的女孩）</h3>
+    <div class="meta">1963｜圖錄封面</div>
+    <p>「我寧願沉下去也不打給 Brad」。原圖裁掉了船，只留女孩和浪，浪借自葛飾北齋。</p>
+    <button class="btn">▶ 聽介紹</button>
+  </div>
+  <div class="work" data-say="找熱狗。Hot Dog，1963 年，一根熱狗夾在麵包裡，上面一條芥末，用的是廣告的畫法。Lichtenstein 畫了很多這種日常的東西：高爾夫球、洗衣機、沙發、輪胎、一片蛋糕。他說這些是美國人每天看到卻沒在看的東西。走出美術館，Gansevoort 街的大看板，是策展人 Alex Da Corte 把這張熱狗印出來，再用紅色油漆畫上番茄醬，17 公尺寬，做成今年的戶外作品。出去的時候抬頭看。">
+    <h3>Hot Dog（熱狗）</h3>
+    <div class="meta">1963</div>
+    <p>廣告畫法畫一根熱狗。出門後抬頭看 Gansevoort 街的大看板，是策展人用這張熱狗加上番茄醬做的。</p>
+    <button class="btn">▶ 聽介紹</button>
+  </div>
+  <div class="work" data-say="Brushstrokes，筆觸系列，1965 年前後。畫面上是一兩道巨大的油畫筆觸，滴著顏料，但是你走近看，筆觸是用平塗加圓點畫出來的，完全沒有真正的筆觸。這是他在開前一代畫家的玩笑：抽象表現主義的人，像 Pollock、de Kooning，把筆觸當成藝術家靈魂的證據，他就把筆觸變成一個漫畫符號，印出來。">
+    <h3>Brushstrokes（筆觸系列）</h3>
+    <div class="meta">1965–66</div>
+    <p>畫一道巨大的筆觸，但筆觸本身是平塗加圓點畫的。在開抽象表現主義的玩笑。</p>
+    <button class="btn">▶ 聽介紹</button>
+  </div>
+  <div class="work" data-say="Mirrors，鏡子系列，1970 年代。一個圓形或橢圓的畫布，上面只有圓點和幾道弧線，代表鏡子反光，但鏡子裡什麼都沒有。這是他最抽象的時期，他問的是：你怎麼用漫畫的符號畫一個看不見的東西？接著看 1990 年代的 Interiors，室內系列，巨大的客廳，沙發、檯燈、牆上掛著他自己的畫，畫裡有畫。這些是從家具廣告的黃頁電話簿裡找來的圖。">
+    <h3>Mirrors 和 Interiors（鏡子、室內系列）</h3>
+    <div class="meta">1970 年代、1990 年代</div>
+    <p>鏡子：只有圓點和弧線，什麼都沒映出來。室內：從電話簿家具廣告畫出的巨大客廳，牆上掛他自己的畫。</p>
+    <button class="btn">▶ 聽介紹</button>
+  </div>
+  <div class="work" data-say="展覽裡有四面重新製作的壁畫，是重點。Lichtenstein 一生畫過幾面大壁畫，原件有的已經毀了，有的在別的城市搬不動，Whitney 這次用他留下的草圖和製作紀錄，在牆上重新畫出來。這正好呼應展覽的名字 Like New，像新的一樣：一件作品被重新製作，它還是原作嗎？這也是 Lichtenstein 自己一直在玩的問題，他的畫本來就是別人的圖的複製。看完這一層，下樓到 3 樓有他 1997 年最後一年的作品，顏色更亮、沒有黑色外框，有的是他過世後才完成的，時間夠再看。">
+    <h3>四面重做的壁畫</h3>
+    <div class="meta">依原始草圖重新製作</div>
+    <p>原件毀了或搬不動，Whitney 照草圖重畫。重做的還算原作嗎？這就是展覽名字 Like New 的問題。</p>
+    <button class="btn">▶ 聽介紹</button>
+  </div>
+
+  <h2><span class="fl">1 樓・門口</span> 出去前順路看 <small>免費區</small></h2>
+  <div class="work" data-say="1 樓大廳 Coumba Samba 的 Stars and Stripes，星條，她 2000 年出生，是展覽裡最年輕的藝術家。兩個大型雕塑，形狀是貧鈾砲彈，上面漆的是剛果、加彭、納米比亞、尼日和美國的國旗顏色。這些非洲國家是美國鈾礦的來源，從廣島原子彈到伊拉克戰爭都有關係。她用很漂亮的幾何和顏色，講的是不漂亮的事。旁邊 Rashid Johnson 的 New Poetry，黑色鋼架上放著植物、植物燈、乳木果油、書和舊電視，一路延伸到門外的廣場。">
+    <h3>大廳：Coumba Samba 的砲彈、Rashid Johnson 的鋼架</h3>
+    <div class="meta">1 樓，延伸到廣場</div>
+    <p>兩個貧鈾砲彈形狀的雕塑漆成五國國旗色，講鈾礦和戰爭。旁邊黑鋼架上是植物、植物燈、舊電視。</p>
+    <button class="btn">▶ 聽介紹</button>
+  </div>
+  <div class="work" data-say="走出美術館過馬路，河邊公園裡那個只有鋼骨的長方形框架，是 David Hammons 的 Day's End，一天的結束。1975 年藝術家 Gordon Matta-Clark 偷偷在這個位置的廢棄碼頭倉庫牆上切出幾個大洞，讓光照進來，後來倉庫拆了。Hammons 2021 年用不鏽鋼按照那座倉庫原本的輪廓和位置，做了一個透明的「鬼」，52 英尺高，325 英尺長，什麼都不遮，只是把消失的建築的邊畫回來。晚上從 High Line 或 Little Island 看都看得到。">
+    <h3>河邊：Day's End 鋼骨框架</h3>
+    <div class="meta">David Hammons，2014–21，Hudson River Park</div>
+    <p>按 1975 年被拆掉的碼頭倉庫輪廓，用不鏽鋼畫回一個透明的「鬼」。晚上從 Little Island 看得到。</p>
+    <button class="btn">▶ 聽介紹</button>
+  </div>
+
+  <p class="note">語音用手機內建的中文朗讀（iPhone：設定 → 輔助使用 → 朗讀內容，可下載「美嘉」等高品質台灣聲音）。展場請用耳機。作品是否在展場、位置以現場為準，Lichtenstein 展裡的個別作品是回顧展常見代表作，不保證每一件都借到。資料來源：whitney.org 各展覽頁。</p>
+</div>
+
+<div class="bar">
+  <button class="btn" id="all">▶ 從頭播到尾</button>
+  <button class="btn" id="stop">■ 停止</button>
+  <span id="st" style="color:var(--muted)"></span>
+</div>
+
+<script>
+const synth = window.speechSynthesis;
+const works = [...document.querySelectorAll('.work')];
+let voice = null, queue = [], cur = null;
+function pickVoice() {
+  const vs = synth.getVoices();
+  voice = vs.find(v => /zh[-_]TW/i.test(v.lang) && /premium|enhanced|美嘉|Meijia/i.test(v.name))
+       || vs.find(v => /zh[-_]TW/i.test(v.lang))
+       || vs.find(v => /zh/i.test(v.lang)) || null;
+}
+pickVoice(); synth.onvoiceschanged = pickVoice;
+function stop() { synth.cancel(); queue = []; works.forEach(w => w.querySelector('.btn').classList.remove('on')); document.getElementById('st').textContent = ''; }
+function say(w, next) {
+  synth.cancel();
+  const u = new SpeechSynthesisUtterance(w.dataset.say);
+  u.lang = 'zh-TW'; u.rate = 1; if (voice) u.voice = voice;
+  works.forEach(x => x.querySelector('.btn').classList.remove('on'));
+  w.querySelector('.btn').classList.add('on');
+  w.scrollIntoView({behavior:'smooth', block:'center'});
+  document.getElementById('st').textContent = w.querySelector('h3').textContent;
+  u.onend = () => { w.querySelector('.btn').classList.remove('on'); if (next) next(); else document.getElementById('st').textContent = ''; };
+  synth.speak(u);
+}
+works.forEach(w => w.querySelector('.btn').onclick = () => {
+  if (w.querySelector('.btn').classList.contains('on')) return stop();
+  queue = []; say(w);
+});
+document.getElementById('all').onclick = () => { queue = works.slice(); const go = () => { const w = queue.shift(); if (w) say(w, go); }; go(); };
+document.getElementById('stop').onclick = stop;
+if (!('speechSynthesis' in window)) document.getElementById('st').textContent = '這個瀏覽器不支援語音，請用 Safari / Chrome';
+</script>
+</body>
+</html>
