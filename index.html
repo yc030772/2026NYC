@@ -359,7 +359,7 @@ function render() {
         ${it.img ? `<img src="img/${it.img}.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=ph>'+this.alt+'</div>'">` : `<div class="ph">${it.n}</div>`}
         <div class="b"><div class="t"><b>${it.t}</b><h3>${it.n}</h3>${(it.tag||[]).map(t=>`<span class="tag ${t}">${({free:'免費',stu:'學生價',deal:'優惠'})[t]}</span>`).join('')}<span class="who">${it.w==='me'?'Jerry':'一起'}</span></div>
         ${it.d ? `<div class="d">${it.d}</div>` : ''}
-        ${it.eat ? `<ul class="eat">${it.eat.map(e=>`<li><b>${e.m ? `<a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(e.m)}" target="_blank">${e.n} ↗</a>` : e.n}</b> <span>${e.p}/人</span> ${e.d}</li>`).join('')}</ul>` : ''}
+        ${it.eat ? `<ul class="eat">${it.eat.map(e=>`<li><b><a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(e.m || e.n.replace(/[（）()]/g,' ') + ' New York')}" target="_blank">${e.n} ↗</a></b> <span>${e.p}/人</span> ${e.d}</li>`).join('')}</ul>` : ''}
         <div class="tr">${it.tr ? `<span>🚇 ${it.tr.replace(/🚇 /g,'')}</span>` : ''}<a href="${gmaps(it)}" target="_blank">Google Maps 路線 ↗</a></div></div></div>`).join('') +
       `<p class="cost">💵 ${day.cost}</p>`;
   }).join('');
